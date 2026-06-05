@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  QUINTILIAN, INC. — WORK PAGE (PUBLIC)
+  ============================================================================
+
+  Self-contained HTML blueprint for the public /work page on quintilianinc.com.
+  Designed to match the existing site (About / Contact / Home) — cream
+  background, serif headlines, two-column hero, full-bleed imagery, black pill
+  CTAs.
+
+  HOW TO USE:
+    1. Open this file in a browser to preview the full design.
+    2. Image references use relative paths matching Jessica's portfolio site:
+       images/projects/[slug]/[file].jpg
+       images/new-work/[file].png
+       images/grid-extras/[file].jpg
+       Copy the `public/images/` folder from
+       the solocosmo/jessica-portfolio repo on GitHub
+       into the same directory as this HTML file to preview with real assets.
+    3. To rebuild in Squarespace: each <section> block below maps to one
+       Squarespace section. Use native Gallery + Text + Image + Button blocks.
+       Copy headlines + blurbs verbatim. Upload images per the file references.
+    4. Sections currently using PLACEHOLDER images are commented inline.
+
+  WHAT'S MISSING (replace placeholders before publishing):
+    - Hero image (currently a calla-lily stand-in matching the About page mood;
+      swap for one strong illustration piece or commission a hero photograph).
+    - Secular apps not on Jessica's portfolio site: Dubbed, Paper Reverie,
+      Moss House, Blind Date — sourced from Orange external drive (not
+      accessible at build time).
+    - Three pitch deck PDFs: 867TheLine, Lakefront Brand Guide, PPM AI
+      OneSheet (Orange drive). PPTX files require export to PDF before
+      embedding.
+    - CHDH pitch deck: lives at your Clean Hands
+      Dirty Hands - CHDH/ — needs PDF export.
+
+  WHAT'S DROPPED (per Jessica, 2026-05-23):
+    - AmberBoard custom carpentry portfolio (cold project).
+
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Quintilian, Inc.</title>
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — match existing quintilianinc.com pages
+       ============================================================ */
+    :root {
+      --cream:        #ECDFCF;
+      --cream-warm:   #E8DDD0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #2A2A2A;
+      --muted:        #5A5040;
+      --rule:         #D6C9B6;
+      --serif:        "PT Serif", "Cormorant Garamond", "Playfair Display",
+                      Georgia, "Times New Roman", serif;
+      --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ---------- Page chrome (logo + nav) ---------- */
+    .chrome {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 64px 0;
+      max-width: 100%;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+    nav.top {
+      display: flex;
+      gap: 34px;
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    nav.top a {
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    nav.top a:hover { color: var(--ink); }
+    nav.top a.current {
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+    .nav-assess {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: 999px;
+      transition: opacity 0.2s ease;
+    }
+    .nav-assess:hover { opacity: 0.9; }
+
+    /* ---------- Hero (two-column: text left, image right) ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 96vh;
+      padding-top: 40px;
+      background-image:
+        linear-gradient(rgba(236, 223, 207, 0.82), rgba(236, 223, 207, 0.90)),
+        url("images/grid-extras/lambeth-exterior-wide.jpg");
+      background-size: cover;
+      background-position: left 30%;
+      background-repeat: no-repeat;
+    }
+    .hero-text {
+      padding: 40px 48px 0 96px;
+      align-self: start;
+    }
+    .hero-heading {
+      display: inline-block;
+      margin: 0 0 40px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(64px, 9vw, 140px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 2.6vw, 34px);
+      line-height: 1.15;
+      color: var(--muted);
+      margin: 0;
+      text-align: center;
+    }
+    .hero p.lead {
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 460px;
+      margin: 0 0 28px;
+    }
+    /* Credential callout under the H1 */
+    .hero-credit {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 500px;
+      margin: -8px 0 30px;
+      padding-left: 20px;
+      border-left: 2px solid var(--ink);
+    }
+    .hero-credit strong { color: var(--ink); font-weight: 600; }
+    /* Hero figure: hall image + floating artwork inset + caption */
+    .hero-figure {
+      position: relative;
+      margin: 0;
+      padding-right: 48px;
+    }
+    .hero-image {
+      width: 100%;
+      height: 66vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-inset {
+      position: absolute;
+      bottom: 56px;
+      left: -60px;
+      width: clamp(180px, 17vw, 228px);
+      margin: 0;
+    }
+    .hero-inset img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 7px solid #fff;
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.34);
+    }
+    .hero-inset figcaption {
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      bottom: 7px;
+      padding: 26px 8px 11px;
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: #fff;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0));
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    }
+    .hero-caption {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 460px;
+    }
+    .hero-caption strong { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Pill CTAs ---------- */
+    .pill {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      padding: 22px 56px;
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .pill:hover { transform: translateY(-1px); opacity: 0.92; }
+    .pill.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+    }
+
+    /* ---------- Sections ---------- */
+    section.work-section {
+      padding: 120px 96px 80px;
+      border-top: 1px solid var(--rule);
+    }
+    section.work-section .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    section.work-section h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0;
+    }
+    section.work-section .section-blurb {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 0;
+    }
+    section.work-section .section-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    /* ---------- Grid ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 32px;
+    }
+    .grid figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .grid figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: var(--cream-warm);
+    }
+    .grid figure.tall img      { aspect-ratio: 3 / 4; }
+    .grid figure.square img    { aspect-ratio: 1 / 1; }
+    .grid figure.wide img      { aspect-ratio: 16 / 10; }
+    .grid figcaption {
+      margin-top: 14px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .grid figcaption .client {
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+      letter-spacing: 0.01em;
+    }
+    .grid figcaption .project {
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Phone-frame grid for app section */
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 56px 28px;
+    }
+    .phone-grid figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .phone-grid figure img {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 14px 38px rgba(26,26,26,0.10);
+      background: var(--cream-warm);
+    }
+    .phone-grid figcaption {
+      margin-top: 14px;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+    .phone-grid figcaption .client {
+      font-weight: 600; color: var(--ink); display: block;
+    }
+    .phone-grid figcaption .project {
+      color: var(--muted); display: block; margin-top: 2px;
+    }
+
+    /* Pitch deck embeds */
+    .deck-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 32px;
+    }
+    .deck-card {
+      background: rgba(255,255,255,0.4);
+      padding: 32px;
+      border: 1px solid var(--rule);
+    }
+    .deck-card h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 28px;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+    .deck-card p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      margin: 0 0 24px;
+    }
+    .deck-card .embed-slot {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: var(--cream-warm);
+      border: 1px dashed var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      padding: 16px;
+    }
+    .deck-card.ready .embed-slot {
+      border-style: solid;
+      border-color: var(--ink);
+      background: #fff;
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer.foot {
+      padding: 96px 96px 72px;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: end;
+    }
+    footer.foot .closing {
+      font-family: var(--serif);
+      font-size: 36px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+    footer.foot .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    footer.foot .colophon {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Responsive — collapses to single-column on tablet/mobile */
+    /* App grouping (label per app, then mockups) */
+    .app-group { margin-bottom: 80px; }
+    .app-group .group-label { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--ink); margin: 0 0 8px; }
+    .app-group .group-desc { font-family: var(--sans); font-size: 15px; color: var(--ink-soft); margin: 0 0 32px; max-width: 600px; }
+
+    @media (max-width: 1024px) {
+      .chrome      { padding: 24px 32px 0; }
+      .hero        { grid-template-columns: 1fr; min-height: 0; }
+      .hero-text   { padding: 56px 32px 32px; }
+      .hero-image  { height: 60vh; }
+      section.work-section { padding: 80px 32px 56px; }
+      section.work-section .section-header {
+        grid-template-columns: 1fr; gap: 24px;
+      }
+      .grid         { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+      .phone-grid   { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+      .deck-list    { grid-template-columns: 1fr; }
+      footer.foot   { grid-template-columns: 1fr; padding: 64px 32px; }
+    }
+    @media (max-width: 600px) {
+      .grid         { grid-template-columns: 1fr; }
+      .phone-grid   { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================================
+       PAGE CHROME — logo + main nav. In Squarespace this is automatic
+       (inherits from site header). Included here only for preview fidelity.
+       =================================================================== -->
+  <header class="chrome">
+    <a class="logo" href="/">Quintilian, inc.</a>
+    <nav class="top">
+      <a href="/about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#process">Process</a>
+      <a href="/work" class="current">Work</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a class="nav-assess" href="/survey">Begin Assessment</a>
+  </header>
+
+  <!-- ===================================================================
+       HERO — page intro. Two-column. Text left, image right.
+       =================================================================== -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-heading">
+        <h1>Work</h1>
+        <p class="hero-subtitle">Fit for a Palace.</p>
+      </div>
+      <p class="lead">
+        Selected work across illustration, brand design, and creative
+        direction — projects produced with clients and partners.
+      </p>
+      <p class="hero-credit">
+        The Anglican Church held its symposium on AI art in the 14th-century
+        banquet hall at Lambeth Palace — beneath our work, now part of the
+        palace's permanent collection. <strong>Sanctified Souls</strong> series
+        by Quintilian, inc. artist and image generation specialist
+        Jessica von Braun.
+      </p>
+      <a href="#contact" class="pill">Work With Us</a>
+    </div>
+    <!-- Hero: Lambeth Palace banquet hall, with an inset of one of the
+         Sanctified Souls pieces held in the permanent collection. -->
+    <figure class="hero-figure">
+      <img class="hero-image"
+           src="images/grid-extras/lambeth-hall.jpg"
+           alt="The 14th-century banquet hall at Lambeth Palace, hung with works in its permanent collection">
+      <figure class="hero-inset">
+        <img src="images/grid-extras/saint-john-of-god.jpg"
+             alt="Saint John of God — a Sanctified Souls piece by Jessica von Braun, held in the Lambeth Palace collection">
+        <figcaption>Saint John of God</figcaption>
+      </figure>
+    </figure>
+  </section>
+
+  <!-- ===================================================================
+       SECTION — ILLUSTRATION & CREATIVE DIRECTION
+       Source folders: blue-angel-oracle-decks, zodiac-oracle-deck,
+       aftershock-comics-covers, comic-covers, image-comics-variant-covers,
+       book-covers-publishing, salt-laced-pages-book, whisker-wish-book,
+       greystone-valley-series, fabric-design-collections, new-work/
+       =================================================================== -->
+  <section class="work-section" id="illustration">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">01 — Illustration</div>
+        <h2>Illustration & Creative Direction</h2>
+      </div>
+      <p class="section-blurb">
+        Original illustration, oracle and zodiac card decks, comic covers,
+        book design, and editorial work — produced with publishing and brand
+        clients including Blue Angel Publishing, Image Comics, Aftershock,
+        and independent imprints.
+      </p>
+    </div>
+
+    <div class="grid">
+      <!-- Blue Angel Publishing — Oracle Decks -->
+      <figure>
+        <img src="images/projects/blue-angel-oracle-decks/cover.jpg" alt="Blue Angel Oracle cover">
+        <figcaption><span class="client">Blue Angel Publishing</span><span class="project">White Light Oracle</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/blue-angel-oracle-decks/02.jpg" alt="Blue Angel Oracle card 02">
+        <figcaption><span class="client">Blue Angel Publishing</span><span class="project">Oracle deck card art</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/blue-angel-oracle-decks/03.jpg" alt="Blue Angel Oracle card 03">
+        <figcaption><span class="client">Blue Angel Publishing</span><span class="project">Oracle deck card art</span></figcaption>
+      </figure>
+
+      <!-- Zodiac Oracle Deck -->
+      <figure class="tall">
+        <img src="images/projects/zodiac-oracle-deck/cover.png" alt="Zodiac Oracle cover">
+        <figcaption><span class="client">Zodiac Oracle Deck</span><span class="project">Card design and illustration</span></figcaption>
+      </figure>
+
+      <!-- Image Comics — variant covers -->
+      <figure class="tall">
+        <img src="images/projects/image-comics-variant-covers/cover.jpg" alt="Image Comics variant cover">
+        <figcaption><span class="client">Image Comics</span><span class="project">10,000 Black Feathers — variant cover</span></figcaption>
+      </figure>
+
+      <!-- Aftershock Comics -->
+      <figure class="tall">
+        <img src="images/projects/aftershock-comics-covers/cover.jpg" alt="Aftershock Dollface #10">
+        <figcaption><span class="client">Aftershock Comics</span><span class="project">Dollface #10 — cover</span></figcaption>
+      </figure>
+
+      <!-- Comic Covers -->
+      <figure class="tall">
+        <img src="images/projects/comic-covers/cover.jpg" alt="Comic cover">
+        <figcaption><span class="client">Independent</span><span class="project">Bunny Mask — comic cover</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/comic-covers/01.jpg" alt="Comic cover 01">
+        <figcaption><span class="client">Independent</span><span class="project">Comic cover series</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/comic-covers/02.jpg" alt="Comic cover 02">
+        <figcaption><span class="client">Independent</span><span class="project">Comic cover series</span></figcaption>
+      </figure>
+
+      <!-- Book Covers / Publishing -->
+      <figure class="tall">
+        <img src="images/projects/book-covers-publishing/cover.jpg" alt="Book cover hero">
+        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover design</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/book-covers-publishing/01.jpg" alt="Book cover 01">
+        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/book-covers-publishing/02.jpg" alt="Book cover 02">
+        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/book-covers-publishing/03.jpg" alt="Book cover 03">
+        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/book-covers-publishing/04.jpg" alt="Book cover 04">
+        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/book-covers-publishing/05.jpg" alt="Book cover 05">
+        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
+      </figure>
+
+      <!-- Salt Laced Pages -->
+      <figure class="tall">
+        <img src="images/projects/salt-laced-pages-book/cover.png" alt="Salt Laced Pages cover">
+        <figcaption><span class="client">Salt Laced Pages</span><span class="project">Book design</span></figcaption>
+      </figure>
+
+      <!-- Whisker Wish -->
+      <figure class="tall">
+        <img src="images/projects/whisker-wish-book/cover.png" alt="Whisker Wish cover">
+        <figcaption><span class="client">Whisker Wish</span><span class="project">Book cover</span></figcaption>
+      </figure>
+
+      <!-- Greystone Valley -->
+      <figure class="tall">
+        <img src="images/projects/greystone-valley-series/cover.jpg" alt="Greystone Valley series">
+        <figcaption><span class="client">Greystone Valley Series</span><span class="project">Book series — covers and illustration</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/greystone-valley-series/02.jpg" alt="Greystone Valley series 02">
+        <figcaption><span class="client">Greystone Valley Series</span><span class="project">Book series — interior plates</span></figcaption>
+      </figure>
+
+      <!-- Fabric Design Collections -->
+      <figure>
+        <img src="images/projects/fabric-design-collections/cover.png" alt="Fabric design cover">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Repeat patterns and apparel</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/01.png" alt="Fabric design 01">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Rainbow beach dress</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/02.png" alt="Fabric design 02">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Dress twins</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/03.png" alt="Fabric design 03">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/04.png" alt="Fabric design 04">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/05.png" alt="Fabric design 05">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/06.png" alt="Fabric design 06">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/fabric-design-collections/07.png" alt="Fabric design 07">
+        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
+      </figure>
+
+      <!-- new-work selections (the strongest 10 of 76 numbered pieces) -->
+      <figure>
+        <img src="images/new-work/new-001.png" alt="New work 001">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-010.png" alt="New work 010">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-022.png" alt="New work 022">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-030.png" alt="New work 030">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-040.png" alt="New work 040">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-055.png" alt="New work 055">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-067.png" alt="New work 067">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/new-070.png" alt="New work 070">
+        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SECTION — BRAND & ADVERTISING
+       Source folders: bloomin-blinds-branding, ziegenfelder-brand-campaign,
+       simply-pop-packaging, simply-pop-ai-photography, freebirds-advertising,
+       taco-bueno-advertising, hacienda-colorado, dairy-queen-social
+       =================================================================== -->
+  <section class="work-section" id="brand">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">02 — Brand & Advertising</div>
+        <h2>Brand & Advertising</h2>
+      </div>
+      <p class="section-blurb">
+        Brand identity systems, packaging, advertising campaigns, and AI-driven
+        product photography for restaurant, beverage, and consumer brands.
+      </p>
+    </div>
+
+    <div class="grid">
+      <!-- Simply Pop (Coca-Cola) — packaging + photography -->
+      <figure>
+        <img src="images/projects/simply-pop-packaging/cover.png" alt="Simply Pop packaging">
+        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">Packaging design</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/simply-pop-packaging/01.png" alt="Simply Pop packaging 01">
+        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">Packaging design</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/simply-pop-ai-photography/cover.png" alt="Simply Pop AI photography cover">
+        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography direction</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/simply-pop-ai-photography/01.png" alt="Simply Pop AI 01">
+        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/simply-pop-ai-photography/02.jpg" alt="Simply Pop AI 02">
+        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/simply-pop-ai-photography/03.png" alt="Simply Pop AI 03">
+        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography</span></figcaption>
+      </figure>
+
+      <!-- Ziegenfelder / Twin Pops / Monster Pops -->
+      <figure>
+        <img src="images/projects/ziegenfelder-brand-campaign/cover.png" alt="Ziegenfelder cover">
+        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Twin Pops / Monster Pops campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/ziegenfelder-brand-campaign/01.png" alt="Ziegenfelder 01">
+        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/ziegenfelder-brand-campaign/02.png" alt="Ziegenfelder 02">
+        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/ziegenfelder-brand-campaign/03.png" alt="Ziegenfelder 03">
+        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/ziegenfelder-brand-campaign/04.png" alt="Ziegenfelder 04">
+        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/ziegenfelder-brand-campaign/05.png" alt="Ziegenfelder 05">
+        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
+      </figure>
+
+      <!-- Bloomin' Blinds -->
+      <figure>
+        <img src="images/projects/bloomin-blinds-branding/cover.png" alt="Bloomin Blinds cover">
+        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/bloomin-blinds-branding/02.png" alt="Bloomin Blinds 02">
+        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/bloomin-blinds-branding/03.png" alt="Bloomin Blinds 03">
+        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/bloomin-blinds-branding/04.png" alt="Bloomin Blinds 04">
+        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
+      </figure>
+
+      <!-- QSR — Freebirds, Taco Bueno, Hacienda, Dairy Queen -->
+      <figure>
+        <img src="images/projects/freebirds-advertising/cover.png" alt="Freebirds">
+        <figcaption><span class="client">Freebirds World Burrito</span><span class="project">Advertising campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/taco-bueno-advertising/cover.png" alt="Taco Bueno">
+        <figcaption><span class="client">Taco Bueno</span><span class="project">Advertising campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/hacienda-colorado/cover.png" alt="Hacienda Colorado">
+        <figcaption><span class="client">Hacienda Colorado</span><span class="project">Advertising campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/hacienda-colorado/01.png" alt="Hacienda Colorado 01">
+        <figcaption><span class="client">Hacienda Colorado</span><span class="project">Advertising campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/dairy-queen-social/cover.jpg" alt="DQ social cover">
+        <figcaption><span class="client">Dairy Queen</span><span class="project">Social campaign — soft-serve hero</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/dairy-queen-social/02.png" alt="DQ social 02">
+        <figcaption><span class="client">Dairy Queen</span><span class="project">Social campaign</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/dairy-queen-social/03.jpg" alt="DQ social 03">
+        <figcaption><span class="client">Dairy Queen</span><span class="project">Social campaign</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SECTION — EMAIL MARKETING
+       Source folders: dq-email-marketing, energy-attic-email,
+       fortune-tires-email, rug-doctor-email, truck-yard-email-campaigns,
+       firstlight-home-care, fitness-connection-digital
+       =================================================================== -->
+  <section class="work-section" id="email">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">03 — Email & Digital</div>
+        <h2>Email Marketing & Digital</h2>
+      </div>
+      <p class="section-blurb">
+        Multi-client email campaign design, digital ads, and service-brand
+        marketing — covering quick-service restaurants, home services, fitness,
+        and retail.
+      </p>
+    </div>
+
+    <div class="grid">
+      <figure class="wide">
+        <img src="images/projects/truck-yard-email-campaigns/cover.png" alt="Truck Yard email hero">
+        <figcaption><span class="client">Truck Yard</span><span class="project">Happy Hour email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/truck-yard-email-campaigns/01.png" alt="Truck Yard email 01">
+        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/truck-yard-email-campaigns/02.png" alt="Truck Yard email 02">
+        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/truck-yard-email-campaigns/03.png" alt="Truck Yard email 03">
+        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/truck-yard-email-campaigns/04.png" alt="Truck Yard email 04">
+        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+
+      <figure class="wide">
+        <img src="images/projects/dq-email-marketing/cover.png" alt="DQ email">
+        <figcaption><span class="client">Dairy Queen</span><span class="project">Email marketing program</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/energy-attic-email/cover.png" alt="Energy Attic">
+        <figcaption><span class="client">Energy Attic</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/energy-attic-email/01.png" alt="Energy Attic 01">
+        <figcaption><span class="client">Energy Attic</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/fortune-tires-email/cover.png" alt="Fortune Tires">
+        <figcaption><span class="client">Fortune Tires</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/rug-doctor-email/cover.png" alt="Rug Doctor">
+        <figcaption><span class="client">Rug Doctor</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/rug-doctor-email/01.png" alt="Rug Doctor 01">
+        <figcaption><span class="client">Rug Doctor</span><span class="project">Email campaign</span></figcaption>
+      </figure>
+
+      <figure class="wide">
+        <img src="images/projects/firstlight-home-care/cover.png" alt="FirstLight">
+        <figcaption><span class="client">FirstLight Home Care</span><span class="project">Digital and email</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/firstlight-home-care/01.png" alt="FirstLight 01">
+        <figcaption><span class="client">FirstLight Home Care</span><span class="project">Digital and email</span></figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/projects/fitness-connection-digital/cover.png" alt="Fitness Connection">
+        <figcaption><span class="client">Fitness Connection</span><span class="project">Digital campaign</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SECTION — APP DESIGN
+       Source: motive-improv-app, speed-read-substack-app,
+       nestling-baby-names-app (from portfolio) + placeholders for Dubbed,
+       Paper Reverie, Moss House, Blind Date (Orange drive, not accessible).
+       =================================================================== -->
+  <section class="work-section" id="apps">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">04 — Product</div>
+        <h2>App Design</h2>
+      </div>
+      <p class="section-blurb">
+        Mobile app design across improv, reading, family, and social product
+        concepts. End-to-end design — onboarding, hero screens, content
+        states, and brand systems.
+      </p>
+    </div>
+
+    <div class="phone-grid">
+      <!-- Motive -->
+      <figure>
+        <img src="images/projects/motive-improv-app/cover.jpg" alt="Motive splash">
+        <figcaption><span class="client">Motive</span><span class="project">Improv app — hero</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/motive-improv-app/02.jpg" alt="Motive 02">
+        <figcaption><span class="client">Motive</span><span class="project">Improv app</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/motive-improv-app/04.jpg" alt="Motive 04">
+        <figcaption><span class="client">Motive</span><span class="project">Improv app</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/motive-improv-app/06.jpg" alt="Motive 06">
+        <figcaption><span class="client">Motive</span><span class="project">Improv app</span></figcaption>
+      </figure>
+
+      <!-- SpeedRead -->
+      <figure>
+        <img src="images/projects/speed-read-substack-app/cover.jpg" alt="SpeedRead hero">
+        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app — hero</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/speed-read-substack-app/02.jpg" alt="SpeedRead 02">
+        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/speed-read-substack-app/04.jpg" alt="SpeedRead 04">
+        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/speed-read-substack-app/07.jpg" alt="SpeedRead 07">
+        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app</span></figcaption>
+      </figure>
+
+      <!-- Nestling -->
+      <figure>
+        <img src="images/projects/nestling-baby-names-app/cover.jpg" alt="Nestling hero">
+        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app — hero</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/nestling-baby-names-app/02.jpg" alt="Nestling 02">
+        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/nestling-baby-names-app/04.jpg" alt="Nestling 04">
+        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/projects/nestling-baby-names-app/06.jpg" alt="Nestling 06">
+        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app</span></figcaption>
+      </figure>
+
+      <!-- PLACEHOLDERS — Orange drive secular apps -->
+      <!-- Dubbed (anime/manga tracker) — placeholder until Orange is accessible. -->
+      <figure>
+        <img src="placeholders/phone-placeholder.svg" alt="Dubbed placeholder">
+        <figcaption><span class="client">Dubbed</span><span class="project">Anime/manga tracker — placeholder</span></figcaption>
+      </figure>
+      <figure>
+        <img src="placeholders/phone-placeholder.svg" alt="Paper Reverie placeholder">
+        <figcaption><span class="client">Paper Reverie</span><span class="project">Contemplative card-draw app — placeholder</span></figcaption>
+      </figure>
+      <figure>
+        <img src="placeholders/phone-placeholder.svg" alt="Moss House placeholder">
+        <figcaption><span class="client">Moss House</span><span class="project">Contemplative app — placeholder</span></figcaption>
+      </figure>
+      <figure>
+        <img src="placeholders/phone-placeholder.svg" alt="Blind Date placeholder">
+        <figcaption><span class="client">Blind Date</span><span class="project">Dating app concept — placeholder</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  
+
+  <!-- ===================================================================
+       FOOTER — closing CTA + colophon
+       =================================================================== -->
+<section class="work-section" id="sanctified-souls">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">05 — Print Imprint</div>
+        <h2>Sanctified Souls</h2>
+        <div class="credit-line">Design lead: Jessica Huber.</div>
+      </div>
+      <p class="section-blurb">
+        Cover art, illustrated devotional plates, book design, and mural work
+        for the Sanctified Souls imprint — including the Bridget, Interior
+        Castle, and Little Way titles, the 8-plate-book series, the Saints ABC
+        primer, and the Our Lady mural project at Lambeth.
+      </p>
+    </div>
+
+    <div class="grid">
+      <!-- Portfolio sanctified-souls-devotional-art -->
+      <figure class="tall">
+        <img src="images/projects/sanctified-souls-devotional-art/cover.png" alt="Sanctified Souls cover">
+        <figcaption><span class="label">Sanctified Souls</span><span class="meta">Imprint cover</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/sanctified-souls-devotional-art/01.png" alt="Sanctified Souls 01">
+        <figcaption><span class="label">Sanctified Souls</span><span class="meta">Illustrated plate</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/sanctified-souls-devotional-art/02.png" alt="Sanctified Souls 02">
+        <figcaption><span class="label">Sanctified Souls</span><span class="meta">Illustrated plate</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/projects/sanctified-souls-devotional-art/bridget-cover.jpg" alt="Bridget cover">
+        <figcaption><span class="label">Bridget</span><span class="meta">Book cover</span></figcaption>
+      </figure>
+
+      <!-- 8-Plate Book series -->
+      <figure>
+        <img src="images/new-work/8-plate-book-1.png" alt="8-Plate Book 1">
+        <figcaption><span class="label">8-Plate Book Series</span><span class="meta">Devotional plates</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/8-plate-book-2.png" alt="8-Plate Book 2">
+        <figcaption><span class="label">8-Plate Book Series</span><span class="meta">Devotional plates</span></figcaption>
+      </figure>
+
+      <!-- Sanctified Souls series + Saints ABC -->
+      <figure>
+        <img src="images/new-work/sanctified-souls-series.png" alt="Sanctified Souls series">
+        <figcaption><span class="label">Sanctified Souls Series</span><span class="meta">Illustrated devotional work</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/saints-abc.png" alt="Saints ABC primer">
+        <figcaption><span class="label">Saints ABC</span><span class="meta">Children's primer</span></figcaption>
+      </figure>
+
+      <!-- Marian / devotional grid-extras -->
+      <figure class="tall">
+        <img src="images/grid-extras/marian-gold.jpg" alt="Marian gold — Mother of Safekeeping">
+        <figcaption><span class="label">Mother of Safekeeping</span><span class="meta">Devotional illustration</span></figcaption>
+      </figure>
+      <figure class="tall">
+        <img src="images/grid-extras/m-is-for-mary.jpg" alt="M is for Mary">
+        <figcaption><span class="label">M is for Mary</span><span class="meta">Saints ABC — Marian plate</span></figcaption>
+      </figure>
+
+      <!-- Lambeth Palace mural set -->
+      <figure>
+        <img src="images/grid-extras/lambeth-hall.jpg" alt="Lambeth Hall">
+        <figcaption><span class="label">Lambeth Palace</span><span class="meta">Our Lady mural — hall</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/grid-extras/lambeth-6.jpg" alt="Lambeth detail">
+        <figcaption><span class="label">Lambeth Palace</span><span class="meta">Our Lady mural — detail</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/grid-extras/lambeth-ceiling.jpg" alt="Lambeth ceiling">
+        <figcaption><span class="label">Lambeth Palace</span><span class="meta">Our Lady mural — ceiling</span></figcaption>
+      </figure>
+
+      <!-- OPTIONAL: Solitary Cup Co coffee packaging (saint-themed)
+           Move to public Work → Brand & Advertising if Jessica prefers.
+           Currently included here because of saint subject matter. -->
+      <figure>
+        <img src="images/new-work/solitary-cup-st-benedict.webp" alt="Solitary Cup St Benedict">
+        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Benedict — packaging</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/solitary-cup-barth.webp" alt="Solitary Cup Barth">
+        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Bartholomew — packaging</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/solitary-cup-christopher.webp" alt="Solitary Cup Christopher">
+        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Christopher — packaging</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/solitary-cup-drogo.webp" alt="Solitary Cup Drogo">
+        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Drogo — packaging</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/new-work/solitary-cup-joe.webp" alt="Solitary Cup Joe">
+        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Joseph — packaging</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 2 — CATHOLIC APPS
+       Mockups pulled from your AppStoreMockups folder
+       and project handoff folders (Suscipe, Vox Campanae, Philothea).
+       Source paths assume an `app-mockups/` folder placed next to this HTML
+       containing the renamed mockup files.
+       ================================================================= -->
+  <section class="work-section" id="catholic-apps">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">06 — Devotional Product</div>
+        <h2>Catholic Apps</h2>
+        <div class="credit-line">Design lead: Jessica Huber.</div>
+      </div>
+      <p class="section-blurb">
+        Mobile app design for Catholic devotional iOS projects — including
+        Cor ad Cor (Catholic personality test), Via Virtutum (virtue walk),
+        Suscipe (Ignatian devotional), Vox Campanae (Catholic bells), Philothea
+        (Salesian retreat), Bridget (Imitation of Mary), and Interior Castle
+        (Teresan prayer).
+      </p>
+    </div>
+
+    <!-- Bridget -->
+    <div class="app-group">
+      <h3 class="group-label">Bridget</h3>
+      <p class="group-desc">Devotional app for the 1-year and 12-year prayers of St. Bridget of Sweden — devotion selection, readings, prayer library, and accountability reminders.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/bridget/Bridget1.jpg" alt="Bridget — devotion selection">
+          <figcaption><span class="label">Bridget</span><span class="meta">Devotion selection</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/bridget/Bridget3.jpg" alt="Bridget — readings">
+          <figcaption><span class="label">Bridget</span><span class="meta">Readings</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/bridget/Bridget5.jpg" alt="Bridget — prayer library">
+          <figcaption><span class="label">Bridget</span><span class="meta">Prayer library</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/bridget/Bridget8.jpg" alt="Bridget — accountability reminders">
+          <figcaption><span class="label">Bridget</span><span class="meta">Accountability</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Interior Castle -->
+    <div class="app-group">
+      <h3 class="group-label">Interior Castle</h3>
+      <p class="group-desc">St. Teresa of Ávila's Mansions, paced through guided prayer screens.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/interior-castle/interior-castle-01.png" alt="Interior Castle 01">
+          <figcaption><span class="label">Interior Castle</span><span class="meta">Hero</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/interior-castle/interior-castle-03.png" alt="Interior Castle 03">
+          <figcaption><span class="label">Interior Castle</span><span class="meta">Mansion entry</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/interior-castle/interior-castle-06.png" alt="Interior Castle 06">
+          <figcaption><span class="label">Interior Castle</span><span class="meta">Guided prayer</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/interior-castle/interior-castle-09.png" alt="Interior Castle 09">
+          <figcaption><span class="label">Interior Castle</span><span class="meta">Completion</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Sanctified Souls (umbrella app) -->
+    <div class="app-group">
+      <h3 class="group-label">Sanctified Souls</h3>
+      <p class="group-desc">The flagship devotional app — feast days, prayer, and saints library.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/sanctified-souls/AppMockups1.jpg" alt="SS Mockup 1">
+          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Hero</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/sanctified-souls/AppMockups3.jpg" alt="SS Mockup 3">
+          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Feast day</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/sanctified-souls/AppMockups6.jpg" alt="SS Mockup 6">
+          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Saints library</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/sanctified-souls/AppMockups9.jpg" alt="SS Mockup 9">
+          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Calendar</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Suscipe -->
+    <div class="app-group">
+      <h3 class="group-label">Suscipe</h3>
+      <p class="group-desc">Ignatian devotional — Examen, Suscipe prayer, and end-of-day reflection.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 01 placeholder">
+          <figcaption><span class="label">Suscipe</span><span class="meta">Hero — placeholder (pick a hero shot from your Suscipe project folder)</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 02 placeholder">
+          <figcaption><span class="label">Suscipe</span><span class="meta">Examen — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 03 placeholder">
+          <figcaption><span class="label">Suscipe</span><span class="meta">Prayer — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 04 placeholder">
+          <figcaption><span class="label">Suscipe</span><span class="meta">Reflection — placeholder</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Vox Campanae -->
+    <div class="app-group">
+      <h3 class="group-label">Vox Campanae</h3>
+      <p class="group-desc">Catholic bells — Angelus, Compline, and the breathing palette of the day.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 01 placeholder">
+          <figcaption><span class="label">Vox Campanae</span><span class="meta">Hero — placeholder (pick a hero shot from your Vox Campanae project folder)</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 02 placeholder">
+          <figcaption><span class="label">Vox Campanae</span><span class="meta">Angelus — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 03 placeholder">
+          <figcaption><span class="label">Vox Campanae</span><span class="meta">Compline — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 04 placeholder">
+          <figcaption><span class="label">Vox Campanae</span><span class="meta">Settings — placeholder</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Philothea -->
+    <div class="app-group">
+      <h3 class="group-label">Philothea</h3>
+      <p class="group-desc">Salesian retreat — 30-day Introduction to the Devout Life, bilingual FR/EN.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/philothea/placeholder.svg" alt="Philothea 01 placeholder">
+          <figcaption><span class="label">Philothea</span><span class="meta">Hero — placeholder (pick a hero shot from your Philothea handoff folder)</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/philothea/placeholder.svg" alt="Philothea 02 placeholder">
+          <figcaption><span class="label">Philothea</span><span class="meta">Day 1 — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/philothea/placeholder.svg" alt="Philothea 03 placeholder">
+          <figcaption><span class="label">Philothea</span><span class="meta">Preparation — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/philothea/placeholder.svg" alt="Philothea 04 placeholder">
+          <figcaption><span class="label">Philothea</span><span class="meta">Examination — placeholder</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Cor ad Cor -->
+    <div class="app-group">
+      <h3 class="group-label">Cor ad Cor</h3>
+      <p class="group-desc">Catholic personality test — 28 instruments, Soul Profile, and Two Souls Compared.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 01 placeholder">
+          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Hero — placeholder (not surfaced yet — check Orange drive)</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 02 placeholder">
+          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Instrument — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 03 placeholder">
+          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Soul Profile — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 04 placeholder">
+          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Two Souls — placeholder</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Via Virtutum -->
+    <div class="app-group">
+      <h3 class="group-label">Via Virtutum</h3>
+      <p class="group-desc">52-week virtue walk — weekly virtue, daily practice, season ticks Monday.</p>
+      <div class="phone-grid">
+        <figure>
+          <img src="app-mockups/via-virtutum/placeholder.svg" alt="Via 01 placeholder">
+          <figcaption><span class="label">Via Virtutum</span><span class="meta">Hero — placeholder (not surfaced yet — check Orange drive)</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/via-virtutum/placeholder.svg" alt="Via 02 placeholder">
+          <figcaption><span class="label">Via Virtutum</span><span class="meta">Virtue of the week — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/via-virtutum/placeholder.svg" alt="Via 03 placeholder">
+          <figcaption><span class="label">Via Virtutum</span><span class="meta">Daily practice — placeholder</span></figcaption>
+        </figure>
+        <figure>
+          <img src="app-mockups/via-virtutum/placeholder.svg" alt="Via 04 placeholder">
+          <figcaption><span class="label">Via Virtutum</span><span class="meta">Season — placeholder</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="foot" id="contact">
+    <div>
+      <p class="closing">Have a project in mind?</p>
+      <div class="cta-row">
+        <a href="/contact" class="pill">Work With Us</a>
+        <a href="/survey" class="pill ghost">Begin Assessment</a>
+        <a href="/client-work" class="pill ghost">Client Work →</a>
+      </div>
+    </div>
+    <div class="colophon">
+      Quintilian, Inc. — Multidisciplinary creative practice.
+      Selected work shown. For client engagements and case studies,
+      access the password-protected Client Work page.
+    </div>
+  </footer>
+
+</body>
+</html>

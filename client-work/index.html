@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  QUINTILIAN, INC. — CLIENT WORK PAGE (PASSWORD-PROTECTED)
+  ============================================================================
+
+  Self-contained HTML blueprint for the password-protected /client-work page
+  on quintilianinc.com.
+
+  Page password (set in Squarespace Page Settings → General → Password):
+    quintilian-portfolio-2026
+
+  PURPOSE OF THIS PAGE:
+    Houses the two firewall-sensitive bodies of work — Sanctified Souls'
+    print imprint and the Catholic devotional app design. These are
+    Jessica + Chuck's own ventures; the password keeps SS users / app
+    users from discovering Quintilian's portfolio framing.
+
+  DESIGN: Identical system to Quintilian-Work-Page.html — cream background,
+  serif headlines, two-column hero, full-bleed imagery, black pill CTAs.
+
+  IMAGE PATHS:
+    1) Portfolio assets (relative paths):
+       images/projects/sanctified-souls-devotional-art/[file]
+       images/grid-extras/[file]
+       images/new-work/[file]
+       Source folder:
+       the public/images/ folder from solocosmo/jessica-portfolio on GitHub
+    2) Catholic app mockups (NOT in the portfolio site; pulled from):
+       your AppStoreMockups folder
+         - Bridget mockups/Bridget[N].jpg
+         - Interior Castle mockups/interior-castle-[NN].png
+         - Sanctified souls mockups/App Mock ups[N].jpg
+       your Suscipe / Vox Campanae / Philothea project folders
+       (Cor ad Cor and Via Virtutum mockups not surfaced — placeholders below)
+
+  WHAT'S MISSING (replace placeholders):
+    - Cor ad Cor and Via Virtutum hero shots — not surfaced yet
+      at scan time. Likely on Orange external drive or in specific subfolders
+      I didn't drill into.
+    - Suscipe / Vox Campanae / Philothea: choose 1–2 hero shots each from the
+      project folders (993+ images in Vox Campanae alone — Jessica curates).
+
+  OPTIONAL / DEFER TO JESSICA:
+    - "Solitary Cup Co" coffee packaging (saint-themed: St. Benedict, Barth,
+      Christopher, Drogo, Joe) — included in new-work folder. Jessica's call:
+      include here (saint imagery → devotional) OR move to public Work
+      under Brand & Advertising (it's commercial coffee packaging).
+
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Work — Quintilian, Inc.</title>
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — identical to Quintilian-Work-Page.html
+       ============================================================ */
+    :root {
+      --cream:        #ECDFCF;
+      --cream-warm:   #E8DDD0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #2A2A2A;
+      --muted:        #5A5040;
+      --rule:         #D6C9B6;
+      --serif:        "PT Serif", "Cormorant Garamond", "Playfair Display",
+                      Georgia, "Times New Roman", serif;
+      --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Chrome */
+    .chrome {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 36px 64px 0;
+    }
+    .logo {
+      font-family: var(--serif); font-size: 28px; font-weight: 400;
+      color: var(--ink); letter-spacing: -0.01em; text-decoration: none;
+    }
+    nav.top {
+      display: flex; gap: 34px; font-family: var(--sans); font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    nav.top a {
+      color: var(--muted); text-decoration: none; padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    nav.top a:hover { color: var(--ink); }
+    nav.top a.current { color: var(--ink); border-bottom: 1px solid var(--ink); }
+    .nav-assess {
+      font-family: var(--sans); font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.1em; background: var(--ink); color: var(--cream);
+      text-decoration: none; padding: 11px 24px; border-radius: 999px;
+      transition: opacity 0.2s ease;
+    }
+    .nav-assess:hover { opacity: 0.9; }
+    /* Password gate */
+    #gate {
+      position: fixed; inset: 0; z-index: 9999; background: var(--cream);
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    #gate form { text-align: center; max-width: 360px; width: 100%; }
+    .gate-logo { font-family: var(--serif); font-size: 30px; color: var(--ink); margin-bottom: 26px; }
+    .gate-logo span { color: var(--muted); }
+    .gate-label {
+      font-family: var(--sans); font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--muted); margin: 0 0 20px;
+    }
+    #gate input {
+      width: 100%; padding: 14px 16px; font-size: 15px; font-family: var(--sans);
+      border: 1px solid var(--rule); background: #fff; color: var(--ink);
+      margin-bottom: 14px; outline: none;
+    }
+    #gate input:focus { border-color: var(--ink); }
+    #gate button {
+      width: 100%; padding: 14px; font-family: var(--sans); font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.1em; background: var(--ink);
+      color: var(--cream); border: none; border-radius: 999px; cursor: pointer;
+    }
+    #gate-error { font-family: var(--sans); font-size: 13px; color: #9a2b2b; margin: 14px 0 0; min-height: 18px; }
+
+    /* Hero */
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; min-height: 78vh; padding-top: 40px;
+    }
+    .hero-text { padding: 0 48px 0 96px; }
+    .hero h1 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(56px, 8vw, 124px);
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 56px;
+    }
+    .hero p.lead {
+      font-size: 19px; line-height: 1.55; color: var(--ink-soft);
+      max-width: 460px; margin: 0 0 56px;
+    }
+    .hero-image {
+      width: 100%; height: 78vh; object-fit: cover;
+      object-position: center; display: block;
+    }
+
+    /* Access note (under hero, since this is a protected page) */
+    .access-note {
+      max-width: 460px;
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin: 0 0 24px;
+      padding-left: 16px;
+      border-left: 2px solid var(--rule);
+    }
+
+    /* Pills */
+    .pill {
+      display: inline-block; background: var(--ink); color: #fff;
+      text-decoration: none; padding: 22px 56px;
+      font-family: var(--sans); font-size: 16px; font-weight: 500;
+      letter-spacing: 0.04em; border-radius: 999px; border: none;
+      cursor: pointer; transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .pill:hover { transform: translateY(-1px); opacity: 0.92; }
+    .pill.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+
+    /* Sections */
+    section.work-section {
+      padding: 120px 96px 80px;
+      border-top: 1px solid var(--rule);
+    }
+    section.work-section .section-header {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 80px; align-items: end; margin-bottom: 64px;
+    }
+    section.work-section h2 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.0; letter-spacing: -0.015em;
+      color: var(--ink); margin: 0;
+    }
+    section.work-section .section-blurb {
+      font-size: 18px; line-height: 1.55; color: var(--ink-soft);
+      max-width: 540px; margin: 0;
+    }
+    section.work-section .section-meta {
+      font-family: var(--sans); font-size: 12px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 12px;
+    }
+    section.work-section .credit-line {
+      font-family: var(--sans); font-size: 13px;
+      color: var(--muted); margin-top: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 48px 32px;
+    }
+    .grid figure { margin: 0; display: flex; flex-direction: column; }
+    .grid figure img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      object-position: center; display: block; background: var(--cream-warm);
+    }
+    .grid figure.tall img   { aspect-ratio: 3 / 4; }
+    .grid figure.square img { aspect-ratio: 1 / 1; }
+    .grid figure.wide img   { aspect-ratio: 16 / 10; }
+    .grid figcaption {
+      margin-top: 14px; font-family: var(--sans); font-size: 13px;
+      line-height: 1.4;
+    }
+    .grid figcaption .label {
+      font-weight: 600; color: var(--ink); display: block; letter-spacing: 0.01em;
+    }
+    .grid figcaption .meta {
+      color: var(--muted); display: block; margin-top: 2px;
+    }
+
+    /* Phone-frame grid */
+    .phone-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 56px 28px;
+    }
+    .phone-grid figure {
+      margin: 0; display: flex; flex-direction: column; align-items: center;
+    }
+    .phone-grid figure img {
+      width: 100%; max-width: 280px;
+      aspect-ratio: 9 / 19.5; object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 14px 38px rgba(26,26,26,0.10);
+      background: var(--cream-warm);
+    }
+    .phone-grid figcaption {
+      margin-top: 14px; text-align: center;
+      font-family: var(--sans); font-size: 13px;
+    }
+    .phone-grid figcaption .label {
+      font-weight: 600; color: var(--ink); display: block;
+    }
+    .phone-grid figcaption .meta {
+      color: var(--muted); display: block; margin-top: 2px;
+    }
+
+    /* App grouping (label per app, then mockups) */
+    .app-group { margin-bottom: 80px; }
+    .app-group .group-label {
+      font-family: var(--serif); font-size: 32px; font-weight: 400;
+      color: var(--ink); margin: 0 0 8px;
+    }
+    .app-group .group-desc {
+      font-family: var(--sans); font-size: 15px; color: var(--ink-soft);
+      margin: 0 0 32px; max-width: 600px;
+    }
+
+    /* Footer */
+    footer.foot {
+      padding: 96px 96px 72px;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 64px; align-items: end;
+    }
+    footer.foot .closing {
+      font-family: var(--serif); font-size: 36px;
+      line-height: 1.2; color: var(--ink); margin: 0 0 20px;
+    }
+    footer.foot .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    footer.foot .colophon {
+      font-family: var(--sans); font-size: 13px;
+      color: var(--muted); letter-spacing: 0.04em;
+    }
+
+    /* Responsive */
+    /* Pitch deck embeds */
+    .deck-list { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 32px; }
+    .deck-card { background: rgba(255,255,255,0.4); padding: 32px; border: 1px solid var(--rule); }
+    .deck-card h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; margin: 0 0 12px; color: var(--ink); }
+    .deck-card p { font-size: 16px; color: var(--ink-soft); margin: 0 0 24px; }
+    .deck-card .embed-slot { width: 100%; aspect-ratio: 16 / 10; background: var(--cream-warm); border: 1px dashed var(--muted); display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 16px; }
+    .deck-card.ready .embed-slot { border-style: solid; border-color: var(--ink); background: #fff; color: var(--ink); }
+    @media (max-width: 700px) { .deck-list { grid-template-columns: 1fr; } }
+
+    @media (max-width: 1024px) {
+      .chrome { padding: 24px 32px 0; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-text { padding: 56px 32px 32px; }
+      .hero-image { height: 60vh; }
+      section.work-section { padding: 80px 32px 56px; }
+      section.work-section .section-header { grid-template-columns: 1fr; gap: 24px; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+      .phone-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+      footer.foot { grid-template-columns: 1fr; padding: 64px 32px; }
+    }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .phone-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="gate">
+    <form id="gate-form" autocomplete="off">
+      <div class="gate-logo">Quintilian<span>,</span> inc.</div>
+      <p class="gate-label">Client Work — Password Required</p>
+      <input id="gate-pw" type="password" placeholder="Password" aria-label="Password" autofocus />
+      <button type="submit">Enter</button>
+      <p id="gate-error" role="alert"></p>
+    </form>
+  </div>
+
+  <!-- Page chrome — auto-inherited from site header in Squarespace -->
+  <header class="chrome">
+    <a class="logo" href="/">Quintilian, inc.</a>
+    <nav class="top">
+      <a href="/about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#process">Process</a>
+      <a href="/work">Work</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a class="nav-assess" href="/survey">Begin Assessment</a>
+  </header>
+
+  <!-- =================================================================
+       HERO
+       ================================================================= -->
+  <section class="work-section" id="decks" style="border-top:none;">
+    <div class="section-header">
+      <div>
+        <div class="section-meta">Client Work · By Request</div>
+        <h2>Pitch Decks</h2>
+      </div>
+      <p class="section-blurb">
+        Brand strategy and presentation design across venture pitches, brand
+        guidelines, and one-sheet decks. View-only embeds — reach out for full copies.
+      </p>
+    </div>
+    <div class="deck-list">
+      <div class="deck-card ready">
+        <h3>Clean Hands Dirty Hands (CHDH)</h3>
+        <p>Pitch deck for an oil-industry vocabulary trainer app. Concept by Chuck Huber.</p>
+        <div class="embed-slot">[ EMBED: CHDH pitch deck PDF — export from local source, then upload ]</div>
+      </div>
+      <div class="deck-card">
+        <h3>867TheLine</h3>
+        <p>Venture pitch deck.</p>
+        <div class="embed-slot">[ EMBED: 867TheLine PDF — on Orange external drive ]</div>
+      </div>
+      <div class="deck-card">
+        <h3>Lakefront Brand Guide</h3>
+        <p>Brand identity system.</p>
+        <div class="embed-slot">[ EMBED: Lakefront PDF — convert from PPTX ]</div>
+      </div>
+      <div class="deck-card">
+        <h3>PPM AI OneSheet</h3>
+        <p>One-page brief for an AI product.</p>
+        <div class="embed-slot">[ EMBED: PPM AI OneSheet PDF — convert from PPTX ]</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot" id="contact">
+    <div>
+      <p class="closing">Inquiring about a partnership or licensing?</p>
+      <div class="cta-row">
+        <a href="#" class="pill">Get in touch</a>
+      </div>
+    </div>
+    <div class="colophon">
+      Quintilian, Inc. — Personal ventures and devotional work, shown by
+      invitation. Please do not distribute screenshots or links outside
+      authorized partners.
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var KEY = 'cw-auth-2026';
+    var gate = document.getElementById('gate');
+    if (sessionStorage.getItem(KEY) === '1') { gate.parentNode.removeChild(gate); return; }
+    document.documentElement.style.overflow = 'hidden';
+    document.getElementById('gate-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (document.getElementById('gate-pw').value === 'quintilian-portfolio-2026') {
+        sessionStorage.setItem(KEY, '1');
+        document.documentElement.style.overflow = '';
+        gate.parentNode.removeChild(gate);
+      } else {
+        document.getElementById('gate-error').textContent = 'Incorrect password. Please try again.';
+        document.getElementById('gate-pw').value = '';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
