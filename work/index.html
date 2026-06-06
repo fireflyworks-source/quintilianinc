@@ -475,6 +475,97 @@
       .grid         { grid-template-columns: 1fr; }
       .phone-grid   { grid-template-columns: 1fr; }
     }
+
+    /* ===========================================================
+       MODULES — five cards on the hub page, each linking to its
+       own section page. Replaces the prior all-on-one-page dump.
+       ============================================================ */
+    .modules {
+      max-width: 1400px;
+      margin: 80px auto 120px;
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+    .module {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      text-decoration: none;
+      color: inherit;
+      align-items: center;
+    }
+    .module:nth-child(even)     { direction: rtl; }
+    .module:nth-child(even) > * { direction: ltr; }
+    .module-image {
+      overflow: hidden;
+      background: var(--cream-warm);
+      aspect-ratio: 4 / 3;
+    }
+    .module-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .module:hover .module-image img { transform: scale(1.03); }
+    .module-text { padding: 16px 0; }
+    .module-num {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .module-text h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+    .module-sub {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+      max-width: 460px;
+    }
+    .module-cta {
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 3px;
+      display: inline-block;
+      transition: padding 0.2s ease;
+    }
+    .module:hover .module-cta { padding-right: 14px; }
+    .module--gated .module-text h2::after {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      margin-left: 14px;
+      vertical-align: -2px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='5' y='11' width='14' height='10' rx='2' stroke='%231A1A1A' stroke-width='1.5' fill='none'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4' stroke='%231A1A1A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    @media (max-width: 900px) {
+      .modules { padding: 0 32px; gap: 48px; margin: 48px auto 72px; }
+      .module, .module:nth-child(even) {
+        direction: ltr;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -540,805 +631,99 @@
        book-covers-publishing, salt-laced-pages-book, whisker-wish-book,
        greystone-valley-series, fabric-design-collections, new-work/
        =================================================================== -->
-  <section class="work-section" id="illustration">
-    <div class="section-header">
-      <div>
-        <div class="section-meta">01 — Illustration</div>
-        <h2>Illustration & Creative Direction</h2>
-      </div>
-      <p class="section-blurb">
-        Original illustration, oracle and zodiac card decks, comic covers,
-        book design, and editorial work — produced with publishing and brand
-        clients including Blue Angel Publishing, Image Comics, Aftershock,
-        and independent imprints.
-      </p>
-    </div>
-
-    <div class="grid">
-      <!-- Blue Angel Publishing — Oracle Decks -->
-      <figure>
-        <img loading="lazy" src="images/projects/blue-angel-oracle-decks/cover.jpg" alt="Blue Angel Oracle cover">
-        <figcaption><span class="client">Blue Angel Publishing</span><span class="project">White Light Oracle</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/blue-angel-oracle-decks/02.jpg" alt="Blue Angel Oracle card 02">
-        <figcaption><span class="client">Blue Angel Publishing</span><span class="project">Oracle deck card art</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/blue-angel-oracle-decks/03.jpg" alt="Blue Angel Oracle card 03">
-        <figcaption><span class="client">Blue Angel Publishing</span><span class="project">Oracle deck card art</span></figcaption>
-      </figure>
-
-      <!-- Zodiac Oracle Deck -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/zodiac-oracle-deck/cover.png" alt="Zodiac Oracle cover">
-        <figcaption><span class="client">Zodiac Oracle Deck</span><span class="project">Card design and illustration</span></figcaption>
-      </figure>
-
-      <!-- Image Comics — variant covers -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/image-comics-variant-covers/cover.jpg" alt="Image Comics variant cover">
-        <figcaption><span class="client">Image Comics</span><span class="project">10,000 Black Feathers — variant cover</span></figcaption>
-      </figure>
-
-      <!-- Aftershock Comics -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/aftershock-comics-covers/cover.jpg" alt="Aftershock Dollface #10">
-        <figcaption><span class="client">Aftershock Comics</span><span class="project">Dollface #10 — cover</span></figcaption>
-      </figure>
-
-      <!-- Comic Covers -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/comic-covers/cover.jpg" alt="Comic cover">
-        <figcaption><span class="client">Independent</span><span class="project">Bunny Mask — comic cover</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/comic-covers/01.jpg" alt="Comic cover 01">
-        <figcaption><span class="client">Independent</span><span class="project">Comic cover series</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/comic-covers/02.jpg" alt="Comic cover 02">
-        <figcaption><span class="client">Independent</span><span class="project">Comic cover series</span></figcaption>
-      </figure>
-
-      <!-- Book Covers / Publishing -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/book-covers-publishing/cover.jpg" alt="Book cover hero">
-        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover design</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/book-covers-publishing/01.jpg" alt="Book cover 01">
-        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/book-covers-publishing/02.jpg" alt="Book cover 02">
-        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/book-covers-publishing/03.jpg" alt="Book cover 03">
-        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/book-covers-publishing/04.jpg" alt="Book cover 04">
-        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/book-covers-publishing/05.jpg" alt="Book cover 05">
-        <figcaption><span class="client">Publishing clients</span><span class="project">Book cover</span></figcaption>
-      </figure>
-
-      <!-- Salt Laced Pages -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/salt-laced-pages-book/cover.png" alt="Salt Laced Pages cover">
-        <figcaption><span class="client">Salt Laced Pages</span><span class="project">Book design</span></figcaption>
-      </figure>
-
-      <!-- Whisker Wish -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/whisker-wish-book/cover.png" alt="Whisker Wish cover">
-        <figcaption><span class="client">Whisker Wish</span><span class="project">Book cover</span></figcaption>
-      </figure>
-
-      <!-- Greystone Valley -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/greystone-valley-series/cover.jpg" alt="Greystone Valley series">
-        <figcaption><span class="client">Greystone Valley Series</span><span class="project">Book series — covers and illustration</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/greystone-valley-series/02.jpg" alt="Greystone Valley series 02">
-        <figcaption><span class="client">Greystone Valley Series</span><span class="project">Book series — interior plates</span></figcaption>
-      </figure>
-
-      <!-- Fabric Design Collections -->
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/cover.png" alt="Fabric design cover">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Repeat patterns and apparel</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/01.png" alt="Fabric design 01">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Rainbow beach dress</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/02.png" alt="Fabric design 02">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Dress twins</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/03.png" alt="Fabric design 03">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/04.png" alt="Fabric design 04">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/05.png" alt="Fabric design 05">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/06.png" alt="Fabric design 06">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/fabric-design-collections/07.png" alt="Fabric design 07">
-        <figcaption><span class="client">Fabric Design Collections</span><span class="project">Pattern</span></figcaption>
-      </figure>
-
-      <!-- new-work selections (the strongest 10 of 76 numbered pieces) -->
-      <figure>
-        <img loading="lazy" src="images/new-work/new-001.png" alt="New work 001">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/new-010.png" alt="New work 010">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/solitary-cup-st-benedict.webp" alt="Solitary Cup — St. Benedict">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/new-030.png" alt="New work 030">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/new-040.png" alt="New work 040">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/new-055.png" alt="New work 055">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/new-067.png" alt="New work 067">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/new-070.png" alt="New work 070">
-        <figcaption><span class="client">Studio Work</span><span class="project">Illustration series</span></figcaption>
-      </figure>
-    </div>
-  </section>
 
   <!-- ===================================================================
-       SECTION — BRAND & ADVERTISING
-       Source folders: bloomin-blinds-branding, ziegenfelder-brand-campaign,
-       simply-pop-packaging, simply-pop-ai-photography, freebirds-advertising,
-       taco-bueno-advertising, hacienda-colorado, dairy-queen-social
+       MODULES — five sections, each linking to its own page.
+       Order, copy and gating per Jessica 2026-06-06 design direction.
        =================================================================== -->
-  <section class="work-section" id="brand">
-    <div class="section-header">
-      <div>
-        <div class="section-meta">02 — Brand & Advertising</div>
-        <h2>Brand & Advertising</h2>
+  <section class="modules">
+
+    <!-- 01 — App Development -->
+    <a href="/work/app-development/" class="module">
+      <div class="module-image">
+        <img src="images/projects/speed-read-substack-app/cover.jpg"
+             alt="App design and development" loading="lazy">
       </div>
-      <p class="section-blurb">
-        Brand identity systems, packaging, advertising campaigns, and AI-driven
-        product photography for restaurant, beverage, and consumer brands.
-      </p>
-    </div>
-
-    <div class="grid">
-      <!-- Simply Pop (Coca-Cola) — packaging + photography -->
-      <figure>
-        <img loading="lazy" src="images/projects/simply-pop-packaging/cover.png" alt="Simply Pop packaging">
-        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">Packaging design</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/simply-pop-packaging/01.png" alt="Simply Pop packaging 01">
-        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">Packaging design</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/simply-pop-ai-photography/cover.png" alt="Simply Pop AI photography cover">
-        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography direction</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/simply-pop-ai-photography/01.png" alt="Simply Pop AI 01">
-        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/simply-pop-ai-photography/02.jpg" alt="Simply Pop AI 02">
-        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/simply-pop-ai-photography/03.png" alt="Simply Pop AI 03">
-        <figcaption><span class="client">Coca-Cola — Simply Pop</span><span class="project">AI product photography</span></figcaption>
-      </figure>
-
-      <!-- Ziegenfelder / Twin Pops / Monster Pops -->
-      <figure>
-        <img loading="lazy" src="images/projects/ziegenfelder-brand-campaign/cover.png" alt="Ziegenfelder cover">
-        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Twin Pops / Monster Pops campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/ziegenfelder-brand-campaign/01.png" alt="Ziegenfelder 01">
-        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/ziegenfelder-brand-campaign/02.png" alt="Ziegenfelder 02">
-        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/ziegenfelder-brand-campaign/03.png" alt="Ziegenfelder 03">
-        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/ziegenfelder-brand-campaign/04.png" alt="Ziegenfelder 04">
-        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/ziegenfelder-brand-campaign/05.png" alt="Ziegenfelder 05">
-        <figcaption><span class="client">Ziegenfelder Co.</span><span class="project">Brand campaign</span></figcaption>
-      </figure>
-
-      <!-- Bloomin' Blinds -->
-      <figure>
-        <img loading="lazy" src="images/projects/bloomin-blinds-branding/cover.png" alt="Bloomin Blinds cover">
-        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/bloomin-blinds-branding/02.png" alt="Bloomin Blinds 02">
-        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/bloomin-blinds-branding/03.png" alt="Bloomin Blinds 03">
-        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/bloomin-blinds-branding/04.png" alt="Bloomin Blinds 04">
-        <figcaption><span class="client">Bloomin' Blinds</span><span class="project">Brand system</span></figcaption>
-      </figure>
-
-      <!-- QSR — Freebirds, Taco Bueno, Hacienda, Dairy Queen -->
-      <figure>
-        <img loading="lazy" src="images/projects/freebirds-advertising/cover.png" alt="Freebirds">
-        <figcaption><span class="client">Freebirds World Burrito</span><span class="project">Advertising campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/taco-bueno-advertising/cover.png" alt="Taco Bueno">
-        <figcaption><span class="client">Taco Bueno</span><span class="project">Advertising campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/hacienda-colorado/cover.png" alt="Hacienda Colorado">
-        <figcaption><span class="client">Hacienda Colorado</span><span class="project">Advertising campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/hacienda-colorado/01.png" alt="Hacienda Colorado 01">
-        <figcaption><span class="client">Hacienda Colorado</span><span class="project">Advertising campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/dairy-queen-social/cover.jpg" alt="DQ social cover">
-        <figcaption><span class="client">Dairy Queen</span><span class="project">Social campaign — soft-serve hero</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/dairy-queen-social/02.png" alt="DQ social 02">
-        <figcaption><span class="client">Dairy Queen</span><span class="project">Social campaign</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/dairy-queen-social/03.jpg" alt="DQ social 03">
-        <figcaption><span class="client">Dairy Queen</span><span class="project">Social campaign</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       SECTION — EMAIL MARKETING
-       Source folders: dq-email-marketing, energy-attic-email,
-       fortune-tires-email, rug-doctor-email, truck-yard-email-campaigns,
-       firstlight-home-care, fitness-connection-digital
-       =================================================================== -->
-  <section class="work-section" id="email">
-    <div class="section-header">
-      <div>
-        <div class="section-meta">03 — Email & Digital</div>
-        <h2>Email Marketing & Digital</h2>
+      <div class="module-text">
+        <p class="module-num">01 — App Development</p>
+        <h2>Native apps you&rsquo;ll actually open.</h2>
+        <p class="module-sub">
+          Devotional, contemplative, and utility iOS apps designed and shipped
+          end-to-end &mdash; from concept and brand through App Store launch.
+        </p>
+        <span class="module-cta">Explore</span>
       </div>
-      <p class="section-blurb">
-        Multi-client email campaign design, digital ads, and service-brand
-        marketing — covering quick-service restaurants, home services, fitness,
-        and retail.
-      </p>
-    </div>
+    </a>
 
-    <div class="grid">
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/truck-yard-email-campaigns/cover.png" alt="Truck Yard email hero">
-        <figcaption><span class="client">Truck Yard</span><span class="project">Happy Hour email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/truck-yard-email-campaigns/01.png" alt="Truck Yard email 01">
-        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/truck-yard-email-campaigns/02.png" alt="Truck Yard email 02">
-        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/truck-yard-email-campaigns/03.png" alt="Truck Yard email 03">
-        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/truck-yard-email-campaigns/04.png" alt="Truck Yard email 04">
-        <figcaption><span class="client">Truck Yard</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/dq-email-marketing/cover.png" alt="DQ email">
-        <figcaption><span class="client">Dairy Queen</span><span class="project">Email marketing program</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/energy-attic-email/cover.png" alt="Energy Attic">
-        <figcaption><span class="client">Energy Attic</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/energy-attic-email/01.png" alt="Energy Attic 01">
-        <figcaption><span class="client">Energy Attic</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/fortune-tires-email/cover.png" alt="Fortune Tires">
-        <figcaption><span class="client">Fortune Tires</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/rug-doctor-email/cover.png" alt="Rug Doctor">
-        <figcaption><span class="client">Rug Doctor</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/rug-doctor-email/01.png" alt="Rug Doctor 01">
-        <figcaption><span class="client">Rug Doctor</span><span class="project">Email campaign</span></figcaption>
-      </figure>
-
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/firstlight-home-care/cover.png" alt="FirstLight">
-        <figcaption><span class="client">FirstLight Home Care</span><span class="project">Digital and email</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/firstlight-home-care/01.png" alt="FirstLight 01">
-        <figcaption><span class="client">FirstLight Home Care</span><span class="project">Digital and email</span></figcaption>
-      </figure>
-      <figure class="wide">
-        <img loading="lazy" src="images/projects/fitness-connection-digital/cover.png" alt="Fitness Connection">
-        <figcaption><span class="client">Fitness Connection</span><span class="project">Digital campaign</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       SECTION — APP DESIGN
-       Source: motive-improv-app, speed-read-substack-app,
-       nestling-baby-names-app (from portfolio) + placeholders for Dubbed,
-       Paper Reverie, Moss House, Blind Date (Orange drive, not accessible).
-       =================================================================== -->
-  <section class="work-section" id="apps">
-    <div class="section-header">
-      <div>
-        <div class="section-meta">04 — Product</div>
-        <h2>App Design</h2>
+    <!-- 02 — Brand & Advertising (password-protected) -->
+    <a href="/work/brand-advertising/" class="module module--gated">
+      <div class="module-image">
+        <img src="images/projects/simply-pop-packaging/cover.png"
+             alt="Brand and advertising work" loading="lazy">
       </div>
-      <p class="section-blurb">
-        Mobile app design across improv, reading, family, and social product
-        concepts. End-to-end design — onboarding, hero screens, content
-        states, and brand systems.
-      </p>
-    </div>
-
-    <div class="phone-grid">
-      <!-- Motive -->
-      <figure>
-        <img loading="lazy" src="images/projects/motive-improv-app/cover.jpg" alt="Motive splash">
-        <figcaption><span class="client">Motive</span><span class="project">Improv app — hero</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/motive-improv-app/02.jpg" alt="Motive 02">
-        <figcaption><span class="client">Motive</span><span class="project">Improv app</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/motive-improv-app/04.jpg" alt="Motive 04">
-        <figcaption><span class="client">Motive</span><span class="project">Improv app</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/motive-improv-app/06.jpg" alt="Motive 06">
-        <figcaption><span class="client">Motive</span><span class="project">Improv app</span></figcaption>
-      </figure>
-
-      <!-- SpeedRead -->
-      <figure>
-        <img loading="lazy" src="images/projects/speed-read-substack-app/cover.jpg" alt="SpeedRead hero">
-        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app — hero</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/speed-read-substack-app/02.jpg" alt="SpeedRead 02">
-        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/speed-read-substack-app/04.jpg" alt="SpeedRead 04">
-        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/speed-read-substack-app/07.jpg" alt="SpeedRead 07">
-        <figcaption><span class="client">SpeedRead</span><span class="project">Reading app</span></figcaption>
-      </figure>
-
-      <!-- Nestling -->
-      <figure>
-        <img loading="lazy" src="images/projects/nestling-baby-names-app/cover.jpg" alt="Nestling hero">
-        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app — hero</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/nestling-baby-names-app/02.jpg" alt="Nestling 02">
-        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/nestling-baby-names-app/04.jpg" alt="Nestling 04">
-        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/projects/nestling-baby-names-app/06.jpg" alt="Nestling 06">
-        <figcaption><span class="client">Nestling</span><span class="project">Baby-names app</span></figcaption>
-      </figure>
-
-      <!-- PLACEHOLDERS — Orange drive secular apps -->
-      <!-- Dubbed (anime/manga tracker) — placeholder until Orange is accessible. -->
-      <figure>
-        <img loading="lazy" src="placeholders/phone-placeholder.svg" alt="Dubbed placeholder">
-        <figcaption><span class="client">Dubbed</span><span class="project">Anime/manga tracker — placeholder</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="placeholders/phone-placeholder.svg" alt="Paper Reverie placeholder">
-        <figcaption><span class="client">Paper Reverie</span><span class="project">Contemplative card-draw app — placeholder</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="placeholders/phone-placeholder.svg" alt="Moss House placeholder">
-        <figcaption><span class="client">Moss House</span><span class="project">Contemplative app — placeholder</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="placeholders/phone-placeholder.svg" alt="Blind Date placeholder">
-        <figcaption><span class="client">Blind Date</span><span class="project">Dating app concept — placeholder</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  
-
-  <!-- ===================================================================
-       FOOTER — closing CTA + colophon
-       =================================================================== -->
-<section class="work-section" id="sanctified-souls">
-    <div class="section-header">
-      <div>
-        <div class="section-meta">05 — Print Imprint</div>
-        <h2>Sanctified Souls</h2>
-        <div class="credit-line">Design lead: Jessica Huber.</div>
+      <div class="module-text">
+        <p class="module-num">02 — Brand &amp; Advertising</p>
+        <h2>Brands that earn the second look.</h2>
+        <p class="module-sub">
+          Visual identity systems, packaging, and advertising campaigns for
+          consumer brands. Password protected &mdash; request access by email.
+        </p>
+        <span class="module-cta">Request access</span>
       </div>
-      <p class="section-blurb">
-        Cover art, illustrated devotional plates, book design, and mural work
-        for the Sanctified Souls imprint — including the Bridget, Interior
-        Castle, and Little Way titles, the 8-plate-book series, the Saints ABC
-        primer, and the Our Lady mural project at Lambeth.
-      </p>
-    </div>
+    </a>
 
-    <div class="grid">
-      <!-- Portfolio sanctified-souls-devotional-art -->
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/sanctified-souls-devotional-art/cover.png" alt="Sanctified Souls cover">
-        <figcaption><span class="label">Sanctified Souls</span><span class="meta">Imprint cover</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/sanctified-souls-devotional-art/01.png" alt="Sanctified Souls 01">
-        <figcaption><span class="label">Sanctified Souls</span><span class="meta">Illustrated plate</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/sanctified-souls-devotional-art/02.png" alt="Sanctified Souls 02">
-        <figcaption><span class="label">Sanctified Souls</span><span class="meta">Illustrated plate</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/projects/sanctified-souls-devotional-art/bridget-cover.jpg" alt="Bridget cover">
-        <figcaption><span class="label">Bridget</span><span class="meta">Book cover</span></figcaption>
-      </figure>
-
-      <!-- 8-Plate Book series -->
-      <figure>
-        <img loading="lazy" src="images/new-work/8-plate-book-1.png" alt="8-Plate Book 1">
-        <figcaption><span class="label">8-Plate Book Series</span><span class="meta">Devotional plates</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/8-plate-book-2.png" alt="8-Plate Book 2">
-        <figcaption><span class="label">8-Plate Book Series</span><span class="meta">Devotional plates</span></figcaption>
-      </figure>
-
-      <!-- Sanctified Souls series + Saints ABC -->
-      <figure>
-        <img loading="lazy" src="images/new-work/sanctified-souls-series.png" alt="Sanctified Souls series">
-        <figcaption><span class="label">Sanctified Souls Series</span><span class="meta">Illustrated devotional work</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/saints-abc.png" alt="Saints ABC primer">
-        <figcaption><span class="label">Saints ABC</span><span class="meta">Children's primer</span></figcaption>
-      </figure>
-
-      <!-- Marian / devotional grid-extras -->
-      <figure class="tall">
-        <img loading="lazy" src="images/grid-extras/marian-gold.jpg" alt="Marian gold — Mother of Safekeeping">
-        <figcaption><span class="label">Mother of Safekeeping</span><span class="meta">Devotional illustration</span></figcaption>
-      </figure>
-      <figure class="tall">
-        <img loading="lazy" src="images/grid-extras/m-is-for-mary.jpg" alt="M is for Mary">
-        <figcaption><span class="label">M is for Mary</span><span class="meta">Saints ABC — Marian plate</span></figcaption>
-      </figure>
-
-      <!-- Lambeth Palace mural set -->
-      <figure>
-        <img loading="lazy" src="images/grid-extras/lambeth-hall.jpg" alt="Lambeth Hall">
-        <figcaption><span class="label">Lambeth Palace</span><span class="meta">Our Lady mural — hall</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/grid-extras/lambeth-6.jpg" alt="Lambeth detail">
-        <figcaption><span class="label">Lambeth Palace</span><span class="meta">Our Lady mural — detail</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/grid-extras/lambeth-ceiling.jpg" alt="Lambeth ceiling">
-        <figcaption><span class="label">Lambeth Palace</span><span class="meta">Our Lady mural — ceiling</span></figcaption>
-      </figure>
-
-      <!-- OPTIONAL: Solitary Cup Co coffee packaging (saint-themed)
-           Move to public Work → Brand & Advertising if Jessica prefers.
-           Currently included here because of saint subject matter. -->
-      <figure>
-        <img loading="lazy" src="images/new-work/solitary-cup-st-benedict.webp" alt="Solitary Cup St Benedict">
-        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Benedict — packaging</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/solitary-cup-barth.webp" alt="Solitary Cup Barth">
-        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Bartholomew — packaging</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/solitary-cup-christopher.webp" alt="Solitary Cup Christopher">
-        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Christopher — packaging</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/solitary-cup-drogo.webp" alt="Solitary Cup Drogo">
-        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Drogo — packaging</span></figcaption>
-      </figure>
-      <figure>
-        <img loading="lazy" src="images/new-work/solitary-cup-joe.webp" alt="Solitary Cup Joe">
-        <figcaption><span class="label">Solitary Cup Co.</span><span class="meta">St. Joseph — packaging</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- =================================================================
-       SECTION 2 — CATHOLIC APPS
-       Mockups pulled from your AppStoreMockups folder
-       and project handoff folders (Suscipe, Vox Campanae, Philothea).
-       Source paths assume an `app-mockups/` folder placed next to this HTML
-       containing the renamed mockup files.
-       ================================================================= -->
-  <section class="work-section" id="catholic-apps">
-    <div class="section-header">
-      <div>
-        <div class="section-meta">06 — Devotional Product</div>
-        <h2>Catholic Apps</h2>
-        <div class="credit-line">Design lead: Jessica Huber.</div>
+    <!-- 03 — Email Marketing & Digital (password-protected) -->
+    <a href="/work/email-marketing/" class="module module--gated">
+      <div class="module-image">
+        <img src="images/projects/truck-yard-email-campaigns/cover.png"
+             alt="Email marketing and digital work" loading="lazy">
       </div>
-      <p class="section-blurb">
-        Mobile app design for Catholic devotional iOS projects — including
-        Cor ad Cor (Catholic personality test), Via Virtutum (virtue walk),
-        Suscipe (Ignatian devotional), Vox Campanae (Catholic bells), Philothea
-        (Salesian retreat), Bridget (Imitation of Mary), and Interior Castle
-        (Teresan prayer).
-      </p>
-    </div>
-
-    <!-- Bridget -->
-    <div class="app-group">
-      <h3 class="group-label">Bridget</h3>
-      <p class="group-desc">Devotional app for the 1-year and 12-year prayers of St. Bridget of Sweden — devotion selection, readings, prayer library, and accountability reminders.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/bridget/Bridget1.jpg" alt="Bridget — devotion selection">
-          <figcaption><span class="label">Bridget</span><span class="meta">Devotion selection</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/bridget/Bridget3.jpg" alt="Bridget — readings">
-          <figcaption><span class="label">Bridget</span><span class="meta">Readings</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/bridget/Bridget5.jpg" alt="Bridget — prayer library">
-          <figcaption><span class="label">Bridget</span><span class="meta">Prayer library</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/bridget/Bridget8.jpg" alt="Bridget — accountability reminders">
-          <figcaption><span class="label">Bridget</span><span class="meta">Accountability</span></figcaption>
-        </figure>
+      <div class="module-text">
+        <p class="module-num">03 — Email Marketing &amp; Digital</p>
+        <h2>Email that doesn&rsquo;t get archived.</h2>
+        <p class="module-sub">
+          Conversion-focused campaigns and digital experiences across
+          hospitality, fitness, and retail. Password protected &mdash; request
+          access by email.
+        </p>
+        <span class="module-cta">Request access</span>
       </div>
-    </div>
+    </a>
 
-    <!-- Interior Castle -->
-    <div class="app-group">
-      <h3 class="group-label">Interior Castle</h3>
-      <p class="group-desc">St. Teresa of Ávila's Mansions, paced through guided prayer screens.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/interior-castle/interior-castle-01.png" alt="Interior Castle 01">
-          <figcaption><span class="label">Interior Castle</span><span class="meta">Hero</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/interior-castle/interior-castle-03.png" alt="Interior Castle 03">
-          <figcaption><span class="label">Interior Castle</span><span class="meta">Mansion entry</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/interior-castle/interior-castle-06.png" alt="Interior Castle 06">
-          <figcaption><span class="label">Interior Castle</span><span class="meta">Guided prayer</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/interior-castle/interior-castle-09.png" alt="Interior Castle 09">
-          <figcaption><span class="label">Interior Castle</span><span class="meta">Completion</span></figcaption>
-        </figure>
+    <!-- 04 — Sanctified Souls -->
+    <a href="/work/sanctified-souls/" class="module">
+      <div class="module-image">
+        <img src="images/projects/sanctified-souls-devotional-art/cover.png"
+             alt="Sanctified Souls devotional brand and apps" loading="lazy">
       </div>
-    </div>
+      <div class="module-text">
+        <p class="module-num">04 — Sanctified Souls</p>
+        <h2>A devotional brand and its apps.</h2>
+        <p class="module-sub">
+          Original Catholic devotional art &mdash; saints, Marian imagery,
+          liturgical pieces &mdash; alongside the family of iOS apps that
+          surface it daily.
+        </p>
+        <span class="module-cta">Explore</span>
+      </div>
+    </a>
 
-    <!-- Sanctified Souls (umbrella app) -->
-    <div class="app-group">
-      <h3 class="group-label">Sanctified Souls</h3>
-      <p class="group-desc">The flagship devotional app — feast days, prayer, and saints library.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/sanctified-souls/AppMockups1.jpg" alt="SS Mockup 1">
-          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Hero</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/sanctified-souls/AppMockups3.jpg" alt="SS Mockup 3">
-          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Feast day</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/sanctified-souls/AppMockups6.jpg" alt="SS Mockup 6">
-          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Saints library</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/sanctified-souls/AppMockups9.jpg" alt="SS Mockup 9">
-          <figcaption><span class="label">Sanctified Souls</span><span class="meta">Calendar</span></figcaption>
-        </figure>
+    <!-- 05 — Illustration & Design -->
+    <a href="/work/illustration-design/" class="module">
+      <div class="module-image">
+        <img src="images/projects/book-covers-publishing/01.jpg"
+             alt="Illustration and design work" loading="lazy">
       </div>
-    </div>
-
-    <!-- Suscipe -->
-    <div class="app-group">
-      <h3 class="group-label">Suscipe</h3>
-      <p class="group-desc">Ignatian devotional — Examen, Suscipe prayer, and end-of-day reflection.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 01 placeholder">
-          <figcaption><span class="label">Suscipe</span><span class="meta">Hero — placeholder (pick a hero shot from your Suscipe project folder)</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 02 placeholder">
-          <figcaption><span class="label">Suscipe</span><span class="meta">Examen — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 03 placeholder">
-          <figcaption><span class="label">Suscipe</span><span class="meta">Prayer — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/suscipe/placeholder.svg" alt="Suscipe 04 placeholder">
-          <figcaption><span class="label">Suscipe</span><span class="meta">Reflection — placeholder</span></figcaption>
-        </figure>
+      <div class="module-text">
+        <p class="module-num">05 — Illustration &amp; Design</p>
+        <h2>Editorial, oracle, fabric, and book.</h2>
+        <p class="module-sub">
+          Original illustration, oracle and zodiac card decks, comic and book
+          covers, and surface-pattern design for fabric.
+        </p>
+        <span class="module-cta">Explore</span>
       </div>
-    </div>
-
-    <!-- Vox Campanae -->
-    <div class="app-group">
-      <h3 class="group-label">Vox Campanae</h3>
-      <p class="group-desc">Catholic bells — Angelus, Compline, and the breathing palette of the day.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 01 placeholder">
-          <figcaption><span class="label">Vox Campanae</span><span class="meta">Hero — placeholder (pick a hero shot from your Vox Campanae project folder)</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 02 placeholder">
-          <figcaption><span class="label">Vox Campanae</span><span class="meta">Angelus — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 03 placeholder">
-          <figcaption><span class="label">Vox Campanae</span><span class="meta">Compline — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/vox-campanae/placeholder.svg" alt="Vox 04 placeholder">
-          <figcaption><span class="label">Vox Campanae</span><span class="meta">Settings — placeholder</span></figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- Philothea -->
-    <div class="app-group">
-      <h3 class="group-label">Philothea</h3>
-      <p class="group-desc">Salesian retreat — 30-day Introduction to the Devout Life, bilingual FR/EN.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/philothea/placeholder.svg" alt="Philothea 01 placeholder">
-          <figcaption><span class="label">Philothea</span><span class="meta">Hero — placeholder (pick a hero shot from your Philothea handoff folder)</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/philothea/placeholder.svg" alt="Philothea 02 placeholder">
-          <figcaption><span class="label">Philothea</span><span class="meta">Day 1 — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/philothea/placeholder.svg" alt="Philothea 03 placeholder">
-          <figcaption><span class="label">Philothea</span><span class="meta">Preparation — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/philothea/placeholder.svg" alt="Philothea 04 placeholder">
-          <figcaption><span class="label">Philothea</span><span class="meta">Examination — placeholder</span></figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- Cor ad Cor -->
-    <div class="app-group">
-      <h3 class="group-label">Cor ad Cor</h3>
-      <p class="group-desc">Catholic personality test — 28 instruments, Soul Profile, and Two Souls Compared.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 01 placeholder">
-          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Hero — placeholder (not surfaced yet — check Orange drive)</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 02 placeholder">
-          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Instrument — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 03 placeholder">
-          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Soul Profile — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/cor-ad-cor/placeholder.svg" alt="Cor ad Cor 04 placeholder">
-          <figcaption><span class="label">Cor ad Cor</span><span class="meta">Two Souls — placeholder</span></figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- Via Virtutum -->
-    <div class="app-group">
-      <h3 class="group-label">Via Virtutum</h3>
-      <p class="group-desc">52-week virtue walk — weekly virtue, daily practice, season ticks Monday.</p>
-      <div class="phone-grid">
-        <figure>
-          <img loading="lazy" src="app-mockups/via-virtutum/placeholder.svg" alt="Via 01 placeholder">
-          <figcaption><span class="label">Via Virtutum</span><span class="meta">Hero — placeholder (not surfaced yet — check Orange drive)</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/via-virtutum/placeholder.svg" alt="Via 02 placeholder">
-          <figcaption><span class="label">Via Virtutum</span><span class="meta">Virtue of the week — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/via-virtutum/placeholder.svg" alt="Via 03 placeholder">
-          <figcaption><span class="label">Via Virtutum</span><span class="meta">Daily practice — placeholder</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="app-mockups/via-virtutum/placeholder.svg" alt="Via 04 placeholder">
-          <figcaption><span class="label">Via Virtutum</span><span class="meta">Season — placeholder</span></figcaption>
-        </figure>
-      </div>
-    </div>
+    </a>
 
   </section>
 
