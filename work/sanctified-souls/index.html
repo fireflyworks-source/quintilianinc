@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanctified Souls — Quintilian, Inc.</title>
+  <meta name="description" content="A devotional brand and its apps — original Catholic devotional art alongside the family of iOS apps that surface it daily.">
+  <link rel="canonical" href="https://www.quintilianinc.com/work/sanctified-souls/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.quintilianinc.com/work/sanctified-souls/">
+  <meta property="og:title" content="Sanctified Souls — Quintilian, Inc.">
+  <meta property="og:description" content="A devotional brand and its apps — original Catholic devotional art alongside the family of iOS apps that surface it daily.">
+  <meta property="og:image" content="https://www.quintilianinc.com/og/og-work.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:        #ECDFCF;
+      --cream-warm:   #E8DDD0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #2A2A2A;
+      --muted:        #5A5040;
+      --rule:         #D6C9B6;
+      --serif:        "PT Serif", Georgia, "Times New Roman", serif;
+      --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Chrome (matches /work and homepage) */
+    .chrome {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 64px 0;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+    nav.top {
+      display: flex;
+      gap: 34px;
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    nav.top a {
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    nav.top a:hover, nav.top a.current { color: var(--ink); }
+    nav.top a.current { border-bottom: 1px solid var(--ink); }
+
+    /* Section hero */
+    .section-hero {
+      max-width: 980px;
+      margin: 72px auto 60px;
+      padding: 0 64px;
+      text-align: center;
+    }
+    .section-hero .section-meta {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+    .section-hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    .section-hero .blurb {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 24px 64px 0;
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--ink); }
+
+    /* 8-across thumbnail grid */
+    .thumb-grid {
+      max-width: 1400px;
+      margin: 56px auto 80px;
+      padding: 0 64px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+    }
+    .thumb {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--cream-warm);
+      display: block;
+      cursor: zoom-in;
+      border: none;
+      padding: 0;
+      position: relative;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      display: block;
+    }
+    .thumb:hover img { transform: scale(1.06); }
+    .thumb.placeholder {
+      background: var(--cream-warm);
+      cursor: default;
+    }
+    .thumb.placeholder::after {
+      content: 'Paper Reverie\A coming soon';
+      white-space: pre;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: center;
+      color: var(--muted);
+      padding: 12px;
+    }
+
+    /* App label sticker on top-left of each thumb (subtle, optional) */
+    .thumb-app {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: rgba(26, 26, 26, 0.78);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .thumb:hover .thumb-app { opacity: 1; }
+
+    /* Lightbox overlay */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 14, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 40px 80px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 88vh;
+      object-fit: contain;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+      padding: 0 60px;
+    }
+    .lightbox-counter {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .lightbox-btn {
+      position: absolute;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      font-family: inherit;
+    }
+    .lightbox-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.65);
+    }
+    .lightbox-close { top: 24px; right: 24px; }
+    .lightbox-prev  { left: 24px;  top: 50%; transform: translateY(-50%); }
+    .lightbox-next  { right: 24px; top: 50%; transform: translateY(-50%); }
+
+    /* Footer */
+    .foot {
+      border-top: 1px solid var(--rule);
+      padding: 60px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 60px;
+    }
+    .foot .closing {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22px;
+      color: var(--ink);
+      margin: 0 0 18px;
+    }
+    .foot .cta-row { display: flex; gap: 12px; }
+    .pill {
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      transition: opacity 0.2s;
+    }
+    .pill.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+    .pill:hover { opacity: 0.85; }
+    .colophon {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 360px;
+      text-align: right;
+    }
+
+    @media (max-width: 1200px) {
+      .thumb-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .chrome { padding: 24px 32px 0; flex-wrap: wrap; gap: 16px; }
+      .section-hero { padding: 0 32px; margin: 48px auto 40px; }
+      .thumb-grid { padding: 0 32px; grid-template-columns: repeat(4, 1fr); }
+      .foot { flex-direction: column; align-items: flex-start; padding: 40px 32px; }
+      .colophon { text-align: left; max-width: none; }
+      .lightbox { padding: 24px; }
+      .lightbox-btn { width: 40px; height: 40px; }
+    }
+    @media (max-width: 540px) {
+      .thumb-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="chrome">
+    <a href="/" class="logo">Quintilian, Inc.</a>
+    <nav class="top">
+      <a href="/">Home</a>
+      <a href="/work" class="current">Work</a>
+      <a href="/client-work">Client</a>
+      <a href="/speedread">Speed Read</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <a href="/work" class="back-link">&larr; All sections</a>
+
+  <section class="section-hero">
+    <p class="section-meta">04 — Sanctified Souls</p>
+    <h1>A devotional brand and its apps.</h1>
+    <p class="blurb">
+      Original Catholic devotional art &mdash; saints, Marian imagery, and
+      liturgical pieces &mdash; alongside the family of iOS apps that surface
+      it daily. Tap any tile to see it full size.
+    </p>
+  </section>
+
+  <section class="thumb-grid">
+
+    <!-- DEVOTIONAL ART -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/01.png" data-caption="Sanctified Souls — Devotional art">
+      <img src="../images/sanctified-souls/devotional-art/01.png" alt="Devotional art — 01" loading="lazy">
+      <span class="thumb-app">Devotional Art</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/02.png" data-caption="Sanctified Souls — Devotional art">
+      <img src="../images/sanctified-souls/devotional-art/02.png" alt="Devotional art — 02" loading="lazy">
+      <span class="thumb-app">Devotional Art</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/03.png" data-caption="Sanctified Souls — Devotional art">
+      <img src="../images/sanctified-souls/devotional-art/03.png" alt="Devotional art — 03" loading="lazy">
+      <span class="thumb-app">Devotional Art</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/04.jpg" data-caption="Sanctified Souls — Devotional art">
+      <img src="../images/sanctified-souls/devotional-art/04.jpg" alt="Devotional art — 04" loading="lazy">
+      <span class="thumb-app">Devotional Art</span>
+    </button>
+
+    <!-- SANCTIFIED SOULS (flagship app) -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/01.jpg" data-caption="Sanctified Souls — Daily devotional app">
+      <img src="../images/sanctified-souls/sanctified-souls/01.jpg" alt="Sanctified Souls app — 01" loading="lazy">
+      <span class="thumb-app">Sanctified Souls</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/02.jpg" data-caption="Sanctified Souls — Daily devotional app">
+      <img src="../images/sanctified-souls/sanctified-souls/02.jpg" alt="Sanctified Souls app — 02" loading="lazy">
+      <span class="thumb-app">Sanctified Souls</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/03.jpg" data-caption="Sanctified Souls — Daily devotional app">
+      <img src="../images/sanctified-souls/sanctified-souls/03.jpg" alt="Sanctified Souls app — 03" loading="lazy">
+      <span class="thumb-app">Sanctified Souls</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/04.jpg" data-caption="Sanctified Souls — Daily devotional app">
+      <img src="../images/sanctified-souls/sanctified-souls/04.jpg" alt="Sanctified Souls app — 04" loading="lazy">
+      <span class="thumb-app">Sanctified Souls</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/05.jpg" data-caption="Sanctified Souls — Daily devotional app">
+      <img src="../images/sanctified-souls/sanctified-souls/05.jpg" alt="Sanctified Souls app — 05" loading="lazy">
+      <span class="thumb-app">Sanctified Souls</span>
+    </button>
+
+    <!-- BRIDGET -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/01.jpg" data-caption="Bridget — St. Bridget prayers app">
+      <img src="../images/sanctified-souls/bridget/01.jpg" alt="Bridget — 01" loading="lazy">
+      <span class="thumb-app">Bridget</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/02.jpg" data-caption="Bridget — St. Bridget prayers app">
+      <img src="../images/sanctified-souls/bridget/02.jpg" alt="Bridget — 02" loading="lazy">
+      <span class="thumb-app">Bridget</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/03.jpg" data-caption="Bridget — St. Bridget prayers app">
+      <img src="../images/sanctified-souls/bridget/03.jpg" alt="Bridget — 03" loading="lazy">
+      <span class="thumb-app">Bridget</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/04.jpg" data-caption="Bridget — St. Bridget prayers app">
+      <img src="../images/sanctified-souls/bridget/04.jpg" alt="Bridget — 04" loading="lazy">
+      <span class="thumb-app">Bridget</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/05.jpg" data-caption="Bridget — St. Bridget prayers app">
+      <img src="../images/sanctified-souls/bridget/05.jpg" alt="Bridget — 05" loading="lazy">
+      <span class="thumb-app">Bridget</span>
+    </button>
+
+    <!-- SUSCIPE -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/01.jpg" data-caption="Suscipe — Ignatian devotional app">
+      <img src="../images/sanctified-souls/suscipe/01.jpg" alt="Suscipe — 01" loading="lazy">
+      <span class="thumb-app">Suscipe</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/02.jpg" data-caption="Suscipe — Ignatian devotional app">
+      <img src="../images/sanctified-souls/suscipe/02.jpg" alt="Suscipe — 02" loading="lazy">
+      <span class="thumb-app">Suscipe</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/03.jpg" data-caption="Suscipe — Ignatian devotional app">
+      <img src="../images/sanctified-souls/suscipe/03.jpg" alt="Suscipe — 03" loading="lazy">
+      <span class="thumb-app">Suscipe</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/04.jpg" data-caption="Suscipe — Ignatian devotional app">
+      <img src="../images/sanctified-souls/suscipe/04.jpg" alt="Suscipe — 04" loading="lazy">
+      <span class="thumb-app">Suscipe</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/05.jpg" data-caption="Suscipe — Ignatian devotional app">
+      <img src="../images/sanctified-souls/suscipe/05.jpg" alt="Suscipe — 05" loading="lazy">
+      <span class="thumb-app">Suscipe</span>
+    </button>
+
+    <!-- PHILOTHEA -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/01.png" data-caption="Philothea — Salesian retreat app">
+      <img src="../images/sanctified-souls/philothea/01.png" alt="Philothea — 01" loading="lazy">
+      <span class="thumb-app">Philothea</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/02.png" data-caption="Philothea — Salesian retreat app">
+      <img src="../images/sanctified-souls/philothea/02.png" alt="Philothea — 02" loading="lazy">
+      <span class="thumb-app">Philothea</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/03.png" data-caption="Philothea — Salesian retreat app">
+      <img src="../images/sanctified-souls/philothea/03.png" alt="Philothea — 03" loading="lazy">
+      <span class="thumb-app">Philothea</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/04.png" data-caption="Philothea — Salesian retreat app">
+      <img src="../images/sanctified-souls/philothea/04.png" alt="Philothea — 04" loading="lazy">
+      <span class="thumb-app">Philothea</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/05.png" data-caption="Philothea — Salesian retreat app">
+      <img src="../images/sanctified-souls/philothea/05.png" alt="Philothea — 05" loading="lazy">
+      <span class="thumb-app">Philothea</span>
+    </button>
+
+    <!-- COR AD COR -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/01.png" data-caption="Cor ad Cor — Catholic personality test">
+      <img src="../images/sanctified-souls/cor-ad-cor/01.png" alt="Cor ad Cor — 01" loading="lazy">
+      <span class="thumb-app">Cor ad Cor</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/02.png" data-caption="Cor ad Cor — Catholic personality test">
+      <img src="../images/sanctified-souls/cor-ad-cor/02.png" alt="Cor ad Cor — 02" loading="lazy">
+      <span class="thumb-app">Cor ad Cor</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/03.png" data-caption="Cor ad Cor — Catholic personality test">
+      <img src="../images/sanctified-souls/cor-ad-cor/03.png" alt="Cor ad Cor — 03" loading="lazy">
+      <span class="thumb-app">Cor ad Cor</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/04.png" data-caption="Cor ad Cor — Catholic personality test">
+      <img src="../images/sanctified-souls/cor-ad-cor/04.png" alt="Cor ad Cor — 04" loading="lazy">
+      <span class="thumb-app">Cor ad Cor</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/05.png" data-caption="Cor ad Cor — Catholic personality test">
+      <img src="../images/sanctified-souls/cor-ad-cor/05.png" alt="Cor ad Cor — 05" loading="lazy">
+      <span class="thumb-app">Cor ad Cor</span>
+    </button>
+
+    <!-- INTERIOR CASTLE -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/01.png" data-caption="Interior Castle — Teresian devotional">
+      <img src="../images/sanctified-souls/interior-castle/01.png" alt="Interior Castle — 01" loading="lazy">
+      <span class="thumb-app">Interior Castle</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/02.png" data-caption="Interior Castle — Teresian devotional">
+      <img src="../images/sanctified-souls/interior-castle/02.png" alt="Interior Castle — 02" loading="lazy">
+      <span class="thumb-app">Interior Castle</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/03.png" data-caption="Interior Castle — Teresian devotional">
+      <img src="../images/sanctified-souls/interior-castle/03.png" alt="Interior Castle — 03" loading="lazy">
+      <span class="thumb-app">Interior Castle</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/04.png" data-caption="Interior Castle — Teresian devotional">
+      <img src="../images/sanctified-souls/interior-castle/04.png" alt="Interior Castle — 04" loading="lazy">
+      <span class="thumb-app">Interior Castle</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/05.png" data-caption="Interior Castle — Teresian devotional">
+      <img src="../images/sanctified-souls/interior-castle/05.png" alt="Interior Castle — 05" loading="lazy">
+      <span class="thumb-app">Interior Castle</span>
+    </button>
+
+    <!-- VIA VIRTUTUM -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/01.png" data-caption="Via Virtutum — 52-week virtue walk">
+      <img src="../images/sanctified-souls/via-virtutum/01.png" alt="Via Virtutum — 01" loading="lazy">
+      <span class="thumb-app">Via Virtutum</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/02.png" data-caption="Via Virtutum — 52-week virtue walk">
+      <img src="../images/sanctified-souls/via-virtutum/02.png" alt="Via Virtutum — 02" loading="lazy">
+      <span class="thumb-app">Via Virtutum</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/03.png" data-caption="Via Virtutum — 52-week virtue walk">
+      <img src="../images/sanctified-souls/via-virtutum/03.png" alt="Via Virtutum — 03" loading="lazy">
+      <span class="thumb-app">Via Virtutum</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/04.png" data-caption="Via Virtutum — 52-week virtue walk">
+      <img src="../images/sanctified-souls/via-virtutum/04.png" alt="Via Virtutum — 04" loading="lazy">
+      <span class="thumb-app">Via Virtutum</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/05.png" data-caption="Via Virtutum — 52-week virtue walk">
+      <img src="../images/sanctified-souls/via-virtutum/05.png" alt="Via Virtutum — 05" loading="lazy">
+      <span class="thumb-app">Via Virtutum</span>
+    </button>
+
+    <!-- SPES UNICA -->
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/04_station_iii.png" data-caption="Spes Unica — Station III">
+      <img src="../images/sanctified-souls/spes-unica/04_station_iii.png" alt="Spes Unica — Station III" loading="lazy">
+      <span class="thumb-app">Spes Unica</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/05_opening_prayer.png" data-caption="Spes Unica — Opening prayer">
+      <img src="../images/sanctified-souls/spes-unica/05_opening_prayer.png" alt="Spes Unica — Opening prayer" loading="lazy">
+      <span class="thumb-app">Spes Unica</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/06_prayers_archive.png" data-caption="Spes Unica — Prayers archive">
+      <img src="../images/sanctified-souls/spes-unica/06_prayers_archive.png" alt="Spes Unica — Prayers archive" loading="lazy">
+      <span class="thumb-app">Spes Unica</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/09_pilgrimage_tracker.png" data-caption="Spes Unica — Pilgrimage tracker">
+      <img src="../images/sanctified-souls/spes-unica/09_pilgrimage_tracker.png" alt="Spes Unica — Pilgrimage tracker" loading="lazy">
+      <span class="thumb-app">Spes Unica</span>
+    </button>
+    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/10_reflections.png" data-caption="Spes Unica — Reflections">
+      <img src="../images/sanctified-souls/spes-unica/10_reflections.png" alt="Spes Unica — Reflections" loading="lazy">
+      <span class="thumb-app">Spes Unica</span>
+    </button>
+
+  </section>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+    <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous image">&larr;</button>
+    <img class="lightbox-image" id="lightbox-image" alt="">
+    <button class="lightbox-btn lightbox-next" type="button" aria-label="Next image">&rarr;</button>
+    <button class="lightbox-btn lightbox-close" type="button" aria-label="Close">&times;</button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <p class="closing">Have a project in mind?</p>
+      <div class="cta-row">
+        <a href="/" class="pill">Work With Us</a>
+        <a href="/work" class="pill ghost">All Work →</a>
+      </div>
+    </div>
+    <div class="colophon">
+      Quintilian, Inc. — Multidisciplinary creative practice.
+      Selected work shown.
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var thumbs = Array.prototype.slice.call(
+        document.querySelectorAll('.thumb:not(.placeholder)')
+      );
+      var lightbox = document.getElementById('lightbox');
+      var image = document.getElementById('lightbox-image');
+      var caption = document.getElementById('lightbox-caption');
+      var counter = document.getElementById('lightbox-counter');
+      var idx = -1;
+
+      function open(i) {
+        idx = i;
+        var t = thumbs[i];
+        image.src = t.dataset.full;
+        image.alt = t.dataset.caption || '';
+        caption.textContent = t.dataset.caption || '';
+        counter.textContent = (i + 1) + ' / ' + thumbs.length;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        idx = -1;
+      }
+      function prev() { if (idx > 0) open(idx - 1); }
+      function next() { if (idx < thumbs.length - 1) open(idx + 1); }
+
+      thumbs.forEach(function (t, i) {
+        t.addEventListener('click', function (e) {
+          e.preventDefault();
+          open(i);
+        });
+      });
+      document.querySelector('.lightbox-close').addEventListener('click', close);
+      document.querySelector('.lightbox-prev').addEventListener('click', prev);
+      document.querySelector('.lightbox-next').addEventListener('click', next);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowLeft') prev();
+        else if (e.key === 'ArrowRight') next();
+      });
+    })();
+  </script>
+
+</body>
+</html>
