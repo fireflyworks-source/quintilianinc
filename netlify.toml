@@ -1,0 +1,5 @@
+# Static site — no build step. Publish the repo root as-is.
+# Explicit config so Netlify never tries to auto-detect a build command.
+[build]
+  publish = "."
+  command = ""
