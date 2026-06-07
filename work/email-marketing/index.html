@@ -409,14 +409,9 @@
       <div class="gate-request">
         <h2>Request access</h2>
         <p>Leave your email and we&rsquo;ll send the password.</p>
-        <!-- Netlify Forms: submissions land in your Netlify dashboard under
-             Forms > email-access-request. data-netlify="true" wires it up. -->
-        <form name="email-access-request" method="POST" data-netlify="true"
-              netlify-honeypot="bot-field" id="request-form">
-          <input type="hidden" name="form-name" value="email-access-request">
-          <p style="display:none;">
-            <label>Skip if human: <input name="bot-field"></label>
-          </p>
+        <!-- Request form: Netlify form-capture temporarily disabled to unblock
+             deploy; re-enable data-netlify="true" + form-name after deploy is green. -->
+        <form name="email-access-request" id="request-form">
           <div class="gate-field">
             <input type="email" name="email" placeholder="you@example.com"
                    aria-label="Your email" required>
