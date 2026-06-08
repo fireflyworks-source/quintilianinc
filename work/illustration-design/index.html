@@ -239,6 +239,18 @@
       display: block;
     }
     .book-cover:hover img { transform: scale(1.04); }
+    /* NFT: landscape collection cards (OpenSea opengraph 1200x630) */
+    .nft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .nft-card { margin: 0; display: flex; flex-direction: column; }
+    .nft-cover {
+      aspect-ratio: 1200 / 630; width: 100%; overflow: hidden;
+      background: var(--cream-warm); border: none; padding: 0; cursor: zoom-in;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .nft-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+    .nft-cover:hover img { transform: scale(1.04); }
+    @media (max-width: 1100px) { .nft-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .nft-grid { grid-template-columns: 1fr; } }
     .book-meta {
       margin-top: 12px;
       display: flex;
@@ -646,6 +658,93 @@
         <button class="thumb" type="button" data-full="../images/projects/image-comics-variant-covers/cover.jpg" data-caption="Image Comics Variant">
           <img src="../images/projects/image-comics-variant-covers/cover.jpg" alt="Image Comics Variant" loading="lazy">
         </button>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-head"><span class="cat-name">NFT Collections</span><span class="cat-meta">Self-deployed drops on OpenSea</span></div>
+        <div class="nft-grid">
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/totems-of-the-turning-sky.png" data-caption="Totems of the Turning Sky">
+            <img src="../images/nft/totems-of-the-turning-sky.png" alt="Totems of the Turning Sky" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Totems of the Turning Sky</span>
+            <a class="app-store-link" href="https://opensea.io/collection/totems-of-the-turning-sky" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/whisker-wish-a-study-of-creatures-big-and-small.png" data-caption="Whisker Wish">
+            <img src="../images/nft/whisker-wish-a-study-of-creatures-big-and-small.png" alt="Whisker Wish" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Whisker Wish</span>
+            <a class="app-store-link" href="https://opensea.io/collection/whisker-wish-a-study-of-creatures-big-and-small" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/embers-of-the-invisible-self.png" data-caption="Embers of the Invisible Self">
+            <img src="../images/nft/embers-of-the-invisible-self.png" alt="Embers of the Invisible Self" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Embers of the Invisible Self</span>
+            <a class="app-store-link" href="https://opensea.io/collection/embers-of-the-invisible-self" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/ether-divination-tarot.png" data-caption="Ether Divination Tarot">
+            <img src="../images/nft/ether-divination-tarot.png" alt="Ether Divination Tarot" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Ether Divination Tarot</span>
+            <a class="app-store-link" href="https://opensea.io/collection/ether-divination-tarot" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/dreamalittledreamjvb.png" data-caption="Dream a Little Dream">
+            <img src="../images/nft/dreamalittledreamjvb.png" alt="Dream a Little Dream" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Dream a Little Dream</span>
+            <a class="app-store-link" href="https://opensea.io/collection/dreamalittledreamjvb" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/lovers-eyes.png" data-caption="Lover's Eyes">
+            <img src="../images/nft/lovers-eyes.png" alt="Lover's Eyes" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Lover's Eyes</span>
+            <a class="app-store-link" href="https://opensea.io/collection/lovers-eyes" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/jvbsolocosmo.png" data-caption="Solocosmo">
+            <img src="../images/nft/jvbsolocosmo.png" alt="Solocosmo" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Solocosmo</span>
+            <a class="app-store-link" href="https://opensea.io/collection/jvbsolocosmo" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/the-epoch-of-hubert.png" data-caption="The Epoch of Hubert">
+            <img src="../images/nft/the-epoch-of-hubert.png" alt="The Epoch of Hubert" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">The Epoch of Hubert</span>
+            <a class="app-store-link" href="https://opensea.io/collection/the-epoch-of-hubert" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="nft-card">
+          <button class="thumb nft-cover" type="button" data-full="../images/nft/the-repetition-of-mary.png" data-caption="The Repetition of Mary">
+            <img src="../images/nft/the-repetition-of-mary.png" alt="The Repetition of Mary" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">The Repetition of Mary</span>
+            <a class="app-store-link" href="https://opensea.io/collection/the-repetition-of-mary" target="_blank" rel="noopener">View on OpenSea &rarr;</a>
+          </figcaption>
+        </figure>
         </div>
       </div>
 
