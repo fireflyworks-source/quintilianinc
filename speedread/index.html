@@ -171,6 +171,9 @@
 
     footer a { color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
     footer a:hover { color: var(--cream); }
+      /* NO-WIDOW: browser-level widow + orphan prevention */
+    p, li, .blurb, .module-sub, .approach-body, .lead, .hero-credit, .book-title, .cred-list, figcaption, .section-blurb { text-wrap: pretty; }
+    h1, h2, h3, .module-text h2, .section-hero h1, .approach-head { text-wrap: balance; }
   </style>
 </head>
 <body>

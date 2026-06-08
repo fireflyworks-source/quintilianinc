@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sanctified Souls — Quintilian, Inc.</title>
-  <meta name="description" content="A devotional brand and its apps — original Catholic devotional art alongside the family of iOS apps that surface it daily.">
+  <meta name="description" content="A devotional brand and its apps — original Catholic devotional art alongside the family of iOS apps that surface it&nbsp;daily.">
   <link rel="canonical" href="https://www.quintilianinc.com/work/sanctified-souls/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.quintilianinc.com/work/sanctified-souls/">
   <meta property="og:title" content="Sanctified Souls — Quintilian, Inc.">
-  <meta property="og:description" content="A devotional brand and its apps — original Catholic devotional art alongside the family of iOS apps that surface it daily.">
+  <meta property="og:description" content="A devotional brand and its apps — original Catholic devotional art alongside the family of iOS apps that surface it&nbsp;daily.">
   <meta property="og:image" content="https://www.quintilianinc.com/og/og-work.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -350,6 +350,9 @@
     @media (max-width: 540px) {
       .thumb-grid, .app-row { grid-template-columns: repeat(4, 1fr); }
     }
+      /* NO-WIDOW: browser-level widow + orphan prevention */
+    p, li, .blurb, .module-sub, .approach-body, .lead, .hero-credit, .book-title, .cred-list, figcaption, .section-blurb { text-wrap: pretty; }
+    h1, h2, h3, .module-text h2, .section-hero h1, .approach-head { text-wrap: balance; }
   </style>
 </head>
 <body>
