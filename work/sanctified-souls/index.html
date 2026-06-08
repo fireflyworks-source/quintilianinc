@@ -179,6 +179,54 @@
     }
     .thumb:hover .thumb-app { opacity: 1; }
 
+    /* Per-app blocks: a row of mockups + app name + App Store link beneath */
+    .app-sections {
+      max-width: 1400px;
+      margin: 48px auto 80px;
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+    .app-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+    }
+    .app-caption {
+      margin-top: 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--rule);
+      padding-top: 12px;
+    }
+    .app-caption .app-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--ink);
+    }
+    .app-store-link {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: padding 0.2s ease;
+    }
+    .app-store-link:hover { padding-right: 10px; }
+    .app-store-soon {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
     /* Lightbox overlay */
     .lightbox {
       position: fixed;
@@ -286,19 +334,21 @@
     }
 
     @media (max-width: 1200px) {
-      .thumb-grid { grid-template-columns: repeat(6, 1fr); }
+      .thumb-grid, .app-row { grid-template-columns: repeat(6, 1fr); }
     }
     @media (max-width: 900px) {
       .chrome { padding: 24px 32px 0; flex-wrap: wrap; gap: 16px; }
       .section-hero { padding: 0 32px; margin: 48px auto 40px; }
       .thumb-grid { padding: 0 32px; grid-template-columns: repeat(4, 1fr); }
+      .app-sections { padding: 0 32px; }
+      .app-row { grid-template-columns: repeat(4, 1fr); }
       .foot { flex-direction: column; align-items: flex-start; padding: 40px 32px; }
       .colophon { text-align: left; max-width: none; }
       .lightbox { padding: 24px; }
       .lightbox-btn { width: 40px; height: 40px; }
     }
     @media (max-width: 540px) {
-      .thumb-grid { grid-template-columns: repeat(3, 1fr); }
+      .thumb-grid, .app-row { grid-template-columns: repeat(4, 1fr); }
     }
   </style>
 </head>
@@ -327,203 +377,294 @@
     </p>
   </section>
 
-  <section class="thumb-grid">
+  <section class="app-sections">
 
-    <!-- DEVOTIONAL ART -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/01.png" data-caption="Sanctified Souls — Devotional art">
-      <img src="../images/sanctified-souls/devotional-art/01.png" alt="Devotional art — 01" loading="lazy">
-      <span class="thumb-app">Devotional Art</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/02.png" data-caption="Sanctified Souls — Devotional art">
-      <img src="../images/sanctified-souls/devotional-art/02.png" alt="Devotional art — 02" loading="lazy">
-      <span class="thumb-app">Devotional Art</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/03.png" data-caption="Sanctified Souls — Devotional art">
-      <img src="../images/sanctified-souls/devotional-art/03.png" alt="Devotional art — 03" loading="lazy">
-      <span class="thumb-app">Devotional Art</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/04.jpg" data-caption="Sanctified Souls — Devotional art">
-      <img src="../images/sanctified-souls/devotional-art/04.jpg" alt="Devotional art — 04" loading="lazy">
-      <span class="thumb-app">Devotional Art</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/01.png" data-caption="Devotional Art">
+          <img src="../images/sanctified-souls/devotional-art/01.png" alt="Devotional Art — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/02.png" data-caption="Devotional Art">
+          <img src="../images/sanctified-souls/devotional-art/02.png" alt="Devotional Art — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/03.png" data-caption="Devotional Art">
+          <img src="../images/sanctified-souls/devotional-art/03.png" alt="Devotional Art — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/devotional-art/04.jpg" data-caption="Devotional Art">
+          <img src="../images/sanctified-souls/devotional-art/04.jpg" alt="Devotional Art — 04" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Devotional Art</span>
+          <span class="app-store-soon">Original art across the apps</span>
+        </div>
+      </div>
 
-    <!-- SANCTIFIED SOULS (flagship app) -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/01.jpg" data-caption="Sanctified Souls — Daily devotional app">
-      <img src="../images/sanctified-souls/sanctified-souls/01.jpg" alt="Sanctified Souls app — 01" loading="lazy">
-      <span class="thumb-app">Sanctified Souls</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/02.jpg" data-caption="Sanctified Souls — Daily devotional app">
-      <img src="../images/sanctified-souls/sanctified-souls/02.jpg" alt="Sanctified Souls app — 02" loading="lazy">
-      <span class="thumb-app">Sanctified Souls</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/03.jpg" data-caption="Sanctified Souls — Daily devotional app">
-      <img src="../images/sanctified-souls/sanctified-souls/03.jpg" alt="Sanctified Souls app — 03" loading="lazy">
-      <span class="thumb-app">Sanctified Souls</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/04.jpg" data-caption="Sanctified Souls — Daily devotional app">
-      <img src="../images/sanctified-souls/sanctified-souls/04.jpg" alt="Sanctified Souls app — 04" loading="lazy">
-      <span class="thumb-app">Sanctified Souls</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/05.jpg" data-caption="Sanctified Souls — Daily devotional app">
-      <img src="../images/sanctified-souls/sanctified-souls/05.jpg" alt="Sanctified Souls app — 05" loading="lazy">
-      <span class="thumb-app">Sanctified Souls</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/01.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/01.jpg" alt="Sanctified Souls — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/02.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/02.jpg" alt="Sanctified Souls — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/03.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/03.jpg" alt="Sanctified Souls — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/04.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/04.jpg" alt="Sanctified Souls — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/05.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/05.jpg" alt="Sanctified Souls — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/06.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/06.jpg" alt="Sanctified Souls — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/07.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/07.jpg" alt="Sanctified Souls — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/sanctified-souls/08.jpg" data-caption="Sanctified Souls">
+          <img src="../images/sanctified-souls/sanctified-souls/08.jpg" alt="Sanctified Souls — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Sanctified Souls</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6761968090" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- BRIDGET -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/01.jpg" data-caption="Bridget — St. Bridget prayers app">
-      <img src="../images/sanctified-souls/bridget/01.jpg" alt="Bridget — 01" loading="lazy">
-      <span class="thumb-app">Bridget</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/02.jpg" data-caption="Bridget — St. Bridget prayers app">
-      <img src="../images/sanctified-souls/bridget/02.jpg" alt="Bridget — 02" loading="lazy">
-      <span class="thumb-app">Bridget</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/03.jpg" data-caption="Bridget — St. Bridget prayers app">
-      <img src="../images/sanctified-souls/bridget/03.jpg" alt="Bridget — 03" loading="lazy">
-      <span class="thumb-app">Bridget</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/04.jpg" data-caption="Bridget — St. Bridget prayers app">
-      <img src="../images/sanctified-souls/bridget/04.jpg" alt="Bridget — 04" loading="lazy">
-      <span class="thumb-app">Bridget</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/05.jpg" data-caption="Bridget — St. Bridget prayers app">
-      <img src="../images/sanctified-souls/bridget/05.jpg" alt="Bridget — 05" loading="lazy">
-      <span class="thumb-app">Bridget</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/01.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/01.jpg" alt="Bridget — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/02.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/02.jpg" alt="Bridget — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/03.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/03.jpg" alt="Bridget — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/04.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/04.jpg" alt="Bridget — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/05.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/05.jpg" alt="Bridget — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/06.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/06.jpg" alt="Bridget — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/07.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/07.jpg" alt="Bridget — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/bridget/08.jpg" data-caption="Bridget">
+          <img src="../images/sanctified-souls/bridget/08.jpg" alt="Bridget — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Bridget</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6762072415" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- SUSCIPE -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/01.jpg" data-caption="Suscipe — Ignatian devotional app">
-      <img src="../images/sanctified-souls/suscipe/01.jpg" alt="Suscipe — 01" loading="lazy">
-      <span class="thumb-app">Suscipe</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/02.jpg" data-caption="Suscipe — Ignatian devotional app">
-      <img src="../images/sanctified-souls/suscipe/02.jpg" alt="Suscipe — 02" loading="lazy">
-      <span class="thumb-app">Suscipe</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/03.jpg" data-caption="Suscipe — Ignatian devotional app">
-      <img src="../images/sanctified-souls/suscipe/03.jpg" alt="Suscipe — 03" loading="lazy">
-      <span class="thumb-app">Suscipe</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/04.jpg" data-caption="Suscipe — Ignatian devotional app">
-      <img src="../images/sanctified-souls/suscipe/04.jpg" alt="Suscipe — 04" loading="lazy">
-      <span class="thumb-app">Suscipe</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/05.jpg" data-caption="Suscipe — Ignatian devotional app">
-      <img src="../images/sanctified-souls/suscipe/05.jpg" alt="Suscipe — 05" loading="lazy">
-      <span class="thumb-app">Suscipe</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/01.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/01.jpg" alt="Suscipe — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/02.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/02.jpg" alt="Suscipe — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/03.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/03.jpg" alt="Suscipe — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/04.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/04.jpg" alt="Suscipe — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/05.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/05.jpg" alt="Suscipe — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/06.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/06.jpg" alt="Suscipe — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/07.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/07.jpg" alt="Suscipe — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/suscipe/08.jpg" data-caption="Suscipe">
+          <img src="../images/sanctified-souls/suscipe/08.jpg" alt="Suscipe — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Suscipe</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6768088752" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- PHILOTHEA -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/01.png" data-caption="Philothea — Salesian retreat app">
-      <img src="../images/sanctified-souls/philothea/01.png" alt="Philothea — 01" loading="lazy">
-      <span class="thumb-app">Philothea</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/02.png" data-caption="Philothea — Salesian retreat app">
-      <img src="../images/sanctified-souls/philothea/02.png" alt="Philothea — 02" loading="lazy">
-      <span class="thumb-app">Philothea</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/03.png" data-caption="Philothea — Salesian retreat app">
-      <img src="../images/sanctified-souls/philothea/03.png" alt="Philothea — 03" loading="lazy">
-      <span class="thumb-app">Philothea</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/04.png" data-caption="Philothea — Salesian retreat app">
-      <img src="../images/sanctified-souls/philothea/04.png" alt="Philothea — 04" loading="lazy">
-      <span class="thumb-app">Philothea</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/05.png" data-caption="Philothea — Salesian retreat app">
-      <img src="../images/sanctified-souls/philothea/05.png" alt="Philothea — 05" loading="lazy">
-      <span class="thumb-app">Philothea</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/01.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/01.png" alt="Philothea — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/02.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/02.png" alt="Philothea — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/03.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/03.png" alt="Philothea — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/04.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/04.png" alt="Philothea — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/05.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/05.png" alt="Philothea — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/06.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/06.png" alt="Philothea — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/07.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/07.png" alt="Philothea — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/philothea/08.png" data-caption="Philothea">
+          <img src="../images/sanctified-souls/philothea/08.png" alt="Philothea — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Philothea</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6772639935" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- COR AD COR -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/01.png" data-caption="Cor ad Cor — Catholic personality test">
-      <img src="../images/sanctified-souls/cor-ad-cor/01.png" alt="Cor ad Cor — 01" loading="lazy">
-      <span class="thumb-app">Cor ad Cor</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/02.png" data-caption="Cor ad Cor — Catholic personality test">
-      <img src="../images/sanctified-souls/cor-ad-cor/02.png" alt="Cor ad Cor — 02" loading="lazy">
-      <span class="thumb-app">Cor ad Cor</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/03.png" data-caption="Cor ad Cor — Catholic personality test">
-      <img src="../images/sanctified-souls/cor-ad-cor/03.png" alt="Cor ad Cor — 03" loading="lazy">
-      <span class="thumb-app">Cor ad Cor</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/04.png" data-caption="Cor ad Cor — Catholic personality test">
-      <img src="../images/sanctified-souls/cor-ad-cor/04.png" alt="Cor ad Cor — 04" loading="lazy">
-      <span class="thumb-app">Cor ad Cor</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/05.png" data-caption="Cor ad Cor — Catholic personality test">
-      <img src="../images/sanctified-souls/cor-ad-cor/05.png" alt="Cor ad Cor — 05" loading="lazy">
-      <span class="thumb-app">Cor ad Cor</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/01.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/01.png" alt="Cor ad Cor — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/02.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/02.png" alt="Cor ad Cor — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/03.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/03.png" alt="Cor ad Cor — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/04.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/04.png" alt="Cor ad Cor — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/05.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/05.png" alt="Cor ad Cor — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/06.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/06.png" alt="Cor ad Cor — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/07.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/07.png" alt="Cor ad Cor — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/cor-ad-cor/08.png" data-caption="Cor ad Cor">
+          <img src="../images/sanctified-souls/cor-ad-cor/08.png" alt="Cor ad Cor — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Cor ad Cor</span>
+          <span class="app-store-soon">Coming soon to the App Store</span>
+        </div>
+      </div>
 
-    <!-- INTERIOR CASTLE -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/01.png" data-caption="Interior Castle — Teresian devotional">
-      <img src="../images/sanctified-souls/interior-castle/01.png" alt="Interior Castle — 01" loading="lazy">
-      <span class="thumb-app">Interior Castle</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/02.png" data-caption="Interior Castle — Teresian devotional">
-      <img src="../images/sanctified-souls/interior-castle/02.png" alt="Interior Castle — 02" loading="lazy">
-      <span class="thumb-app">Interior Castle</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/03.png" data-caption="Interior Castle — Teresian devotional">
-      <img src="../images/sanctified-souls/interior-castle/03.png" alt="Interior Castle — 03" loading="lazy">
-      <span class="thumb-app">Interior Castle</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/04.png" data-caption="Interior Castle — Teresian devotional">
-      <img src="../images/sanctified-souls/interior-castle/04.png" alt="Interior Castle — 04" loading="lazy">
-      <span class="thumb-app">Interior Castle</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/05.png" data-caption="Interior Castle — Teresian devotional">
-      <img src="../images/sanctified-souls/interior-castle/05.png" alt="Interior Castle — 05" loading="lazy">
-      <span class="thumb-app">Interior Castle</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/01.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/01.png" alt="Interior Castle — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/02.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/02.png" alt="Interior Castle — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/03.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/03.png" alt="Interior Castle — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/04.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/04.png" alt="Interior Castle — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/05.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/05.png" alt="Interior Castle — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/06.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/06.png" alt="Interior Castle — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/07.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/07.png" alt="Interior Castle — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/interior-castle/08.png" data-caption="Interior Castle">
+          <img src="../images/sanctified-souls/interior-castle/08.png" alt="Interior Castle — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Interior Castle</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6770142997" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- VIA VIRTUTUM -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/01.png" data-caption="Via Virtutum — 52-week virtue walk">
-      <img src="../images/sanctified-souls/via-virtutum/01.png" alt="Via Virtutum — 01" loading="lazy">
-      <span class="thumb-app">Via Virtutum</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/02.png" data-caption="Via Virtutum — 52-week virtue walk">
-      <img src="../images/sanctified-souls/via-virtutum/02.png" alt="Via Virtutum — 02" loading="lazy">
-      <span class="thumb-app">Via Virtutum</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/03.png" data-caption="Via Virtutum — 52-week virtue walk">
-      <img src="../images/sanctified-souls/via-virtutum/03.png" alt="Via Virtutum — 03" loading="lazy">
-      <span class="thumb-app">Via Virtutum</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/04.png" data-caption="Via Virtutum — 52-week virtue walk">
-      <img src="../images/sanctified-souls/via-virtutum/04.png" alt="Via Virtutum — 04" loading="lazy">
-      <span class="thumb-app">Via Virtutum</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/05.png" data-caption="Via Virtutum — 52-week virtue walk">
-      <img src="../images/sanctified-souls/via-virtutum/05.png" alt="Via Virtutum — 05" loading="lazy">
-      <span class="thumb-app">Via Virtutum</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/01.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/01.png" alt="Via Virtutum — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/02.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/02.png" alt="Via Virtutum — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/03.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/03.png" alt="Via Virtutum — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/04.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/04.png" alt="Via Virtutum — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/05.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/05.png" alt="Via Virtutum — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/06.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/06.png" alt="Via Virtutum — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/07.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/07.png" alt="Via Virtutum — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/via-virtutum/08.png" data-caption="Via Virtutum">
+          <img src="../images/sanctified-souls/via-virtutum/08.png" alt="Via Virtutum — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Via Virtutum</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6763471717" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- SPES UNICA -->
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/04_station_iii.png" data-caption="Spes Unica — Station III">
-      <img src="../images/sanctified-souls/spes-unica/04_station_iii.png" alt="Spes Unica — Station III" loading="lazy">
-      <span class="thumb-app">Spes Unica</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/05_opening_prayer.png" data-caption="Spes Unica — Opening prayer">
-      <img src="../images/sanctified-souls/spes-unica/05_opening_prayer.png" alt="Spes Unica — Opening prayer" loading="lazy">
-      <span class="thumb-app">Spes Unica</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/06_prayers_archive.png" data-caption="Spes Unica — Prayers archive">
-      <img src="../images/sanctified-souls/spes-unica/06_prayers_archive.png" alt="Spes Unica — Prayers archive" loading="lazy">
-      <span class="thumb-app">Spes Unica</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/09_pilgrimage_tracker.png" data-caption="Spes Unica — Pilgrimage tracker">
-      <img src="../images/sanctified-souls/spes-unica/09_pilgrimage_tracker.png" alt="Spes Unica — Pilgrimage tracker" loading="lazy">
-      <span class="thumb-app">Spes Unica</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/10_reflections.png" data-caption="Spes Unica — Reflections">
-      <img src="../images/sanctified-souls/spes-unica/10_reflections.png" alt="Spes Unica — Reflections" loading="lazy">
-      <span class="thumb-app">Spes Unica</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/01.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/01.png" alt="Spes Unica — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/02.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/02.png" alt="Spes Unica — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/03.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/03.png" alt="Spes Unica — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/04.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/04.png" alt="Spes Unica — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/05.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/05.png" alt="Spes Unica — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/06.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/06.png" alt="Spes Unica — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/07.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/07.png" alt="Spes Unica — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/sanctified-souls/spes-unica/08.png" data-caption="Spes Unica">
+          <img src="../images/sanctified-souls/spes-unica/08.png" alt="Spes Unica — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Spes Unica</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6775229392" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-  </section>
+      </section>
 
   <!-- Lightbox overlay -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
