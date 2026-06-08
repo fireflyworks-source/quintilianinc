@@ -179,6 +179,106 @@
     }
     .thumb:hover .thumb-app { opacity: 1; }
 
+    /* Divided category blocks */
+    .app-sections {
+      max-width: 1400px;
+      margin: 48px auto 80px;
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+    .cat-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 12px;
+      margin-bottom: 22px;
+    }
+    .cat-name {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 34px);
+      color: var(--ink);
+    }
+    .cat-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .app-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+    }
+    /* Book-cover grids (portrait covers + title + Amazon link) */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 22px;
+    }
+    .book-card { margin: 0; display: flex; flex-direction: column; }
+    .book-cover {
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      overflow: hidden;
+      background: var(--cream-warm);
+      border: none;
+      padding: 0;
+      cursor: zoom-in;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    .book-cover:hover img { transform: scale(1.04); }
+    .book-meta {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .book-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .app-store-link {
+      font-family: var(--sans);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      align-self: flex-start;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .app-store-link:hover { color: var(--ink); border-color: var(--ink); }
+
+    @media (max-width: 1100px) {
+      .book-grid { grid-template-columns: repeat(5, 1fr); }
+      .app-row { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .app-sections { padding: 0 32px; }
+      .book-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .app-row { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 460px) {
+      .book-grid { grid-template-columns: repeat(2, 1fr); }
+      .app-row { grid-template-columns: repeat(3, 1fr); }
+    }
+
     /* Lightbox overlay */
     .lightbox {
       position: fixed;
@@ -327,137 +427,225 @@
     </p>
   </section>
 
-  <section class="thumb-grid">
+  <section class="app-sections">
 
-    <!-- BOOK COVERS & PUBLISHING -->
-    <button class="thumb" type="button" data-full="../images/projects/book-covers-publishing/01.jpg" data-caption="Book Covers & Publishing">
-      <img src="../images/projects/book-covers-publishing/01.jpg" alt="Book Covers & Publishing — 01" loading="lazy">
-      <span class="thumb-app">Book Covers & Publishing</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/book-covers-publishing/02.jpg" data-caption="Book Covers & Publishing">
-      <img src="../images/projects/book-covers-publishing/02.jpg" alt="Book Covers & Publishing — 02" loading="lazy">
-      <span class="thumb-app">Book Covers & Publishing</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/book-covers-publishing/03.jpg" data-caption="Book Covers & Publishing">
-      <img src="../images/projects/book-covers-publishing/03.jpg" alt="Book Covers & Publishing — 03" loading="lazy">
-      <span class="thumb-app">Book Covers & Publishing</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/book-covers-publishing/04.jpg" data-caption="Book Covers & Publishing">
-      <img src="../images/projects/book-covers-publishing/04.jpg" alt="Book Covers & Publishing — 04" loading="lazy">
-      <span class="thumb-app">Book Covers & Publishing</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/book-covers-publishing/05.jpg" data-caption="Book Covers & Publishing">
-      <img src="../images/projects/book-covers-publishing/05.jpg" alt="Book Covers & Publishing — 05" loading="lazy">
-      <span class="thumb-app">Book Covers & Publishing</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/book-covers-publishing/cover.jpg" data-caption="Book Covers & Publishing">
-      <img src="../images/projects/book-covers-publishing/cover.jpg" alt="Book Covers & Publishing — 06" loading="lazy">
-      <span class="thumb-app">Book Covers & Publishing</span>
-    </button>
+      <div class="cat-block">
+        <div class="cat-head"><span class="cat-name">Book Covers</span><span class="cat-meta">The Lantern Library &mdash; illustrated classics</span></div>
+        <div class="book-grid">
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/alice.jpg" data-caption="Alice's Adventures in Wonderland">
+            <img src="../images/books/covers/alice.jpg" alt="Alice's Adventures in Wonderland" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Alice's Adventures in Wonderland</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H3PJ15ZK" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/peter-wendy.jpg" data-caption="Peter and Wendy">
+            <img src="../images/books/covers/peter-wendy.jpg" alt="Peter and Wendy" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Peter and Wendy</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H3HMDH41" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/oz.jpg" data-caption="The Complete Oz, Volume I">
+            <img src="../images/books/covers/oz.jpg" alt="The Complete Oz, Volume I" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">The Complete Oz, Volume I</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H4CLC4V7" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/rebecca.jpg" data-caption="Rebecca of Sunnybrook Farm">
+            <img src="../images/books/covers/rebecca.jpg" alt="Rebecca of Sunnybrook Farm" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Rebecca of Sunnybrook Farm</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H4CWC9PD" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/summer.jpg" data-caption="Summer">
+            <img src="../images/books/covers/summer.jpg" alt="Summer" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Summer</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H4CWW3VV" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/carmilla.jpg" data-caption="Carmilla">
+            <img src="../images/books/covers/carmilla.jpg" alt="Carmilla" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Carmilla</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H4D2B52R" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/covers/fairy-treasury.jpg" data-caption="An Illustrated Treasury of Fairy Tales">
+            <img src="../images/books/covers/fairy-treasury.jpg" alt="An Illustrated Treasury of Fairy Tales" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">An Illustrated Treasury of Fairy Tales</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H3ZSQHVX" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
 
-    <!-- BLUE ANGEL ORACLE DECKS -->
-    <button class="thumb" type="button" data-full="../images/projects/blue-angel-oracle-decks/cover.jpg" data-caption="Blue Angel Oracle Decks">
-      <img src="../images/projects/blue-angel-oracle-decks/cover.jpg" alt="Blue Angel Oracle Decks — 01" loading="lazy">
-      <span class="thumb-app">Blue Angel Oracle Decks</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/blue-angel-oracle-decks/02.jpg" data-caption="Blue Angel Oracle Decks">
-      <img src="../images/projects/blue-angel-oracle-decks/02.jpg" alt="Blue Angel Oracle Decks — 02" loading="lazy">
-      <span class="thumb-app">Blue Angel Oracle Decks</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/blue-angel-oracle-decks/03.jpg" data-caption="Blue Angel Oracle Decks">
-      <img src="../images/projects/blue-angel-oracle-decks/03.jpg" alt="Blue Angel Oracle Decks — 03" loading="lazy">
-      <span class="thumb-app">Blue Angel Oracle Decks</span>
-    </button>
+      <div class="cat-block">
+        <div class="cat-head"><span class="cat-name">Sanctified Souls Publications</span><span class="cat-meta">Devotional books</span></div>
+        <div class="book-grid">
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/year-of-roses.jpg" data-caption="A Year of Roses: The Little Way">
+            <img src="../images/books/sspubs/year-of-roses.jpg" alt="A Year of Roses: The Little Way" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">A Year of Roses: The Little Way</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H291R5YN" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/suscipe-book.jpg" data-caption="Suscipe: An Ignatian Prayer Book">
+            <img src="../images/books/sspubs/suscipe-book.jpg" alt="Suscipe: An Ignatian Prayer Book" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Suscipe: An Ignatian Prayer Book</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H23BNK2F" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/bridget-book.jpg" data-caption="The Prayers of Saint Bridget">
+            <img src="../images/books/sspubs/bridget-book.jpg" alt="The Prayers of Saint Bridget" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">The Prayers of Saint Bridget</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H2425J5R" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/interior-castle-book.jpg" data-caption="The Interior Castle: Las Moradas">
+            <img src="../images/books/sspubs/interior-castle-book.jpg" alt="The Interior Castle: Las Moradas" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">The Interior Castle: Las Moradas</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H2PFHX4R" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/via-virtutum-book.jpg" data-caption="Via Virtutum">
+            <img src="../images/books/sspubs/via-virtutum-book.jpg" alt="Via Virtutum" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Via Virtutum</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H35SQRC6" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/spes-unica-book.jpg" data-caption="Spes Unica: Stations of the Cross">
+            <img src="../images/books/sspubs/spes-unica-book.jpg" alt="Spes Unica: Stations of the Cross" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Spes Unica: Stations of the Cross</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H46RLLGH" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/philothea-book.jpg" data-caption="Philothea: A Salesian Retreat">
+            <img src="../images/books/sspubs/philothea-book.jpg" alt="Philothea: A Salesian Retreat" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">Philothea: A Salesian Retreat</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0H46BP3MP" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        <figure class="book-card">
+          <button class="thumb book-cover" type="button" data-full="../images/books/sspubs/8-plate.jpg" data-caption="The 8 Plate">
+            <img src="../images/books/sspubs/8-plate.jpg" alt="The 8 Plate" loading="lazy">
+          </button>
+          <figcaption class="book-meta">
+            <span class="book-title">The 8 Plate</span>
+            <a class="app-store-link" href="https://www.amazon.com/dp/B0GG9X2YLT" target="_blank" rel="noopener">View on Amazon &rarr;</a>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
 
-    <!-- ZODIAC ORACLE DECK -->
-    <button class="thumb" type="button" data-full="../images/projects/zodiac-oracle-deck/cover.png" data-caption="Zodiac Oracle Deck">
-      <img src="../images/projects/zodiac-oracle-deck/cover.png" alt="Zodiac Oracle Deck — 01" loading="lazy">
-      <span class="thumb-app">Zodiac Oracle Deck</span>
-    </button>
+      <div class="cat-block">
+        <div class="cat-head"><span class="cat-name">Blue Angel Oracle Sets</span><span class="cat-meta">Oracle &amp; zodiac card decks</span></div>
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/projects/blue-angel-oracle-decks/cover.jpg" data-caption="Blue Angel Oracle">
+          <img src="../images/projects/blue-angel-oracle-decks/cover.jpg" alt="Blue Angel Oracle" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/blue-angel-oracle-decks/02.jpg" data-caption="Blue Angel Oracle">
+          <img src="../images/projects/blue-angel-oracle-decks/02.jpg" alt="Blue Angel Oracle" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/blue-angel-oracle-decks/03.jpg" data-caption="Blue Angel Oracle">
+          <img src="../images/projects/blue-angel-oracle-decks/03.jpg" alt="Blue Angel Oracle" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/zodiac-oracle-deck/cover.png" data-caption="Zodiac Oracle">
+          <img src="../images/projects/zodiac-oracle-deck/cover.png" alt="Zodiac Oracle" loading="lazy">
+        </button>
+        </div>
+      </div>
 
-    <!-- FABRIC DESIGN COLLECTIONS -->
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/cover.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/cover.png" alt="Fabric Design Collections — 01" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/01.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/01.png" alt="Fabric Design Collections — 02" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/02.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/02.png" alt="Fabric Design Collections — 03" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/03.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/03.png" alt="Fabric Design Collections — 04" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/04.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/04.png" alt="Fabric Design Collections — 05" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/05.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/05.png" alt="Fabric Design Collections — 06" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/06.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/06.png" alt="Fabric Design Collections — 07" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/07.png" data-caption="Fabric Design Collections">
-      <img src="../images/projects/fabric-design-collections/07.png" alt="Fabric Design Collections — 08" loading="lazy">
-      <span class="thumb-app">Fabric Design Collections</span>
-    </button>
+      <div class="cat-block">
+        <div class="cat-head"><span class="cat-name">Ebbs Fabrics</span><span class="cat-meta">Surface-pattern &amp; fabric design</span></div>
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/cover.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/cover.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/01.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/01.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/02.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/02.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/03.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/03.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/04.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/04.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/05.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/05.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/06.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/06.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/fabric-design-collections/07.png" data-caption="Ebbs Fabrics">
+          <img src="../images/projects/fabric-design-collections/07.png" alt="Ebbs Fabrics" loading="lazy">
+        </button>
+        </div>
+      </div>
 
-    <!-- COMIC COVERS -->
-    <button class="thumb" type="button" data-full="../images/projects/comic-covers/cover.jpg" data-caption="Comic Covers">
-      <img src="../images/projects/comic-covers/cover.jpg" alt="Comic Covers — 01" loading="lazy">
-      <span class="thumb-app">Comic Covers</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/comic-covers/01.jpg" data-caption="Comic Covers">
-      <img src="../images/projects/comic-covers/01.jpg" alt="Comic Covers — 02" loading="lazy">
-      <span class="thumb-app">Comic Covers</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/comic-covers/02.jpg" data-caption="Comic Covers">
-      <img src="../images/projects/comic-covers/02.jpg" alt="Comic Covers — 03" loading="lazy">
-      <span class="thumb-app">Comic Covers</span>
-    </button>
+      <div class="cat-block">
+        <div class="cat-head"><span class="cat-name">Comic Book Cover Work</span><span class="cat-meta">Covers &amp; variants</span></div>
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/projects/comic-covers/cover.jpg" data-caption="Comic Cover">
+          <img src="../images/projects/comic-covers/cover.jpg" alt="Comic Cover" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/comic-covers/01.jpg" data-caption="Comic Cover">
+          <img src="../images/projects/comic-covers/01.jpg" alt="Comic Cover" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/comic-covers/02.jpg" data-caption="Comic Cover">
+          <img src="../images/projects/comic-covers/02.jpg" alt="Comic Cover" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/aftershock-comics-covers/cover.jpg" data-caption="AfterShock Comics">
+          <img src="../images/projects/aftershock-comics-covers/cover.jpg" alt="AfterShock Comics" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/projects/image-comics-variant-covers/cover.jpg" data-caption="Image Comics Variant">
+          <img src="../images/projects/image-comics-variant-covers/cover.jpg" alt="Image Comics Variant" loading="lazy">
+        </button>
+        </div>
+      </div>
 
-    <!-- AFTERSHOCK COMICS COVERS -->
-    <button class="thumb" type="button" data-full="../images/projects/aftershock-comics-covers/cover.jpg" data-caption="AfterShock Comics Covers">
-      <img src="../images/projects/aftershock-comics-covers/cover.jpg" alt="AfterShock Comics Covers — 01" loading="lazy">
-      <span class="thumb-app">AfterShock Comics Covers</span>
-    </button>
-
-    <!-- IMAGE COMICS VARIANT COVERS -->
-    <button class="thumb" type="button" data-full="../images/projects/image-comics-variant-covers/cover.jpg" data-caption="Image Comics Variant Covers">
-      <img src="../images/projects/image-comics-variant-covers/cover.jpg" alt="Image Comics Variant Covers — 01" loading="lazy">
-      <span class="thumb-app">Image Comics Variant Covers</span>
-    </button>
-
-    <!-- GREYSTONE VALLEY SERIES -->
-    <button class="thumb" type="button" data-full="../images/projects/greystone-valley-series/cover.jpg" data-caption="Greystone Valley Series">
-      <img src="../images/projects/greystone-valley-series/cover.jpg" alt="Greystone Valley Series — 01" loading="lazy">
-      <span class="thumb-app">Greystone Valley Series</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/greystone-valley-series/02.jpg" data-caption="Greystone Valley Series">
-      <img src="../images/projects/greystone-valley-series/02.jpg" alt="Greystone Valley Series — 02" loading="lazy">
-      <span class="thumb-app">Greystone Valley Series</span>
-    </button>
-
-    <!-- SALT-LACED PAGES -->
-    <button class="thumb" type="button" data-full="../images/projects/salt-laced-pages-book/cover.png" data-caption="Salt-Laced Pages">
-      <img src="../images/projects/salt-laced-pages-book/cover.png" alt="Salt-Laced Pages — 01" loading="lazy">
-      <span class="thumb-app">Salt-Laced Pages</span>
-    </button>
-
-    <!-- WHISKER WISH -->
-    <button class="thumb" type="button" data-full="../images/projects/whisker-wish-book/cover.png" data-caption="Whisker Wish">
-      <img src="../images/projects/whisker-wish-book/cover.png" alt="Whisker Wish — 01" loading="lazy">
-      <span class="thumb-app">Whisker Wish</span>
-    </button>
-
-  </section>
+      </section>
 
   <!-- Lightbox overlay -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
