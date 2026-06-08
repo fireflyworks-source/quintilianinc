@@ -412,9 +412,11 @@
 
   <footer class="foot" id="contact">
     <div>
-      <p class="closing">Inquiring about a partnership or licensing?</p>
+      <p class="closing">More behind the wall</p>
       <div class="cta-row">
-        <a href="#" class="pill">Get in touch</a>
+        <a href="/work/brand-advertising/" class="pill">Brand &amp; Advertising →</a>
+        <a href="/work/email-marketing/" class="pill">Email Marketing →</a>
+        <a href="#" class="pill ghost">Get in touch</a>
       </div>
     </div>
     <div class="colophon">
@@ -426,13 +428,16 @@
 
   <script>
   (function () {
-    var KEY = 'cw-auth-2026';
+    // Shared gate across all password-walled areas (Client Work, Brand &
+    // Advertising, Email Marketing). One password + one session key, so
+    // unlocking any one unlocks them all.
+    var KEY = 'qi-commercial-auth-2026';
     var gate = document.getElementById('gate');
     if (sessionStorage.getItem(KEY) === '1') { gate.parentNode.removeChild(gate); return; }
     document.documentElement.style.overflow = 'hidden';
     document.getElementById('gate-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      if (document.getElementById('gate-pw').value === 'quintilian-portfolio-2026') {
+      if (document.getElementById('gate-pw').value === 'quintilian-commercial-2026') {
         sessionStorage.setItem(KEY, '1');
         document.documentElement.style.overflow = '';
         gate.parentNode.removeChild(gate);
