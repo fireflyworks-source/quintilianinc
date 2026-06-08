@@ -566,6 +566,77 @@
         gap: 20px;
       }
     }
+
+    /* ---------- Approach + credentials ---------- */
+    .approach {
+      max-width: 860px;
+      margin: 40px auto 0;
+      padding: 0 64px;
+    }
+    .approach-meta {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+    .approach-head {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 22px;
+    }
+    .approach-body {
+      font-size: 18px;
+      line-height: 1.62;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    .credentials {
+      max-width: 1400px;
+      margin: 64px auto 100px;
+      padding: 56px 64px 0;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+    }
+    .cred-head {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-weight: 600;
+    }
+    .cred-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+    .cred-list em { font-style: italic; color: var(--ink-soft); }
+    .cred-list--cols { columns: 2; column-gap: 32px; }
+    @media (max-width: 900px) {
+      .approach { padding: 0 32px; }
+      .credentials {
+        padding: 40px 32px 0;
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .cred-list--cols { columns: 2; }
+    }
+    @media (max-width: 520px) {
+      .cred-list--cols { columns: 1; }
+    }
   </style>
 </head>
 <body>
@@ -731,6 +802,76 @@
       </div>
     </a>
 
+  </section>
+
+  <!-- Positioning + credentials: the trained eye, brought current -->
+  <section class="approach">
+    <p class="approach-meta">Approach</p>
+    <h2 class="approach-head">A trained eye, brought current.</h2>
+    <p class="approach-body">
+      Two decades of art direction, illustration, and brand work sit behind
+      the fundamentals that don&rsquo;t change &mdash; composition, color,
+      type, and story. What&rsquo;s new is the toolkit. An early adopter of
+      generative AI in professional pipelines, with well over 100,000
+      Midjourney prompts since its beta, I bring a senior art director&rsquo;s
+      judgment to Midjourney, Firefly, Runway, and the rest &mdash; and to
+      AI-assisted build and prototyping. The value isn&rsquo;t the tool.
+      It&rsquo;s the eye directing it: twenty years of craft, brought to the
+      modern table.
+    </p>
+  </section>
+
+  <section class="credentials">
+    <div class="cred-col cred-col--wide">
+      <h3 class="cred-head">Select Clients</h3>
+      <ul class="cred-list cred-list--cols">
+        <li>The Coca-Cola Company</li>
+        <li>Papa John&rsquo;s</li>
+        <li>Texas Dairy Queen</li>
+        <li>McAfee</li>
+        <li>Murphy USA</li>
+        <li>Taco Bueno</li>
+        <li>Golden Chick</li>
+        <li>Freebirds World Burrito</li>
+        <li>Truck Yard</li>
+        <li>Hacienda Colorado</li>
+        <li>Bloomin&rsquo; Blinds</li>
+        <li>Ziegenfelder</li>
+        <li>Fitness Connection</li>
+        <li>Fortune Tires</li>
+        <li>FirstLight Home Care</li>
+        <li>Highland Homes</li>
+        <li>Sparrow Living</li>
+        <li>Tachus Fiber Internet</li>
+        <li>Vetoquinol</li>
+        <li>The United Methodist Church</li>
+        <li>Image Comics</li>
+        <li>Aftershock Comics</li>
+        <li>Blue Angel Publishing</li>
+      </ul>
+    </div>
+    <div class="cred-col">
+      <h3 class="cred-head">Expertise</h3>
+      <ul class="cred-list">
+        <li>Art Direction &amp; Creative Strategy</li>
+        <li>Illustration &amp; Cover Art</li>
+        <li>Brand Identity &amp; Campaigns</li>
+        <li>AI &amp; Generative Art</li>
+        <li>AI-Assisted Build &amp; Prototyping</li>
+        <li>App UX &amp; Product Mockups</li>
+        <li>NFT Development &amp; Smart Contracts</li>
+      </ul>
+    </div>
+    <div class="cred-col">
+      <h3 class="cred-head">Shown &amp; Featured</h3>
+      <ul class="cred-list">
+        <li>Lambeth Palace, London</li>
+        <li>Pop Gallery — Disney Springs</li>
+        <li>Pop Gallery — Epcot</li>
+        <li>Hulu — <em>Deadbeat</em></li>
+        <li>The Stan Lee Foundation</li>
+      </ul>
+    </div>
   </section>
 
   <footer class="foot" id="contact">
