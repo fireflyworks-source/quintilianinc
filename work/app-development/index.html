@@ -179,6 +179,55 @@
     }
     .thumb:hover .thumb-app { opacity: 1; }
 
+    /* Per-app blocks: a row of mockups + app name + App Store link beneath */
+    .app-sections {
+      max-width: 1400px;
+      margin: 48px auto 80px;
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+    .app-block { }
+    .app-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+    }
+    .app-caption {
+      margin-top: 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--rule);
+      padding-top: 12px;
+    }
+    .app-caption .app-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--ink);
+    }
+    .app-store-link {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: padding 0.2s ease;
+    }
+    .app-store-link:hover { padding-right: 10px; }
+    .app-store-soon {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
     /* Lightbox overlay */
     .lightbox {
       position: fixed;
@@ -286,19 +335,21 @@
     }
 
     @media (max-width: 1200px) {
-      .thumb-grid { grid-template-columns: repeat(6, 1fr); }
+      .thumb-grid, .app-row { grid-template-columns: repeat(6, 1fr); }
     }
     @media (max-width: 900px) {
       .chrome { padding: 24px 32px 0; flex-wrap: wrap; gap: 16px; }
       .section-hero { padding: 0 32px; margin: 48px auto 40px; }
       .thumb-grid { padding: 0 32px; grid-template-columns: repeat(4, 1fr); }
+      .app-sections { padding: 0 32px; }
+      .app-row { grid-template-columns: repeat(4, 1fr); }
       .foot { flex-direction: column; align-items: flex-start; padding: 40px 32px; }
       .colophon { text-align: left; max-width: none; }
       .lightbox { padding: 24px; }
       .lightbox-btn { width: 40px; height: 40px; }
     }
     @media (max-width: 540px) {
-      .thumb-grid { grid-template-columns: repeat(3, 1fr); }
+      .thumb-grid, .app-row { grid-template-columns: repeat(4, 1fr); }
     }
   </style>
 </head>
@@ -322,166 +373,273 @@
     <h1>Native apps you&rsquo;ll actually open.</h1>
     <p class="blurb">
       Devotional, contemplative, and utility iOS apps designed and shipped
-      end-to-end &mdash; from concept and brand through App Store launch.
-      Tap any tile to see it full size.
+      end-to-end &mdash; concept, brand, and build through App Store launch.
+      Tap any mockup to view it full size; follow the link to see each app
+      live on the App Store.
     </p>
   </section>
 
-  <section class="thumb-grid">
+  <section class="app-sections">
 
-    <!-- HAUSMÄRCHEN — 5 marketing mockups -->
-    <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/01_carefully_kept.png" data-caption="Hausmärchen — Carefully kept">
-      <img src="../images/app-development/hausmarchen/01_carefully_kept.png" alt="Hausmärchen — Carefully kept" loading="lazy">
-      <span class="thumb-app">Hausmärchen</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/02_six_hundred_plates.png" data-caption="Hausmärchen — Six hundred plates">
-      <img src="../images/app-development/hausmarchen/02_six_hundred_plates.png" alt="Hausmärchen — Six hundred plates" loading="lazy">
-      <span class="thumb-app">Hausmärchen</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/03_illustrated_canon.png" data-caption="Hausmärchen — Illustrated canon">
-      <img src="../images/app-development/hausmarchen/03_illustrated_canon.png" alt="Hausmärchen — Illustrated canon" loading="lazy">
-      <span class="thumb-app">Hausmärchen</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/04_indie_doors_open.png" data-caption="Hausmärchen — Indie doors open">
-      <img src="../images/app-development/hausmarchen/04_indie_doors_open.png" alt="Hausmärchen — Indie doors open" loading="lazy">
-      <span class="thumb-app">Hausmärchen</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/05_curated_library.png" data-caption="Hausmärchen — Curated library">
-      <img src="../images/app-development/hausmarchen/05_curated_library.png" alt="Hausmärchen — Curated library" loading="lazy">
-      <span class="thumb-app">Hausmärchen</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/01.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/01.jpg" alt="Dubbed — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/02.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/02.jpg" alt="Dubbed — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/03.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/03.jpg" alt="Dubbed — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/04.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/04.jpg" alt="Dubbed — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/05.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/05.jpg" alt="Dubbed — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/06.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/06.jpg" alt="Dubbed — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/07.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/07.jpg" alt="Dubbed — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/dubbed/08.jpg" data-caption="Dubbed">
+          <img src="../images/app-development/dubbed/08.jpg" alt="Dubbed — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Dubbed</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6762651736" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- DUBBED — anime / manga / convention tracker — canonical AppStoreMockups -->
-    <button class="thumb" type="button" data-full="../images/app-development/dubbed/01.jpg" data-caption="Dubbed — Anime / manga / convention tracker">
-      <img src="../images/app-development/dubbed/01.jpg" alt="Dubbed — 01" loading="lazy">
-      <span class="thumb-app">Dubbed</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/dubbed/02.jpg" data-caption="Dubbed — Anime / manga / convention tracker">
-      <img src="../images/app-development/dubbed/02.jpg" alt="Dubbed — 02" loading="lazy">
-      <span class="thumb-app">Dubbed</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/dubbed/03.jpg" data-caption="Dubbed — Anime / manga / convention tracker">
-      <img src="../images/app-development/dubbed/03.jpg" alt="Dubbed — 03" loading="lazy">
-      <span class="thumb-app">Dubbed</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/dubbed/04.jpg" data-caption="Dubbed — Anime / manga / convention tracker">
-      <img src="../images/app-development/dubbed/04.jpg" alt="Dubbed — 04" loading="lazy">
-      <span class="thumb-app">Dubbed</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/dubbed/05.jpg" data-caption="Dubbed — Anime / manga / convention tracker">
-      <img src="../images/app-development/dubbed/05.jpg" alt="Dubbed — 05" loading="lazy">
-      <span class="thumb-app">Dubbed</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/still-point/01.jpg" data-caption="Still Point">
+          <img src="../images/app-development/still-point/01.jpg" alt="Still Point — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/still-point/02.jpg" data-caption="Still Point">
+          <img src="../images/app-development/still-point/02.jpg" alt="Still Point — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/still-point/03.jpg" data-caption="Still Point">
+          <img src="../images/app-development/still-point/03.jpg" alt="Still Point — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/still-point/04.jpg" data-caption="Still Point">
+          <img src="../images/app-development/still-point/04.jpg" alt="Still Point — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/still-point/05.jpg" data-caption="Still Point">
+          <img src="../images/app-development/still-point/05.jpg" alt="Still Point — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/still-point/06.jpg" data-caption="Still Point">
+          <img src="../images/app-development/still-point/06.jpg" alt="Still Point — 06" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Still Point</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6766701686" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- SPEED READ ANYTHING -->
-    <button class="thumb" type="button" data-full="../images/projects/speed-read-substack-app/cover.jpg" data-caption="Speed Read Anything — Cover">
-      <img src="../images/projects/speed-read-substack-app/cover.jpg" alt="Speed Read — Cover" loading="lazy">
-      <span class="thumb-app">Speed Read</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/speed-read-substack-app/02.jpg" data-caption="Speed Read Anything — 02">
-      <img src="../images/projects/speed-read-substack-app/02.jpg" alt="Speed Read — 02" loading="lazy">
-      <span class="thumb-app">Speed Read</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/speed-read-substack-app/04.jpg" data-caption="Speed Read Anything — 04">
-      <img src="../images/projects/speed-read-substack-app/04.jpg" alt="Speed Read — 04" loading="lazy">
-      <span class="thumb-app">Speed Read</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/speed-read-substack-app/07.jpg" data-caption="Speed Read Anything — 07">
-      <img src="../images/projects/speed-read-substack-app/07.jpg" alt="Speed Read — 07" loading="lazy">
-      <span class="thumb-app">Speed Read</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/01.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/01.png" alt="Paper Reverie — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/02.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/02.png" alt="Paper Reverie — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/03.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/03.png" alt="Paper Reverie — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/04.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/04.png" alt="Paper Reverie — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/05.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/05.png" alt="Paper Reverie — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/06.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/06.png" alt="Paper Reverie — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/07.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/07.png" alt="Paper Reverie — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/08.png" data-caption="Paper Reverie">
+          <img src="../images/app-development/paper-reverie/08.png" alt="Paper Reverie — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Paper Reverie</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6769544868" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- MOTIVE — improv app -->
-    <button class="thumb" type="button" data-full="../images/projects/motive-improv-app/cover.jpg" data-caption="Motive (improv) — Cover">
-      <img src="../images/projects/motive-improv-app/cover.jpg" alt="Motive — Cover" loading="lazy">
-      <span class="thumb-app">Motive</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/motive-improv-app/02.jpg" data-caption="Motive (improv) — 02">
-      <img src="../images/projects/motive-improv-app/02.jpg" alt="Motive — 02" loading="lazy">
-      <span class="thumb-app">Motive</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/motive-improv-app/04.jpg" data-caption="Motive (improv) — 04">
-      <img src="../images/projects/motive-improv-app/04.jpg" alt="Motive — 04" loading="lazy">
-      <span class="thumb-app">Motive</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/motive-improv-app/06.jpg" data-caption="Motive (improv) — 06">
-      <img src="../images/projects/motive-improv-app/06.jpg" alt="Motive — 06" loading="lazy">
-      <span class="thumb-app">Motive</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/01.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/01.jpg" alt="Speed Read Anything — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/02.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/02.jpg" alt="Speed Read Anything — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/03.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/03.jpg" alt="Speed Read Anything — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/04.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/04.jpg" alt="Speed Read Anything — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/05.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/05.jpg" alt="Speed Read Anything — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/06.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/06.jpg" alt="Speed Read Anything — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/07.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/07.jpg" alt="Speed Read Anything — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/speed-read/08.jpg" data-caption="Speed Read Anything">
+          <img src="../images/app-development/speed-read/08.jpg" alt="Speed Read Anything — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Speed Read Anything</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6760246469" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- NESTLING — baby names -->
-    <button class="thumb" type="button" data-full="../images/projects/nestling-baby-names-app/cover.jpg" data-caption="Nestling (baby names) — Cover">
-      <img src="../images/projects/nestling-baby-names-app/cover.jpg" alt="Nestling — Cover" loading="lazy">
-      <span class="thumb-app">Nestling</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/nestling-baby-names-app/02.jpg" data-caption="Nestling (baby names) — 02">
-      <img src="../images/projects/nestling-baby-names-app/02.jpg" alt="Nestling — 02" loading="lazy">
-      <span class="thumb-app">Nestling</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/nestling-baby-names-app/04.jpg" data-caption="Nestling (baby names) — 04">
-      <img src="../images/projects/nestling-baby-names-app/04.jpg" alt="Nestling — 04" loading="lazy">
-      <span class="thumb-app">Nestling</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/projects/nestling-baby-names-app/06.jpg" data-caption="Nestling (baby names) — 06">
-      <img src="../images/projects/nestling-baby-names-app/06.jpg" alt="Nestling — 06" loading="lazy">
-      <span class="thumb-app">Nestling</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/01.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/01.jpg" alt="Nestling — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/02.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/02.jpg" alt="Nestling — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/03.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/03.jpg" alt="Nestling — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/04.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/04.jpg" alt="Nestling — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/05.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/05.jpg" alt="Nestling — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/06.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/06.jpg" alt="Nestling — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/07.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/07.jpg" alt="Nestling — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/nestling/08.jpg" data-caption="Nestling">
+          <img src="../images/app-development/nestling/08.jpg" alt="Nestling — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Nestling</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6760788683" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- STILL POINT — contemplative card-draw -->
-    <button class="thumb" type="button" data-full="../images/app-development/still-point/the-arrival.png" data-caption="Still Point — The Arrival">
-      <img src="../images/app-development/still-point/the-arrival.png" alt="Still Point — The Arrival" loading="lazy">
-      <span class="thumb-app">Still Point</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/still-point/the-bare-bloom.png" data-caption="Still Point — The Bare Bloom">
-      <img src="../images/app-development/still-point/the-bare-bloom.png" alt="Still Point — The Bare Bloom" loading="lazy">
-      <span class="thumb-app">Still Point</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/still-point/the-chosen-cord.png" data-caption="Still Point — The Chosen Cord">
-      <img src="../images/app-development/still-point/the-chosen-cord.png" alt="Still Point — The Chosen Cord" loading="lazy">
-      <span class="thumb-app">Still Point</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/still-point/the-crossing.png" data-caption="Still Point — The Crossing">
-      <img src="../images/app-development/still-point/the-crossing.png" alt="Still Point — The Crossing" loading="lazy">
-      <span class="thumb-app">Still Point</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/still-point/the-discerning-heart.png" data-caption="Still Point — The Discerning Heart">
-      <img src="../images/app-development/still-point/the-discerning-heart.png" alt="Still Point — The Discerning Heart" loading="lazy">
-      <span class="thumb-app">Still Point</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/01.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/01.jpg" alt="Blind Date with a Book — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/02.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/02.jpg" alt="Blind Date with a Book — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/03.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/03.jpg" alt="Blind Date with a Book — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/04.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/04.jpg" alt="Blind Date with a Book — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/05.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/05.jpg" alt="Blind Date with a Book — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/06.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/06.jpg" alt="Blind Date with a Book — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/07.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/07.jpg" alt="Blind Date with a Book — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/blind-date/08.jpg" data-caption="Blind Date with a Book">
+          <img src="../images/app-development/blind-date/08.jpg" alt="Blind Date with a Book — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Blind Date with a Book</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6760789070" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- BLIND DATE WITH A BOOK — limited assets, icon + logo only -->
-    <button class="thumb" type="button" data-full="../images/app-development/blind-date/icon.png" data-caption="Blind Date with a Book — App icon">
-      <img src="../images/app-development/blind-date/icon.png" alt="Blind Date with a Book — App icon" loading="lazy">
-      <span class="thumb-app">Blind Date</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/blind-date/logo.png" data-caption="Blind Date with a Book — Logo">
-      <img src="../images/app-development/blind-date/logo.png" alt="Blind Date with a Book — Logo" loading="lazy">
-      <span class="thumb-app">Blind Date</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/motive/01.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/01.jpg" alt="Motive — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/02.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/02.jpg" alt="Motive — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/03.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/03.jpg" alt="Motive — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/04.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/04.jpg" alt="Motive — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/05.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/05.jpg" alt="Motive — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/06.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/06.jpg" alt="Motive — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/07.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/07.jpg" alt="Motive — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/motive/08.jpg" data-caption="Motive">
+          <img src="../images/app-development/motive/08.jpg" alt="Motive — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Motive</span>
+          <a class="app-store-link" href="https://apps.apple.com/app/id6760919287" target="_blank" rel="noopener">View in App Store &rarr;</a>
+        </div>
+      </div>
 
-    <!-- PAPER REVERIE — contemplative card-draw app, canonical AppStoreMockups -->
-    <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/01.png" data-caption="Paper Reverie — Contemplative card-draw">
-      <img src="../images/app-development/paper-reverie/01.png" alt="Paper Reverie — 01" loading="lazy">
-      <span class="thumb-app">Paper Reverie</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/02.png" data-caption="Paper Reverie — Contemplative card-draw">
-      <img src="../images/app-development/paper-reverie/02.png" alt="Paper Reverie — 02" loading="lazy">
-      <span class="thumb-app">Paper Reverie</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/03.png" data-caption="Paper Reverie — Contemplative card-draw">
-      <img src="../images/app-development/paper-reverie/03.png" alt="Paper Reverie — 03" loading="lazy">
-      <span class="thumb-app">Paper Reverie</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/04.png" data-caption="Paper Reverie — Contemplative card-draw">
-      <img src="../images/app-development/paper-reverie/04.png" alt="Paper Reverie — 04" loading="lazy">
-      <span class="thumb-app">Paper Reverie</span>
-    </button>
-    <button class="thumb" type="button" data-full="../images/app-development/paper-reverie/05.png" data-caption="Paper Reverie — Contemplative card-draw">
-      <img src="../images/app-development/paper-reverie/05.png" alt="Paper Reverie — 05" loading="lazy">
-      <span class="thumb-app">Paper Reverie</span>
-    </button>
+      <div class="app-block">
+        <div class="app-row">
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/01.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/01.png" alt="Hausmärchen — 01" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/02.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/02.png" alt="Hausmärchen — 02" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/03.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/03.png" alt="Hausmärchen — 03" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/04.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/04.png" alt="Hausmärchen — 04" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/05.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/05.png" alt="Hausmärchen — 05" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/06.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/06.png" alt="Hausmärchen — 06" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/07.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/07.png" alt="Hausmärchen — 07" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-full="../images/app-development/hausmarchen/08.png" data-caption="Hausmärchen">
+          <img src="../images/app-development/hausmarchen/08.png" alt="Hausmärchen — 08" loading="lazy">
+        </button>
+        </div>
+        <div class="app-caption">
+          <span class="app-name">Hausmärchen</span>
+          <span class="app-store-soon">Coming soon to the App Store</span>
+        </div>
+      </div>
 
-  </section>
+      </section>
 
   <!-- Lightbox overlay -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
