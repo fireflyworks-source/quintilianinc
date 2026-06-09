@@ -1,1052 +1,1019 @@
 <!DOCTYPE html>
+<!--
+  ============================================================================
+  QUINTILIAN, INC. — WORK PAGE (PUBLIC)
+  ============================================================================
+
+  Self-contained HTML blueprint for the public /work page on quintilianinc.com.
+  Designed to match the existing site (About / Contact / Home) — cream
+  background, serif headlines, two-column hero, full-bleed imagery, black pill
+  CTAs.
+
+  HOW TO USE:
+    1. Open this file in a browser to preview the full design.
+    2. Image references use relative paths matching Jessica's portfolio site:
+       images/projects/[slug]/[file].jpg
+       images/new-work/[file].png
+       images/grid-extras/[file].jpg
+       Copy the `public/images/` folder from
+       the solocosmo/jessica-portfolio repo on GitHub
+       into the same directory as this HTML file to preview with real assets.
+    3. To rebuild in Squarespace: each <section> block below maps to one
+       Squarespace section. Use native Gallery + Text + Image + Button blocks.
+       Copy headlines + blurbs verbatim. Upload images per the file references.
+    4. Sections currently using PLACEHOLDER images are commented inline.
+
+  WHAT'S MISSING (replace placeholders before publishing):
+    - Hero image (currently a calla-lily stand-in matching the About page mood;
+      swap for one strong illustration piece or commission a hero photograph).
+    - Secular apps not on Jessica's portfolio site: Dubbed, Paper Reverie,
+      Moss House, Blind Date — sourced from Orange external drive (not
+      accessible at build time).
+    - Three pitch deck PDFs: 867TheLine, Lakefront Brand Guide, PPM AI
+      OneSheet (Orange drive). PPTX files require export to PDF before
+      embedding.
+    - CHDH pitch deck: lives at your Clean Hands
+      Dirty Hands - CHDH/ — needs PDF export.
+
+  WHAT'S DROPPED (per Jessica, 2026-05-23):
+    - AmberBoard custom carpentry portfolio (cold project).
+
+  ============================================================================
+-->
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quintilian, Inc. — AI Consulting</title>
-<meta name="description" content="Intelligent systems built to last. AI consulting, strategy, prototyping, and engineering for teams shipping with language models.">
-<link rel="canonical" href="https://www.quintilianinc.com/">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.quintilianinc.com/">
-<meta property="og:title" content="Quintilian, Inc. — AI Consulting">
-<meta property="og:description" content="Intelligent systems built to last. AI consulting, strategy, prototyping, and engineering for teams shipping with language models.">
-<meta property="og:image" content="https://www.quintilianinc.com/og/og-home.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Quintilian, Inc. — AI Consulting">
-<meta name="twitter:description" content="Intelligent systems built to last. AI consulting, strategy, prototyping, and engineering for teams shipping with language models.">
-<meta name="twitter:image" content="https://www.quintilianinc.com/og/og-home.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --ink: #0e0d0b;
-    --ink-2: #1a1916;
-    --ink-3: #252420;
-    --parchment: #f2ede4;
-    --parchment-dim: #c8c1b4;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --rule: rgba(201,168,76,0.25);
-    --mono: 'DM Mono', monospace;
-    --serif: 'Cormorant Garamond', serif;
-    --sans: 'Jost', sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--ink);
-    color: var(--parchment);
-    font-family: var(--sans);
-    font-weight: 300;
-    overflow-x: hidden;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quintilian, Inc. — Creative &amp; Applied AI</title>
+  <meta name="description" content="Illustration, brand identity, packaging, product design, and devotional art — selected work from the Quintilian, Inc. portfolio.">
+  <link rel="canonical" href="https://www.quintilianinc.com/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.quintilianinc.com/">
+  <meta property="og:title" content="Work — Quintilian, Inc.">
+  <meta property="og:description" content="Illustration, brand identity, packaging, product design, and devotional art — selected work from the Quintilian, Inc. portfolio.">
+  <meta property="og:image" content="https://www.quintilianinc.com/og/og-work.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work — Quintilian, Inc.">
+  <meta name="twitter:description" content="Illustration, brand identity, packaging, product design, and devotional art — selected work from the Quintilian, Inc. portfolio.">
+  <meta name="twitter:image" content="https://www.quintilianinc.com/og/og-work.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — match existing quintilianinc.com pages
+       ============================================================ */
+    :root {
+      --cream:        #ECDFCF;
+      --cream-warm:   #E8DDD0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #2A2A2A;
+      --muted:        #5A5040;
+      --rule:         #D6C9B6;
+      --serif:        "PT Serif", "Cormorant Garamond", "Playfair Display",
+                      Georgia, "Times New Roman", serif;
+      --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, Helvetica, Arial, sans-serif;
     }
 
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-  /* Grain overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.6;
-  }
+    /* ---------- Page chrome (logo + nav) ---------- */
+    .chrome {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 64px 0;
+      max-width: 100%;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+    nav.top {
+      display: flex;
+      gap: 34px;
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    nav.top a {
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    nav.top a:hover { color: var(--ink); }
+    nav.top a.current {
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+    .nav-assess {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: 999px;
+      transition: opacity 0.2s ease;
+    }
+    .nav-assess:hover { opacity: 0.9; }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 56px;
-    border-bottom: 1px solid transparent;
-    transition: all 0.4s ease;
-  }
-  nav.scrolled {
-    background: rgba(14,13,11,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom-color: var(--rule);
-    padding: 18px 56px;
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--parchment);
-    text-decoration: none;
-  }
-  .nav-logo span {
-    color: var(--gold);
-  }
-  .nav-links {
-    display: flex;
-    gap: 48px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--parchment-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--gold);
-    padding: 10px 24px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--gold-light); }
+    /* ---------- Hero (two-column: text left, image right) ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 96vh;
+      padding-top: 40px;
+      background-image:
+        linear-gradient(rgba(236, 223, 207, 0.82), rgba(236, 223, 207, 0.90)),
+        url("/work/images/grid-extras/lambeth-exterior-wide.jpg");
+      background-size: cover;
+      background-position: left 30%;
+      background-repeat: no-repeat;
+    }
+    .hero-text {
+      padding: 40px 48px 0 96px;
+      align-self: start;
+    }
+    .hero-heading {
+      display: inline-block;
+      margin: 0 0 40px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(64px, 9vw, 140px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 2.6vw, 34px);
+      line-height: 1.15;
+      color: var(--muted);
+      margin: 0;
+      text-align: center;
+    }
+    .hero p.lead {
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 460px;
+      margin: 0 0 28px;
+    }
+    /* Credential callout under the H1 */
+    .hero-credit {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 500px;
+      margin: -8px 0 30px;
+      padding-left: 20px;
+      border-left: 2px solid var(--ink);
+    }
+    .hero-credit strong { color: var(--ink); font-weight: 600; }
+    .hero-credit em { font-style: italic; color: var(--ink); }
+    /* Hero figure: hall image + floating artwork inset + caption */
+    .hero-figure {
+      position: relative;
+      margin: 0;
+      padding-right: 48px;
+    }
+    .hero-image {
+      width: 100%;
+      height: 66vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-inset {
+      position: absolute;
+      bottom: 56px;
+      left: -60px;
+      width: clamp(180px, 17vw, 228px);
+      margin: 0;
+    }
+    .hero-inset img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 7px solid #fff;
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.34);
+    }
+    .hero-inset figcaption {
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      bottom: 7px;
+      padding: 26px 8px 11px;
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: #fff;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0));
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    }
+    .hero-caption {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 460px;
+    }
+    .hero-caption strong { color: var(--ink); font-weight: 600; }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
+    /* ---------- Pill CTAs ---------- */
+    .pill {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      padding: 22px 56px;
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .pill:hover { transform: translateY(-1px); opacity: 0.92; }
+    .pill.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+    }
 
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 56px 100px 56px;
-    position: relative;
-    z-index: 2;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s ease 0.3s forwards;
-  }
+    /* ---------- Sections ---------- */
+    section.work-section {
+      padding: 120px 96px 80px;
+      border-top: 1px solid var(--rule);
+    }
+    section.work-section .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    section.work-section h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0;
+    }
+    section.work-section .section-blurb {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 0;
+    }
+    section.work-section .section-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
 
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-  }
+    /* ---------- Grid ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 32px;
+    }
+    .grid figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .grid figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: var(--cream-warm);
+    }
+    .grid figure.tall img      { aspect-ratio: 3 / 4; }
+    .grid figure.square img    { aspect-ratio: 1 / 1; }
+    .grid figure.wide img      { aspect-ratio: 16 / 10; }
+    .grid figcaption {
+      margin-top: 14px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .grid figcaption .client {
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+      letter-spacing: 0.01em;
+    }
+    .grid figcaption .project {
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
 
-  .hero-headline {
-    font-family: var(--serif);
-    font-size: clamp(3.5rem, 6vw, 7rem);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-    margin-bottom: 40px;
-  }
-  .hero-headline em {
-    font-style: italic;
-    color: var(--gold);
-  }
+    /* Phone-frame grid for app section */
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 56px 28px;
+    }
+    .phone-grid figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .phone-grid figure img {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 14px 38px rgba(26,26,26,0.10);
+      background: var(--cream-warm);
+    }
+    .phone-grid figcaption {
+      margin-top: 14px;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+    .phone-grid figcaption .client {
+      font-weight: 600; color: var(--ink); display: block;
+    }
+    .phone-grid figcaption .project {
+      color: var(--muted); display: block; margin-top: 2px;
+    }
 
-  .hero-body {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--parchment-dim);
-    max-width: 420px;
-    margin-bottom: 56px;
-  }
+    /* Pitch deck embeds */
+    .deck-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 32px;
+    }
+    .deck-card {
+      background: rgba(255,255,255,0.4);
+      padding: 32px;
+      border: 1px solid var(--rule);
+    }
+    .deck-card h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 28px;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+    .deck-card p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      margin: 0 0 24px;
+    }
+    .deck-card .embed-slot {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: var(--cream-warm);
+      border: 1px dashed var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      padding: 16px;
+    }
+    .deck-card.ready .embed-slot {
+      border-style: solid;
+      border-color: var(--ink);
+      background: #fff;
+      color: var(--ink);
+    }
 
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-  .btn-primary {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--gold);
-    padding: 16px 36px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
-    position: relative;
-  }
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-  }
-  .btn-ghost {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--parchment-dim);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.2s;
-  }
-  .btn-ghost:hover { color: var(--parchment); }
-  .btn-ghost::after {
-    content: '→';
-    transition: transform 0.2s;
-  }
-  .btn-ghost:hover::after { transform: translateX(4px); }
+    /* Footer */
+    footer.foot {
+      padding: 96px 96px 72px;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: end;
+    }
+    footer.foot .closing {
+      font-family: var(--serif);
+      font-size: 36px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+    footer.foot .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    footer.foot .colophon {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
 
-  /* Hero right — abstract visual */
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeIn 1.5s ease 0.8s forwards;
-  }
+    /* Responsive — collapses to single-column on tablet/mobile */
+    /* App grouping (label per app, then mockups) */
+    .app-group { margin-bottom: 80px; }
+    .app-group .group-label { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--ink); margin: 0 0 8px; }
+    .app-group .group-desc { font-family: var(--sans); font-size: 15px; color: var(--ink-soft); margin: 0 0 32px; max-width: 600px; }
 
-  .grid-graphic {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
+    @media (max-width: 1024px) {
+      .chrome      { padding: 24px 32px 0; }
+      .hero        { grid-template-columns: 1fr; min-height: 0; }
+      .hero-text   { padding: 56px 32px 32px; }
+      .hero-image  { height: 60vh; }
+      section.work-section { padding: 80px 32px 56px; }
+      section.work-section .section-header {
+        grid-template-columns: 1fr; gap: 24px;
+      }
+      .grid         { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+      .phone-grid   { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+      .deck-list    { grid-template-columns: 1fr; }
+      footer.foot   { grid-template-columns: 1fr; padding: 64px 32px; }
+    }
+    @media (max-width: 600px) {
+      .grid         { grid-template-columns: 1fr; }
+      .phone-grid   { grid-template-columns: 1fr; }
+    }
 
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-  }
-  .orb-1 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(201,168,76,0.15), transparent 70%);
-    top: 20%; left: 10%;
-    animation: pulse 6s ease-in-out infinite;
-  }
-  .orb-2 {
-    width: 250px; height: 250px;
-    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
-    bottom: 20%; right: 20%;
-    animation: pulse 8s ease-in-out 2s infinite reverse;
-  }
+    /* ===========================================================
+       MODULES — five cards on the hub page, each linking to its
+       own section page. Replaces the prior all-on-one-page dump.
+       ============================================================ */
+    .modules {
+      max-width: 1400px;
+      margin: 80px auto 120px;
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+    .module {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      text-decoration: none;
+      color: inherit;
+      align-items: center;
+    }
+    .module:nth-child(even)     { direction: rtl; }
+    .module:nth-child(even) > * { direction: ltr; }
+    .module-image {
+      overflow: hidden;
+      background: var(--cream-warm);
+      aspect-ratio: 4 / 3;
+    }
+    .module-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .module:hover .module-image img { transform: scale(1.03); }
+    .module-text { padding: 16px 0; }
+    .module-num {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .module-text h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+    .module-sub {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+      max-width: 460px;
+    }
+    .module-cta {
+      font-family: var(--sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 3px;
+      display: inline-block;
+      transition: padding 0.2s ease;
+    }
+    .module:hover .module-cta { padding-right: 14px; }
+    .module--gated .module-text h2::after {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      margin-left: 14px;
+      vertical-align: -2px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='5' y='11' width='14' height='10' rx='2' stroke='%231A1A1A' stroke-width='1.5' fill='none'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4' stroke='%231A1A1A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    @media (max-width: 900px) {
+      .modules { padding: 0 32px; gap: 48px; margin: 48px auto 72px; }
+      .module, .module:nth-child(even) {
+        direction: ltr;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
 
-  .hero-diagram {
-    position: relative;
-    z-index: 2;
-    width: 320px;
-    height: 320px;
-  }
-  .hero-diagram svg { width: 100%; height: 100%; }
-
-  /* Hero bottom stat bar */
-  .hero-stats {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--rule);
-    z-index: 10;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.2s forwards;
-  }
-  .stat-item {
-    padding: 28px 40px;
-    border-right: 1px solid var(--rule);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--parchment-dim);
-  }
-
-  /* DIVIDER */
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--rule), transparent);
-    margin: 0 56px;
-  }
-
-  /* SECTION SHARED */
-  section {
-    padding: 120px 56px;
-    position: relative;
-  }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.4;
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 4vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  /* ABOUT / INTRO */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-    margin-top: 80px;
-  }
-  .about-text p {
-    font-size: 1rem;
-    line-height: 1.9;
-    color: var(--parchment-dim);
-    margin-bottom: 20px;
-  }
-  .about-text p strong {
-    color: var(--parchment);
-    font-weight: 500;
-  }
-
-  .about-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .pillar {
-    padding: 32px 0;
-    border-bottom: 1px solid var(--rule);
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-    transition: all 0.3s;
-  }
-  .pillar:first-child { border-top: 1px solid var(--rule); }
-  .pillar:hover { padding-left: 8px; }
-  .pillar-num {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--gold);
-    opacity: 0.6;
-    padding-top: 4px;
-    min-width: 28px;
-  }
-  .pillar-content h4 {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 8px;
-  }
-  .pillar-content p {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: var(--parchment-dim);
-  }
-
-  /* SERVICES */
-  .services { background: var(--ink-2); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 80px;
-    background: var(--rule);
-  }
-  .service-card {
-    background: var(--ink-2);
-    padding: 52px 40px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card:hover { background: var(--ink-3); }
-
-  .service-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 32px;
-    opacity: 0.7;
-  }
-  .service-title {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 300;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-  .service-desc {
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: var(--parchment-dim);
-    margin-bottom: 32px;
-  }
-  .service-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .service-items li {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    color: var(--parchment-dim);
-    padding-left: 16px;
-    position: relative;
-  }
-  .service-items li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    opacity: 0.6;
-  }
-
-  /* PROCESS */
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-top: 80px;
-    position: relative;
-  }
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 32px;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: var(--rule);
-    z-index: 0;
-  }
-
-  .process-step {
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
-  .step-dot {
-    width: 64px;
-    height: 64px;
-    border: 1px solid var(--rule);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 32px;
-    background: var(--ink);
-    transition: all 0.3s;
-  }
-  .process-step:hover .step-dot {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.08);
-  }
-  .step-dot span {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--gold);
-  }
-  .step-title {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 12px;
-  }
-  .step-desc {
-    font-size: 0.82rem;
-    line-height: 1.7;
-    color: var(--parchment-dim);
-  }
-
-  /* PRE-AUDIT CTA */
-  .preaudit {
-    background: var(--ink-2);
-    position: relative;
-    overflow: hidden;
-  }
-  .preaudit::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(201,168,76,0.06), transparent 60%);
-    pointer-events: none;
-  }
-
-  .preaudit-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .preaudit-content .section-title {
-    margin-bottom: 20px;
-  }
-  .preaudit-content p {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--parchment-dim);
-    margin-bottom: 40px;
-  }
-
-  .audit-features {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 48px;
-    border: 1px solid var(--rule);
-    position: relative;
-  }
-  .audit-features::before {
-    content: 'PRE-AUDIT SURVEY';
-    position: absolute;
-    top: -10px;
-    left: 32px;
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    background: var(--ink-2);
-    padding: 0 12px;
-    color: var(--gold);
-  }
-  .audit-feature {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .audit-feature-icon {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    border: 1px solid var(--gold);
-    opacity: 0.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
-  }
-  .audit-feature-icon::after {
-    content: '✓';
-    font-size: 0.6rem;
-    color: var(--gold);
-  }
-  .audit-feature-text h5 {
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    font-weight: 400;
-    margin-bottom: 4px;
-    color: var(--parchment);
-  }
-  .audit-feature-text p {
-    font-size: 0.78rem;
-    line-height: 1.6;
-    color: var(--parchment-dim);
-    margin: 0;
-  }
-
-  /* FOOTER */
-  footer {
-    padding: 60px 56px;
-    border-top: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-logo {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--parchment-dim);
-  }
-  .footer-logo span { color: var(--gold); }
-  .footer-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-  .footer-links a {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--parchment-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-copy {
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    color: var(--parchment-dim);
-    opacity: 0.4;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-  }
-  @keyframes rotateSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  @keyframes dash {
-    to { stroke-dashoffset: 0; }
-  }
-
-  /* Scroll reveal */
-  .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* Animated SVG diagram */
-  .ring-outer {
-    animation: rotateSlow 20s linear infinite;
-    transform-origin: 160px 160px;
-  }
-  .ring-inner {
-    animation: rotateSlow 12s linear infinite reverse;
-    transform-origin: 160px 160px;
-  }
-  .data-line {
-    stroke-dasharray: 200;
-    stroke-dashoffset: 200;
-    animation: dash 2s ease forwards;
-  }
-  .data-line-2 { animation-delay: 0.4s; }
-  .data-line-3 { animation-delay: 0.8s; }
-  .data-line-4 { animation-delay: 1.2s; }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    nav.scrolled { padding: 16px 24px; }
-    .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-left { padding: 100px 24px 80px; }
-    .hero-stats { grid-template-columns: repeat(3, 1fr); }
-    .stat-item { padding: 20px 16px; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .process-steps::before { display: none; }
-    .preaudit-inner { grid-template-columns: 1fr; gap: 40px; }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
-    .section-divider { margin: 0 24px; }
-  }
-    /* NO-WIDOW: browser-level widow + orphan prevention */
+    /* ---------- Approach + credentials ---------- */
+    .approach {
+      max-width: 860px;
+      margin: 40px auto 0;
+      padding: 0 64px;
+    }
+    .approach-meta {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+    .approach-head {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 22px;
+    }
+    .approach-body {
+      font-size: 18px;
+      line-height: 1.62;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    .credentials {
+      max-width: 1400px;
+      margin: 64px auto 100px;
+      padding: 56px 64px 0;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+    }
+    .cred-head {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-weight: 600;
+    }
+    .cred-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+    .cred-list em { font-style: italic; color: var(--ink-soft); }
+    .cred-list--cols { columns: 2; column-gap: 32px; }
+    @media (max-width: 900px) {
+      .approach { padding: 0 32px; }
+      .credentials {
+        padding: 40px 32px 0;
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .cred-list--cols { columns: 2; }
+    }
+    @media (max-width: 520px) {
+      .cred-list--cols { columns: 1; }
+    }
+    /* ===========================================================
+       AI BRANCH — Chuck's two lead panels (placeholders).
+       Scoped under .ai-branch so it can't touch the rest of the page.
+       ============================================================ */
+    .ai-branch { --panel-dark:#100D12; --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; border-top:1px solid var(--rule); }
+    .ai-branch .panel { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; max-width:1440px; margin:0 auto; padding:96px 88px; }
+    .ai-branch .panel.flip .visual{ order:2; } .ai-branch .panel.flip .copy{ order:1; }
+    .ai-branch .branch-rule { max-width:1320px; margin:0 auto; height:1px; background:var(--rule); }
+    .ai-branch .eyebrow { font-family:var(--sans); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); font-weight:600; margin-bottom:26px; }
+    .ai-branch h2 { font-family:var(--serif); font-weight:400; font-size:clamp(36px,4.2vw,58px); line-height:1.08; letter-spacing:-0.01em; color:var(--ink); margin:0 0 26px; max-width:12ch; }
+    .ai-branch .lede { font-size:16.5px; line-height:1.62; color:var(--ink-soft); max-width:46ch; margin:0 0 34px; }
+    .ai-branch .lede strong { font-weight:600; color:var(--ink); }
+    .ai-branch .explore { display:inline-block; font-family:var(--sans); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:500; color:var(--ink); text-decoration:none; border-bottom:1.5px solid var(--ink); padding-bottom:5px; transition:opacity .2s; }
+    .ai-branch .explore:hover { opacity:.6; }
+    .ai-branch .diptych { display:grid; grid-template-columns:1fr auto 1fr; gap:14px; align-items:center; }
+    .ai-branch .dip-frame { aspect-ratio:4/5; border-radius:6px; position:relative; overflow:hidden; display:flex; align-items:flex-end; }
+    .ai-branch .dip-raw { background:linear-gradient(160deg,#B7AA9A 0%,#CBBFAE 55%,#D9CFC0 100%); box-shadow:0 10px 26px rgba(24,22,20,.12); filter:saturate(.55); }
+    .ai-branch .raw-wash { position:absolute; inset:0; background:repeating-linear-gradient(115deg, rgba(24,22,20,.05) 0 3px, transparent 3px 9px), radial-gradient(ellipse at 30% 25%, rgba(255,255,255,.4), transparent 60%); }
+    .ai-branch .dip-finished { background:linear-gradient(160deg,#2B2438 0%,#574A77 55%,#CDA86E 130%); box-shadow:0 20px 44px rgba(24,22,20,.26); }
+    .ai-branch .dip-arrow { font-family:var(--serif); font-size:26px; color:var(--muted); }
+    .ai-branch .figure { position:absolute; bottom:-4%; left:50%; transform:translateX(-50%); width:58%; height:70%; }
+    .ai-branch .figure svg { width:100%; height:100%; display:block; overflow:visible; }
+    .ai-branch .scene-tag { position:relative; z-index:2; width:100%; padding:10px 12px; font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:rgba(255,255,255,.88); background:linear-gradient(transparent,rgba(0,0,0,.45)); }
+    .ai-branch .dip-raw .scene-tag { color:rgba(24,22,20,.65); background:linear-gradient(transparent,rgba(255,255,255,.35)); }
+    .ai-branch .oeuvre-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px; }
+    .ai-branch .oeuvre-chip { aspect-ratio:1/1; border-radius:5px; display:flex; align-items:flex-end; padding:8px 9px; font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; color:rgba(255,255,255,.85); box-shadow:0 8px 18px rgba(24,22,20,.14); }
+    .ai-branch .chip-a { background:linear-gradient(150deg,#2B2438,#7A5FA0); }
+    .ai-branch .chip-b { background:linear-gradient(150deg,#1E2A22,#5E8A6B); }
+    .ai-branch .chip-c { background:linear-gradient(150deg,#3A2017,#B06A3C); }
+    .ai-branch .chip-d { background:linear-gradient(150deg,#13202E,#4E7CA3); }
+    .ai-branch .grid-caption { margin-top:18px; font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.04em; line-height:1.5; }
+    .ai-branch .stack-card { background:var(--panel-dark); border-radius:10px; padding:36px 34px 30px; box-shadow:0 22px 50px rgba(24,22,20,.22); color:#E8E2DA; }
+    .ai-branch .stack-title { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:26px; }
+    .ai-branch .stack-title .t { font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:#CDA86E; }
+    .ai-branch .stack-title .s { font-family:var(--mono); font-size:10px; color:#6E6760; }
+    .ai-branch .node { display:flex; align-items:center; gap:14px; border:1px solid rgba(232,226,218,.14); border-radius:7px; padding:13px 16px; margin-bottom:10px; background:rgba(232,226,218,.03); }
+    .ai-branch .node .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .ai-branch .dot-live { background:#7FBF8E; box-shadow:0 0 8px rgba(127,191,142,.7); }
+    .ai-branch .dot-build { background:#CDA86E; box-shadow:0 0 8px rgba(205,168,110,.55); }
+    .ai-branch .node .nm { font-size:13.5px; font-weight:500; color:#F0EBE3; flex:1; }
+    .ai-branch .node .role { font-family:var(--mono); font-size:10px; color:#8C8378; letter-spacing:.04em; text-align:right; }
+    .ai-branch .stack-foot { margin-top:20px; padding-top:16px; border-top:1px solid rgba(232,226,218,.1); font-family:var(--mono); font-size:10.5px; color:#6E6760; letter-spacing:.05em; }
+    @media (max-width:1024px){ .ai-branch .panel{ grid-template-columns:1fr; padding:64px 32px; gap:44px; } .ai-branch .panel.flip .visual{order:1;} .ai-branch .panel.flip .copy{order:2;} }
+      /* NO-WIDOW: browser-level widow + orphan prevention */
     p, li, .blurb, .module-sub, .approach-body, .lead, .hero-credit, .book-title, .cred-list, figcaption, .section-blurb { text-wrap: pretty; }
     h1, h2, h3, .module-text h2, .section-hero h1, .approach-head { text-wrap: balance; }
   </style>
 </head>
 <body>
 
+  <!-- ===================================================================
+       PAGE CHROME — logo + main nav. In Squarespace this is automatic
+       (inherits from site header). Included here only for preview fidelity.
+       =================================================================== -->
+  <header class="chrome">
+    <a class="logo" href="/">Quintilian, inc.</a>
+    <nav class="top">
+      <a href="/" class="current">Work</a>
+      <a href="/consulting/">Consulting</a>
+      <a href="/about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-assess" href="/survey">Begin Assessment</a>
+  </header>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">Quintilian<span>,</span> inc.</a>
-  <ul class="nav-links">
-    <li><a href='/about'>About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href='/work'>Work</a></li>
-    <li><a href='/contact'>Contact</a></li>
-  </ul>
-  <a class='nav-cta' href='/survey'>Begin Assessment</a>
-</nav>
+  <!-- ===================================================================
+       HERO — page intro. Two-column. Text left, image right.
+       =================================================================== -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-heading">
+        <h1>Everyone&rsquo;s talking about&nbsp;AI.</h1>
+        <p class="hero-subtitle">We&rsquo;ve been making the work.</p>
+      </div>
+      <p class="lead">
+        A senior art director&rsquo;s hand and nearly two decades of craft &mdash;
+        now pointed at generative tools and production systems. What that
+        actually looks like, set against what people assume &ldquo;AI&rdquo;
+        means.
+      </p>
+      <p class="hero-credit">
+        Work that has hung from Pop Gallery at Disney Springs and Epcot to
+        <em>Lambeth Palace</em> in London. Cover art for
+        <em>Image Comics</em>, <em>Aftershock</em>, and
+        <em>Blue Angel</em>; campaigns for <em>Coca-Cola</em>,
+        <em>Papa John&rsquo;s</em>, and <em>Dairy Queen</em>; a decade on the
+        convention circuit. Jessica von Braun, Senior Art Director.
+      </p>
+      <a href="#contact" class="pill">Work With Us</a>
+    </div>
+    <!-- Hero: Lambeth Palace banquet hall, with an inset of one of the
+         Sanctified Souls pieces held in the permanent collection. -->
+    <figure class="hero-figure">
+      <img class="hero-image"
+           src="/work/images/grid-extras/lambeth-hall.jpg"
+           alt="The 14th-century banquet hall at Lambeth Palace, hung with works in its permanent collection"
+           fetchpriority="high">
+      <figure class="hero-inset">
+        <img src="/work/images/grid-extras/saint-john-of-god.jpg"
+             alt="Saint John of God — a Sanctified Souls piece by Jessica von Braun, held in the Lambeth Palace collection"
+             fetchpriority="high">
+        <figcaption>Saint John of God</figcaption>
+      </figure>
+    </figure>
+  </section>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-left">
-    <div class="hero-eyebrow">AI Consulting &amp; Strategic Solutions</div>
-    <h1 class="hero-headline">
-      Intelligent<br>
-      systems<br>
-      <em>built to last.</em>
-    </h1>
-    <p class="hero-body">
-      We help forward-thinking organizations design, deploy, and manage AI systems that create lasting operational advantage — not just demos.
+  <!-- ===================================================================
+       AI BRANCH — leads the portfolio (Chuck's mockup, placeholder visuals).
+       Image slots are placeholders; real art to be supplied by Jessica/Chuck.
+       =================================================================== -->
+  <div class="ai-branch">
+
+    <!-- 01 — IMAGE GENERATION -->
+    <section class="panel">
+      <div class="visual">
+        <div class="diptych">
+          <div class="dip-frame dip-raw">
+            <div class="raw-wash"></div>
+            <div class="figure">
+              <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="34" rx="16" ry="18" fill="#1C1814" opacity=".35"/>
+                <path d="M50 50 C28 54 22 78 24 120 L76 120 C78 78 72 54 50 50 Z" fill="#1C1814" opacity=".35"/>
+              </svg>
+            </div>
+            <div class="scene-tag">raw generation</div>
+          </div>
+          <div class="dip-arrow">&rarr;</div>
+          <div class="dip-frame dip-finished">
+            <div class="figure">
+              <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="34" rx="16" ry="18" fill="#1C1814" opacity=".95"/>
+                <path d="M50 50 C28 54 22 78 24 120 L76 120 C78 78 72 54 50 50 Z" fill="#1C1814" opacity=".95"/>
+                <path d="M34 30 C30 12 70 12 66 30 C66 18 34 18 34 30 Z" fill="#0E0C0A"/>
+                <circle cx="50" cy="20" r="26" fill="none" stroke="#CDA86E" stroke-width="2.5" opacity=".9"/>
+              </svg>
+            </div>
+            <div class="scene-tag">hand-finished final</div>
+          </div>
+        </div>
+        <div class="oeuvre-strip">
+          <div class="oeuvre-chip chip-a">saint</div>
+          <div class="oeuvre-chip chip-b">cover</div>
+          <div class="oeuvre-chip chip-c">campaign</div>
+          <div class="oeuvre-chip chip-d">oracle</div>
+        </div>
+        <div class="grid-caption">PLACEHOLDER &mdash; raw Midjourney output beside Jessica&rsquo;s finished piece, with an oeuvre strip of four finals in one unmistakable style.</div>
+      </div>
+      <div class="copy">
+        <div class="eyebrow">01 &mdash; Image Generation</div>
+        <h2>AI is the underpainting.</h2>
+        <p class="lede">Generative output is raw material &mdash; the art is in the <strong>finish</strong>. Two decades of illustration and art direction complete what the model begins: hand-finished pieces, a recognizable oeuvre, a brand style that holds across saints, covers, and campaigns. 100,000+ prompts behind the eye, and a painter&rsquo;s hand on every final.</p>
+        <a class="explore" href="/work/illustration-design/">Explore</a>
+      </div>
+    </section>
+
+    <div class="branch-rule"></div>
+
+    <!-- 02 — AI SOLUTIONS -->
+    <section class="panel flip">
+      <div class="copy">
+        <div class="eyebrow">02 &mdash; AI Solutions</div>
+        <h2>Built past the demo.</h2>
+        <p class="lede">Production systems, not proofs of concept. A headless convention-booking platform. A virtual-queue app for live events. A <strong>sovereign AI stack</strong> running local models on owned hardware. An offline film-recommendation engine. GEO audits that make brands legible to AI assistants &mdash; scored, rebuilt, re-ranked.</p>
+        <a class="explore" href="/consulting/">Explore</a>
+      </div>
+      <div class="visual">
+        <div class="stack-card">
+          <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
+          <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
+          <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
+          <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
+          <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
+          <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
+          <div class="stack-foot">PLACEHOLDER &mdash; production systems, not proofs of concept.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===================================================================
+       SECTION — ILLUSTRATION & CREATIVE DIRECTION
+       Source folders: blue-angel-oracle-decks, zodiac-oracle-deck,
+       aftershock-comics-covers, comic-covers, image-comics-variant-covers,
+       book-covers-publishing, salt-laced-pages-book, whisker-wish-book,
+       greystone-valley-series, fabric-design-collections, new-work/
+       =================================================================== -->
+
+  <!-- ===================================================================
+       MODULES — five sections, each linking to its own page.
+       Order, copy and gating per Jessica 2026-06-06 design direction.
+       =================================================================== -->
+  <section class="modules">
+
+    <!-- 01 — App Development -->
+    <a href="/work/app-development/" class="module">
+      <div class="module-image">
+        <img src="/work/images/projects/speed-read-substack-app/cover.jpg"
+             alt="App design and development" loading="lazy">
+      </div>
+      <div class="module-text">
+        <p class="module-num">03 — App Development</p>
+        <h2>Native apps you&rsquo;ll actually open.</h2>
+        <p class="module-sub">
+          Devotional, contemplative, and utility iOS apps designed and shipped
+          end-to-end &mdash; from concept and brand through App Store launch.
+        </p>
+        <span class="module-cta">Explore</span>
+      </div>
+    </a>
+
+    <!-- 02 — Brand & Advertising (password-protected) -->
+    <a href="/work/brand-advertising/" class="module module--gated">
+      <div class="module-image">
+        <img src="/work/images/projects/simply-pop-packaging/cover.jpg"
+             alt="Brand and advertising work" loading="lazy">
+      </div>
+      <div class="module-text">
+        <p class="module-num">04 — Brand &amp; Advertising</p>
+        <h2>Brands that earn the second look.</h2>
+        <p class="module-sub">
+          Identity, packaging, advertising, email, and pitch decks &mdash;
+          organized by brand. Simply Pop for Coca-Cola, Ziegenfelder, Dairy
+          Queen, Truck Yard, and more. Password protected; request access.
+        </p>
+        <span class="module-cta">Request access</span>
+      </div>
+    </a>
+
+
+    <!-- 03 — NFT Collections -->
+    <a href="/work/nft/" class="module">
+      <div class="module-image">
+        <img src="/work/images/nft/embers-of-the-invisible-self.png"
+             alt="NFT collections on OpenSea" loading="lazy">
+      </div>
+      <div class="module-text">
+        <p class="module-num">05 — NFT Collections</p>
+        <h2>Self-deployed drops, end to end.</h2>
+        <p class="module-sub">
+          Nine curated NFT collections released on OpenSea &mdash; art
+          direction, minting, and smart-contract deployment, handled start
+          to finish.
+        </p>
+        <span class="module-cta">Explore</span>
+      </div>
+    </a>
+
+    <!-- 04 — Sanctified Souls -->
+    <a href="/work/sanctified-souls/" class="module">
+      <div class="module-image">
+        <img src="/work/images/projects/sanctified-souls-devotional-art/cover.png"
+             alt="Sanctified Souls devotional brand and apps" loading="lazy">
+      </div>
+      <div class="module-text">
+        <p class="module-num">06 — Sanctified Souls</p>
+        <h2>A devotional brand and its apps.</h2>
+        <p class="module-sub">
+          Original Catholic devotional art &mdash; saints, Marian imagery,
+          liturgical pieces &mdash; alongside the family of iOS apps that
+          surface it daily.
+        </p>
+        <span class="module-cta">Explore</span>
+      </div>
+    </a>
+
+    <!-- 05 — Illustration & Design -->
+    <a href="/work/illustration-design/" class="module">
+      <div class="module-image">
+        <img src="/work/images/projects/book-covers-publishing/01.jpg"
+             alt="Illustration and design work" loading="lazy">
+      </div>
+      <div class="module-text">
+        <p class="module-num">07 — Illustration &amp; Design</p>
+        <h2>Editorial, oracle, fabric, and book.</h2>
+        <p class="module-sub">
+          A decade of cover art and illustration &mdash; comics for Image and
+          Aftershock, oracle decks for Blue Angel Publishing, published book
+          covers, and surface-pattern design for fabric. Drawn, painted, and
+          composed by hand.
+        </p>
+        <span class="module-cta">Explore</span>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- Positioning + credentials: the trained eye, brought current -->
+  <section class="approach">
+    <p class="approach-meta">Approach</p>
+    <h2 class="approach-head">A trained eye, brought current.</h2>
+    <p class="approach-body">
+      Two decades of art direction, illustration, and brand work sit behind
+      the fundamentals that don&rsquo;t change &mdash; composition, color,
+      type, and story. What&rsquo;s new is the toolkit. An early adopter of
+      generative AI in professional pipelines, with well over 100,000
+      Midjourney prompts since its beta, I bring a senior art director&rsquo;s
+      judgment to Midjourney, Firefly, Runway, and the rest &mdash; and to
+      AI-assisted build and prototyping. The value isn&rsquo;t the tool.
+      It&rsquo;s the eye directing it: twenty years of craft, brought to the
+      modern table.
+      <span style="display:block;margin-top:15px;font-style:italic;font-size:0.9em;opacity:0.72;">Every section here shows a curated selection &mdash; more examples available on&nbsp;request.</span>
     </p>
-    <div class="hero-actions">
-      <a class='btn-primary' href='/survey'>Start Your Assessment</a>
-      <a href="#services" class="btn-ghost">Our Services</a>
-    </div>
-  </div>
+  </section>
 
-  <div class="hero-right">
-    <div class="hero-visual">
-      <div class="grid-graphic"></div>
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="hero-diagram">
-        <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outer rotating ring -->
-          <g class="ring-outer">
-            <circle cx="160" cy="160" r="140" stroke="rgba(201,168,76,0.12)" stroke-width="1" stroke-dasharray="6 8"/>
-          </g>
-          <!-- Inner rotating ring -->
-          <g class="ring-inner">
-            <circle cx="160" cy="160" r="100" stroke="rgba(201,168,76,0.18)" stroke-width="1" stroke-dasharray="4 12"/>
-          </g>
-          <!-- Static rings -->
-          <circle cx="160" cy="160" r="60" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <!-- Center -->
-          <circle cx="160" cy="160" r="8" fill="rgba(201,168,76,0.8)"/>
-          <circle cx="160" cy="160" r="20" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-          <!-- Node points -->
-          <circle cx="160" cy="20" r="5" fill="rgba(201,168,76,0.5)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-          <circle cx="280" cy="100" r="4" fill="rgba(201,168,76,0.4)" stroke="rgba(201,168,76,0.7)" stroke-width="1"/>
-          <circle cx="260" cy="250" r="6" fill="rgba(201,168,76,0.3)" stroke="rgba(201,168,76,0.6)" stroke-width="1"/>
-          <circle cx="60" cy="240" r="4" fill="rgba(201,168,76,0.4)" stroke="rgba(201,168,76,0.7)" stroke-width="1"/>
-          <circle cx="40" cy="100" r="5" fill="rgba(201,168,76,0.5)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-          <!-- Connection lines -->
-          <line class="data-line" x1="160" y1="160" x2="160" y2="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-          <line class="data-line data-line-2" x1="160" y1="160" x2="280" y2="100" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-          <line class="data-line data-line-3" x1="160" y1="160" x2="260" y2="250" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-          <line class="data-line data-line-4" x1="160" y1="160" x2="60" y2="240" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-          <line class="data-line" x1="160" y1="160" x2="40" y2="100" stroke="rgba(201,168,76,0.3)" stroke-width="1" style="animation-delay:0.2s"/>
-          <!-- Corner labels -->
-          <text x="148" y="13" fill="rgba(201,168,76,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">DATA</text>
-          <text x="286" y="104" fill="rgba(201,168,76,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">AI</text>
-          <text x="238" y="268" fill="rgba(201,168,76,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">OUTPUT</text>
-          <text x="22" y="258" fill="rgba(201,168,76,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">OPS</text>
-          <text x="10" y="98" fill="rgba(201,168,76,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">STRAT</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">End-to-End</div>
-      <div class="stat-label">AI Implementation</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Bespoke</div>
-      <div class="stat-label">Engagement Model</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Measurable</div>
-      <div class="stat-label">Outcomes Focus</div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">Who We Are</div>
-  <div class="section-title reveal">Strategic minds.<br><em>Technical depth.</em></div>
-
-  <div class="about-grid">
-    <div class="about-text reveal reveal-delay-1">
-      <p>
-        Quintilian, Inc. sits at the intersection of <strong>strategic consulting and applied AI</strong>. We're not a software house that learned to say "AI," and we're not a strategy firm bolting on a technology practice. We've built and operated intelligent systems from the ground up.
-      </p>
-      <p>
-        We work with organizations that are serious about integrating AI into their operations — and want a partner who will tell them the truth about what's possible, what's premature, and what will actually move the needle.
-      </p>
-      <p>
-        Every engagement starts with understanding your business before we touch a model, an API, or an automation workflow.
-      </p>
-    </div>
-
-    <div class="about-pillars reveal reveal-delay-2">
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <div class="pillar-content">
-          <h4>Clarity Over Hype</h4>
-          <p>We filter signal from noise and recommend only what will create real leverage for your specific context.</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">02</div>
-        <div class="pillar-content">
-          <h4>Built to Operate</h4>
-          <p>We design for the day after launch — systems that your team can maintain, monitor, and improve.</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <div class="pillar-content">
-          <h4>Creative &amp; Technical</h4>
-          <p>AI consulting that spans content, creative operations, and intelligent automation under one roof.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- SERVICES -->
-<section id="services" class="services">
-  <div class="section-label">What We Do</div>
-  <div class="section-title reveal">Three ways we<br><em>create value.</em></div>
-
-  <div class="services-grid">
-    <div class="service-card reveal reveal-delay-1">
-      <svg class="service-icon" viewBox="0 0 40 40" fill="none">
-        <rect x="4" y="4" width="14" height="14" stroke="rgba(201,168,76,0.7)" stroke-width="1"/>
-        <rect x="22" y="4" width="14" height="14" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-        <rect x="4" y="22" width="14" height="14" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-        <rect x="22" y="22" width="14" height="14" stroke="rgba(201,168,76,0.7)" stroke-width="1"/>
-        <line x1="18" y1="11" x2="22" y2="11" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-        <line x1="29" y1="18" x2="29" y2="22" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-      </svg>
-      <h3 class="service-title">AI Strategy &amp; Roadmapping</h3>
-      <p class="service-desc">A clear-eyed analysis of where AI creates real advantage in your organization — and a phased plan to get there without burning capital on experiments that don't compound.</p>
-      <ul class="service-items">
-        <li>AI Readiness Assessment</li>
-        <li>Use Case Prioritization</li>
-        <li>Build vs. Buy Analysis</li>
-        <li>Risk &amp; Compliance Review</li>
-        <li>Vendor &amp; Stack Selection</li>
+  <section class="credentials">
+    <div class="cred-col cred-col--wide">
+      <h3 class="cred-head">Select Clients</h3>
+      <ul class="cred-list cred-list--cols">
+        <li>The Coca-Cola Company</li>
+        <li>Papa John&rsquo;s</li>
+        <li>Texas Dairy Queen</li>
+        <li>McAfee</li>
+        <li>Murphy USA</li>
+        <li>Taco Bueno</li>
+        <li>Golden Chick</li>
+        <li>Freebirds World Burrito</li>
+        <li>Truck Yard</li>
+        <li>Hacienda Colorado</li>
+        <li>Bloomin&rsquo; Blinds</li>
+        <li>Ziegenfelder</li>
+        <li>Fitness Connection</li>
+        <li>Fortune Tires</li>
+        <li>FirstLight Home Care</li>
+        <li>Highland Homes</li>
+        <li>Sparrow Living</li>
+        <li>Tachus Fiber Internet</li>
+        <li>Vetoquinol</li>
+        <li>The United Methodist Church</li>
+        <li>Image Comics</li>
+        <li>Aftershock Comics</li>
+        <li>Blue Angel Publishing</li>
       </ul>
     </div>
-
-    <div class="service-card reveal reveal-delay-2">
-      <svg class="service-icon" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="14" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-        <circle cx="20" cy="20" r="6" stroke="rgba(201,168,76,0.7)" stroke-width="1"/>
-        <line x1="20" y1="6" x2="20" y2="14" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-        <line x1="20" y1="26" x2="20" y2="34" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-        <line x1="6" y1="20" x2="14" y2="20" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-        <line x1="26" y1="20" x2="34" y2="20" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
-      </svg>
-      <h3 class="service-title">Intelligent Systems Implementation</h3>
-      <p class="service-desc">From agentic pipelines to content automation and data systems — we design, build, and deploy AI-powered infrastructure that operates continuously with minimal oversight.</p>
-      <ul class="service-items">
-        <li>Agent &amp; Automation Design</li>
-        <li>LLM Integration &amp; Fine-Tuning</li>
-        <li>Content &amp; Creative Pipelines</li>
-        <li>Local &amp; Edge AI Deployment</li>
-        <li>Monitoring &amp; Observability</li>
+    <div class="cred-col">
+      <h3 class="cred-head">Expertise</h3>
+      <ul class="cred-list">
+        <li>Art Direction &amp; Creative Strategy</li>
+        <li>Illustration &amp; Cover Art</li>
+        <li>Brand Identity &amp; Campaigns</li>
+        <li>AI &amp; Generative Art</li>
+        <li>AI-Assisted Build &amp; Prototyping</li>
+        <li>App UX &amp; Product Mockups</li>
+        <li>NFT Development &amp; Smart Contracts</li>
       </ul>
     </div>
-
-    <div class="service-card reveal reveal-delay-3">
-      <svg class="service-icon" viewBox="0 0 40 40" fill="none">
-        <polyline points="4,30 14,18 22,24 32,10" stroke="rgba(201,168,76,0.7)" stroke-width="1" fill="none"/>
-        <circle cx="14" cy="18" r="2.5" fill="rgba(201,168,76,0.5)"/>
-        <circle cx="22" cy="24" r="2.5" fill="rgba(201,168,76,0.5)"/>
-        <circle cx="32" cy="10" r="2.5" fill="rgba(201,168,76,0.7)"/>
-        <line x1="4" y1="34" x2="36" y2="34" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-      </svg>
-      <h3 class="service-title">Creative Operations &amp; Content Intelligence</h3>
-      <p class="service-desc">For organizations with high content volume — we build intelligent creative operations that scale output without scaling headcount, while maintaining brand fidelity.</p>
-      <ul class="service-items">
-        <li>AI-Powered Content Systems</li>
-        <li>Brand Voice &amp; Model Training</li>
-        <li>Publishing Automation</li>
-        <li>Visual &amp; Image Pipelines</li>
-        <li>Editorial Workflow Design</li>
+    <div class="cred-col">
+      <h3 class="cred-head">Shown &amp; Featured</h3>
+      <ul class="cred-list">
+        <li>Lambeth Palace, London</li>
+        <li>Pop Gallery — Disney Springs</li>
+        <li>Pop Gallery — Epcot</li>
+        <li>Hulu — <em>Deadbeat</em></li>
+        <li>The Stan Lee Foundation</li>
       </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="section-divider"></div>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="section-label">How We Work</div>
-  <div class="section-title reveal">A deliberate<br><em>four-phase process.</em></div>
-
-  <div class="process-steps">
-    <div class="process-step reveal reveal-delay-1">
-      <div class="step-dot"><span>01</span></div>
-      <h4 class="step-title">Discovery</h4>
-      <p class="step-desc">We begin with a structured Pre-Audit Survey and a working session to understand your operations, goals, constraints, and AI maturity. No assumptions, no templates.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-2">
-      <div class="step-dot"><span>02</span></div>
-      <h4 class="step-title">Diagnosis</h4>
-      <p class="step-desc">We map your data landscape, workflows, and technical environment to identify where AI creates genuine leverage — and where it would just add complexity.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-3">
-      <div class="step-dot"><span>03</span></div>
-      <h4 class="step-title">Design &amp; Build</h4>
-      <p class="step-desc">Architecture, implementation, testing, and integration. We move fast, but never cut corners on operability — every system is built to be owned and operated by your team.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-4">
-      <div class="step-dot"><span>04</span></div>
-      <h4 class="step-title">Operate &amp; Evolve</h4>
-      <p class="step-desc">Post-launch, we provide structured knowledge transfer, documentation, and optional ongoing support as your AI capabilities grow with your business.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- PRE-AUDIT CTA -->
-<section id="preaudit" class="preaudit">
-  <div class="preaudit-inner">
-    <div class="preaudit-content reveal">
-      <div class="section-label">Get Started</div>
-      <h2 class="section-title">Begin with the<br><em>Pre-Audit Survey.</em></h2>
-      <p>
-        Every engagement starts here. The Pre-Audit Survey helps us understand your organization, goals, and current state before we ever get on a call. It takes 10–15 minutes and gives us the foundation to have a genuinely useful first conversation.
-      </p>
-      <a class='btn-primary' href='/survey'>Start the Survey →</a>
-    </div>
-
-    <div class="audit-features reveal reveal-delay-2">
-      <div class="audit-feature">
-        <div class="audit-feature-icon"></div>
-        <div class="audit-feature-text">
-          <h5>Organizational Context</h5>
-          <p>We capture your industry, team size, current tech stack, and operational priorities so we arrive prepared — not curious.</p>
-        </div>
-      </div>
-      <div class="audit-feature">
-        <div class="audit-feature-icon"></div>
-        <div class="audit-feature-text">
-          <h5>AI Maturity Snapshot</h5>
-          <p>Where are you now? Understand your current exposure to AI tools, data infrastructure, and automation before our first session.</p>
-        </div>
-      </div>
-      <div class="audit-feature">
-        <div class="audit-feature-icon"></div>
-        <div class="audit-feature-text">
-          <h5>Priority Mapping</h5>
-          <p>What outcomes matter most? The survey surfaces your highest-leverage opportunities so we can focus time on what actually matters.</p>
-        </div>
-      </div>
-      <div class="audit-feature">
-        <div class="audit-feature-icon"></div>
-        <div class="audit-feature-text">
-          <h5>Free Discovery Call</h5>
-          <p>Survey completion is followed by a complimentary 30-minute call to review findings and determine if there's a fit.</p>
-        </div>
+  <footer class="foot" id="contact">
+    <div>
+      <p class="closing">Have a project in mind?</p>
+      <div class="cta-row">
+        <a href="/contact" class="pill">Work With Us</a>
+        <a href="/survey" class="pill ghost">Begin Assessment</a>
+        <a href="/client-work" class="pill ghost">Client Work →</a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="colophon">
+      Quintilian, Inc. — Multidisciplinary creative practice.
+      Selected work shown. For client engagements and case studies,
+      access the password-protected Client Work page.
+    </div>
+  </footer>
 
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="footer-logo">Quintilian<span>,</span> inc.</div>
-  <ul class="footer-links">
-    <li><a href='/about'>About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href='/work'>Work</a></li>
-    <li><a href='/survey'>Pre-Audit Survey</a></li>
-    <li><a href='/contact'>Contact</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 Quintilian, Inc.</div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scrolled nav
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-  reveals.forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
