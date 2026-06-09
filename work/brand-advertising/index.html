@@ -217,6 +217,21 @@
     }
     @media (max-width: 540px) { .app-row { grid-template-columns: repeat(3, 1fr); } }
 
+    /* Randomized brand mosaic (masonry) */
+    .roster { max-width: 900px; margin: -22px auto 0; padding: 0 64px; text-align: center; }
+    .roster .label { display:block; font-family: var(--sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); margin-bottom: 8px; }
+    .roster em { font-style: italic; font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); }
+    .mosaic { max-width: 1500px; margin: 44px auto 72px; padding: 0 64px; column-count: 4; column-gap: 12px; }
+    .mosaic-item { break-inside: avoid; margin: 0 0 12px; width: 100%; display: block; padding: 0; border: none; background: var(--cream-warm); cursor: zoom-in; position: relative; overflow: hidden; }
+    .mosaic-item img { width: 100%; height: auto; display: block; transition: transform 0.45s ease; }
+    .mosaic-item:hover img { transform: scale(1.04); }
+    .mosaic-item .tag { position: absolute; left: 8px; bottom: 8px; background: rgba(26,26,26,0.82); color: #fff; font-family: var(--sans); font-size: 11px; letter-spacing: 0.05em; padding: 4px 9px; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+    .mosaic-item:hover .tag { opacity: 1; }
+    .decks-wrap { max-width: 1400px; margin: 64px auto 80px; padding: 0 64px; }
+    @media (max-width: 1200px) { .mosaic { column-count: 3; } }
+    @media (max-width: 900px) { .mosaic { padding: 0 32px; } .roster { padding: 0 32px; } .decks-wrap { padding: 0 32px; } }
+    @media (max-width: 640px) { .mosaic { column-count: 2; padding: 0 18px; } }
+
     /* Lightbox overlay */
     .lightbox {
       position: fixed;
@@ -483,234 +498,348 @@
     <p class="section-meta">02 — Brand &amp; Advertising</p>
     <h1>Brands that earn the second look.</h1>
     <p class="blurb">
-      Identity, packaging, advertising, and email &mdash; organized by brand,
-      from a fifteen-year career across consumer accounts and five years
-      in-house at an ad agency. Pitch decks at the bottom. Tap any tile to see
-      it full size.
+      Nearly two decades of art direction across publishing, agency, and five years
+      in-house at an ad&nbsp;agency &mdash; then back to freelance. Identity, packaging,
+      advertising, email, and social for consumer brands, built to earn the
+      second&nbsp;look. Tap any image to see it full&nbsp;size.
     </p>
   </section>
 
-  <section class="app-sections">
+  <p class="roster"><span class="label">Selected clients</span><em>The Coca-Cola Company &middot; Murphy USA &middot; Texas Dairy Queen &middot; Ziegenfelder &middot; Truck Yard &middot; Taco Bueno &middot; Freebirds World Burrito &middot; Hacienda Colorado &middot; Papa John&rsquo;s &middot; Bloomin&rsquo; Blinds &middot; McAfee &middot; Golden Chick &middot; Highland Homes &middot; Sparrow Living &middot; Tachus Fiber &middot; Vetoquinol &middot; Hulu &middot; Fitness Connection &middot; Fortune Tires &middot; Rug Doctor &middot; FirstLight Home Care &middot; Energy Attic &middot; Solitary Cup Company &middot; St.&nbsp;Agnes Rule &amp; Remedy</em></p>
 
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Simply Pop</span><span class="cat-meta">The Coca-Cola Company</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/simply-pop-packaging/cover.png" data-caption="Simply Pop">
-          <img src="../images/projects/simply-pop-packaging/cover.png" alt="Simply Pop" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/simply-pop-packaging/01.png" data-caption="Simply Pop">
-          <img src="../images/projects/simply-pop-packaging/01.png" alt="Simply Pop" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/simply-pop-ai-photography/cover.png" data-caption="Simply Pop">
-          <img src="../images/projects/simply-pop-ai-photography/cover.png" alt="Simply Pop" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/simply-pop-ai-photography/01.png" data-caption="Simply Pop">
-          <img src="../images/projects/simply-pop-ai-photography/01.png" alt="Simply Pop" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/simply-pop-ai-photography/02.jpg" data-caption="Simply Pop">
-          <img src="../images/projects/simply-pop-ai-photography/02.jpg" alt="Simply Pop" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/simply-pop-ai-photography/03.png" data-caption="Simply Pop">
-          <img src="../images/projects/simply-pop-ai-photography/03.png" alt="Simply Pop" loading="lazy">
-        </button>
-        </div>
+  <section class="mosaic">
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/cover.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/cover.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/cover.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/cover.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/cover.jpg" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/cover.jpg" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-01.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-01.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/truck-yard-email-campaigns/cover.png" data-caption="Truck Yard">
+        <img src="../images/projects/truck-yard-email-campaigns/cover.png" alt="Truck Yard" loading="lazy">
+        <span class="tag">Truck Yard</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/bloomin-blinds-branding/cover.png" data-caption="Bloomin’ Blinds">
+        <img src="../images/projects/bloomin-blinds-branding/cover.png" alt="Bloomin’ Blinds" loading="lazy">
+        <span class="tag">Bloomin’ Blinds</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/hacienda-colorado/cover.png" data-caption="Hacienda Colorado">
+        <img src="../images/projects/hacienda-colorado/cover.png" alt="Hacienda Colorado" loading="lazy">
+        <span class="tag">Hacienda Colorado</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/freebirds-advertising/cover.png" data-caption="Freebirds World Burrito">
+        <img src="../images/projects/freebirds-advertising/cover.png" alt="Freebirds World Burrito" loading="lazy">
+        <span class="tag">Freebirds World Burrito</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/taco-bueno-advertising/cover.png" data-caption="Taco Bueno">
+        <img src="../images/projects/taco-bueno-advertising/cover.png" alt="Taco Bueno" loading="lazy">
+        <span class="tag">Taco Bueno</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/papa-johns/ifj-01.png" data-caption="Papa John’s">
+        <img src="../images/projects/papa-johns/ifj-01.png" alt="Papa John’s" loading="lazy">
+        <span class="tag">Papa John’s</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/energy-attic-email/cover.png" data-caption="Energy Attic">
+        <img src="../images/projects/energy-attic-email/cover.png" alt="Energy Attic" loading="lazy">
+        <span class="tag">Energy Attic</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/rug-doctor-email/cover.png" data-caption="Rug Doctor">
+        <img src="../images/projects/rug-doctor-email/cover.png" alt="Rug Doctor" loading="lazy">
+        <span class="tag">Rug Doctor</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/firstlight-home-care/cover.png" data-caption="FirstLight Home Care">
+        <img src="../images/projects/firstlight-home-care/cover.png" alt="FirstLight Home Care" loading="lazy">
+        <span class="tag">FirstLight Home Care</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/fitness-connection-digital/cover.png" data-caption="Fitness Connection">
+        <img src="../images/projects/fitness-connection-digital/cover.png" alt="Fitness Connection" loading="lazy">
+        <span class="tag">Fitness Connection</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/fortune-tires-email/cover.png" data-caption="Fortune Tires">
+        <img src="../images/projects/fortune-tires-email/cover.png" alt="Fortune Tires" loading="lazy">
+        <span class="tag">Fortune Tires</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/solitary-cup-company/ifj-01.webp" data-caption="Solitary Cup Company">
+        <img src="../images/projects/solitary-cup-company/ifj-01.webp" alt="Solitary Cup Company" loading="lazy">
+        <span class="tag">Solitary Cup Company</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/st-agnes-remedy/ifj-01.png" data-caption="St. Agnes Rule &amp; Remedy">
+        <img src="../images/projects/st-agnes-remedy/ifj-01.png" alt="St. Agnes Rule &amp; Remedy" loading="lazy">
+        <span class="tag">St. Agnes Rule &amp; Remedy</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/social-campaigns/ifj-01.jpg" data-caption="Social Campaigns">
+        <img src="../images/projects/social-campaigns/ifj-01.jpg" alt="Social Campaigns" loading="lazy">
+        <span class="tag">Social Campaigns</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/01.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/01.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/01.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/01.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/02.png" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/02.png" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-02.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-02.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/truck-yard-email-campaigns/01.png" data-caption="Truck Yard">
+        <img src="../images/projects/truck-yard-email-campaigns/01.png" alt="Truck Yard" loading="lazy">
+        <span class="tag">Truck Yard</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/bloomin-blinds-branding/02.png" data-caption="Bloomin’ Blinds">
+        <img src="../images/projects/bloomin-blinds-branding/02.png" alt="Bloomin’ Blinds" loading="lazy">
+        <span class="tag">Bloomin’ Blinds</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/hacienda-colorado/01.png" data-caption="Hacienda Colorado">
+        <img src="../images/projects/hacienda-colorado/01.png" alt="Hacienda Colorado" loading="lazy">
+        <span class="tag">Hacienda Colorado</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/papa-johns/ifj-02.png" data-caption="Papa John’s">
+        <img src="../images/projects/papa-johns/ifj-02.png" alt="Papa John’s" loading="lazy">
+        <span class="tag">Papa John’s</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/energy-attic-email/01.png" data-caption="Energy Attic">
+        <img src="../images/projects/energy-attic-email/01.png" alt="Energy Attic" loading="lazy">
+        <span class="tag">Energy Attic</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/rug-doctor-email/01.png" data-caption="Rug Doctor">
+        <img src="../images/projects/rug-doctor-email/01.png" alt="Rug Doctor" loading="lazy">
+        <span class="tag">Rug Doctor</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/firstlight-home-care/01.png" data-caption="FirstLight Home Care">
+        <img src="../images/projects/firstlight-home-care/01.png" alt="FirstLight Home Care" loading="lazy">
+        <span class="tag">FirstLight Home Care</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/solitary-cup-company/ifj-02.webp" data-caption="Solitary Cup Company">
+        <img src="../images/projects/solitary-cup-company/ifj-02.webp" alt="Solitary Cup Company" loading="lazy">
+        <span class="tag">Solitary Cup Company</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/st-agnes-remedy/ifj-02.png" data-caption="St. Agnes Rule &amp; Remedy">
+        <img src="../images/projects/st-agnes-remedy/ifj-02.png" alt="St. Agnes Rule &amp; Remedy" loading="lazy">
+        <span class="tag">St. Agnes Rule &amp; Remedy</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/social-campaigns/ifj-02.jpg" data-caption="Social Campaigns">
+        <img src="../images/projects/social-campaigns/ifj-02.jpg" alt="Social Campaigns" loading="lazy">
+        <span class="tag">Social Campaigns</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/02.jpg" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/02.jpg" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/02.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/02.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/03.jpg" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/03.jpg" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-03.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-03.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/truck-yard-email-campaigns/02.png" data-caption="Truck Yard">
+        <img src="../images/projects/truck-yard-email-campaigns/02.png" alt="Truck Yard" loading="lazy">
+        <span class="tag">Truck Yard</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/bloomin-blinds-branding/03.png" data-caption="Bloomin’ Blinds">
+        <img src="../images/projects/bloomin-blinds-branding/03.png" alt="Bloomin’ Blinds" loading="lazy">
+        <span class="tag">Bloomin’ Blinds</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/energy-attic-email/ifj-01.png" data-caption="Energy Attic">
+        <img src="../images/projects/energy-attic-email/ifj-01.png" alt="Energy Attic" loading="lazy">
+        <span class="tag">Energy Attic</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/solitary-cup-company/ifj-03.webp" data-caption="Solitary Cup Company">
+        <img src="../images/projects/solitary-cup-company/ifj-03.webp" alt="Solitary Cup Company" loading="lazy">
+        <span class="tag">Solitary Cup Company</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/st-agnes-remedy/ifj-03.png" data-caption="St. Agnes Rule &amp; Remedy">
+        <img src="../images/projects/st-agnes-remedy/ifj-03.png" alt="St. Agnes Rule &amp; Remedy" loading="lazy">
+        <span class="tag">St. Agnes Rule &amp; Remedy</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/social-campaigns/ifj-03.jpg" data-caption="Social Campaigns">
+        <img src="../images/projects/social-campaigns/ifj-03.jpg" alt="Social Campaigns" loading="lazy">
+        <span class="tag">Social Campaigns</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/03.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/03.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/03.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/03.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/ifj-01.png" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/ifj-01.png" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-04.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-04.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/truck-yard-email-campaigns/03.png" data-caption="Truck Yard">
+        <img src="../images/projects/truck-yard-email-campaigns/03.png" alt="Truck Yard" loading="lazy">
+        <span class="tag">Truck Yard</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/bloomin-blinds-branding/04.png" data-caption="Bloomin’ Blinds">
+        <img src="../images/projects/bloomin-blinds-branding/04.png" alt="Bloomin’ Blinds" loading="lazy">
+        <span class="tag">Bloomin’ Blinds</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/energy-attic-email/ifj-02.png" data-caption="Energy Attic">
+        <img src="../images/projects/energy-attic-email/ifj-02.png" alt="Energy Attic" loading="lazy">
+        <span class="tag">Energy Attic</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/solitary-cup-company/ifj-04.webp" data-caption="Solitary Cup Company">
+        <img src="../images/projects/solitary-cup-company/ifj-04.webp" alt="Solitary Cup Company" loading="lazy">
+        <span class="tag">Solitary Cup Company</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/st-agnes-remedy/ifj-04.png" data-caption="St. Agnes Rule &amp; Remedy">
+        <img src="../images/projects/st-agnes-remedy/ifj-04.png" alt="St. Agnes Rule &amp; Remedy" loading="lazy">
+        <span class="tag">St. Agnes Rule &amp; Remedy</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/social-campaigns/ifj-04.jpg" data-caption="Social Campaigns">
+        <img src="../images/projects/social-campaigns/ifj-04.jpg" alt="Social Campaigns" loading="lazy">
+        <span class="tag">Social Campaigns</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/04.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/04.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/04.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/04.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/ifj-02.png" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/ifj-02.png" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-05.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-05.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/truck-yard-email-campaigns/04.png" data-caption="Truck Yard">
+        <img src="../images/projects/truck-yard-email-campaigns/04.png" alt="Truck Yard" loading="lazy">
+        <span class="tag">Truck Yard</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/energy-attic-email/ifj-03.png" data-caption="Energy Attic">
+        <img src="../images/projects/energy-attic-email/ifj-03.png" alt="Energy Attic" loading="lazy">
+        <span class="tag">Energy Attic</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/solitary-cup-company/ifj-05.webp" data-caption="Solitary Cup Company">
+        <img src="../images/projects/solitary-cup-company/ifj-05.webp" alt="Solitary Cup Company" loading="lazy">
+        <span class="tag">Solitary Cup Company</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/st-agnes-remedy/ifj-05.png" data-caption="St. Agnes Rule &amp; Remedy">
+        <img src="../images/projects/st-agnes-remedy/ifj-05.png" alt="St. Agnes Rule &amp; Remedy" loading="lazy">
+        <span class="tag">St. Agnes Rule &amp; Remedy</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/social-campaigns/ifj-05.jpg" data-caption="Social Campaigns">
+        <img src="../images/projects/social-campaigns/ifj-05.jpg" alt="Social Campaigns" loading="lazy">
+        <span class="tag">Social Campaigns</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/05.jpg" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/05.jpg" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/05.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/05.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/ifj-03.png" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/ifj-03.png" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-06.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-06.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/06.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/06.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/06.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/06.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/ifj-04.jpg" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/ifj-04.jpg" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-07.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-07.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/07.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/07.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/07.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/07.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/ifj-05.png" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/ifj-05.png" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-08.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-08.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/simply-pop-ai-photography/08.png" data-caption="Simply Pop">
+        <img src="../images/projects/simply-pop-ai-photography/08.png" alt="Simply Pop" loading="lazy">
+        <span class="tag">Simply Pop</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/08.png" data-caption="Ziegenfelder">
+        <img src="../images/projects/ziegenfelder-brand-campaign/08.png" alt="Ziegenfelder" loading="lazy">
+        <span class="tag">Ziegenfelder</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/dairy-queen-social/ifj-06.jpg" data-caption="Texas Dairy Queen">
+        <img src="../images/projects/dairy-queen-social/ifj-06.jpg" alt="Texas Dairy Queen" loading="lazy">
+        <span class="tag">Texas Dairy Queen</span>
+      </button>
+      <button class="mosaic-item" type="button" data-full="../images/projects/murphy-usa/ifj-09.jpg" data-caption="Murphy USA">
+        <img src="../images/projects/murphy-usa/ifj-09.jpg" alt="Murphy USA" loading="lazy">
+        <span class="tag">Murphy USA</span>
+      </button>
+  </section>
+
+  <section class="decks-wrap">
+    <div class="cat-head"><span class="cat-name">Decks &amp; Brand Guides</span><span class="cat-meta">Pitch decks &middot; brand guides &middot; one-sheets</span></div>
+    <div class="deck-list">
+      <div class="deck-card">
+        <h3>Clean Hands Dirty Hands &mdash; Pitch Deck</h3>
+        <div class="embed-slot"><object data="CHDH.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="CHDH.pdf">Download CHDH.pdf</a></p></object></div>
       </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Ziegenfelder</span><span class="cat-meta">Monster Pops &amp; Twin Pops</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/cover.png" data-caption="Ziegenfelder">
-          <img src="../images/projects/ziegenfelder-brand-campaign/cover.png" alt="Ziegenfelder" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/01.png" data-caption="Ziegenfelder">
-          <img src="../images/projects/ziegenfelder-brand-campaign/01.png" alt="Ziegenfelder" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/02.png" data-caption="Ziegenfelder">
-          <img src="../images/projects/ziegenfelder-brand-campaign/02.png" alt="Ziegenfelder" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/03.png" data-caption="Ziegenfelder">
-          <img src="../images/projects/ziegenfelder-brand-campaign/03.png" alt="Ziegenfelder" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/04.png" data-caption="Ziegenfelder">
-          <img src="../images/projects/ziegenfelder-brand-campaign/04.png" alt="Ziegenfelder" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/ziegenfelder-brand-campaign/05.png" data-caption="Ziegenfelder">
-          <img src="../images/projects/ziegenfelder-brand-campaign/05.png" alt="Ziegenfelder" loading="lazy">
-        </button>
-        </div>
+      <div class="deck-card">
+        <h3>867 The Line &mdash; Pitch Deck</h3>
+        <div class="embed-slot"><object data="867TheLine.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="867TheLine.pdf">Download 867TheLine.pdf</a></p></object></div>
       </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Texas Dairy Queen</span><span class="cat-meta">Social &amp; email</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/dairy-queen-social/cover.jpg" data-caption="Texas Dairy Queen">
-          <img src="../images/projects/dairy-queen-social/cover.jpg" alt="Texas Dairy Queen" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/dairy-queen-social/02.png" data-caption="Texas Dairy Queen">
-          <img src="../images/projects/dairy-queen-social/02.png" alt="Texas Dairy Queen" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/dairy-queen-social/03.jpg" data-caption="Texas Dairy Queen">
-          <img src="../images/projects/dairy-queen-social/03.jpg" alt="Texas Dairy Queen" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/dq-email-marketing/cover.png" data-caption="Texas Dairy Queen">
-          <img src="../images/projects/dq-email-marketing/cover.png" alt="Texas Dairy Queen" loading="lazy">
-        </button>
-        </div>
+      <div class="deck-card">
+        <h3>Lakefront &mdash; Brand Guide</h3>
+        <div class="embed-slot"><object data="Lakefront-Brand-Guide.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="Lakefront-Brand-Guide.pdf">Download Lakefront-Brand-Guide.pdf</a></p></object></div>
       </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Bloomin&rsquo; Blinds</span><span class="cat-meta">Brand identity</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/bloomin-blinds-branding/cover.png" data-caption="Bloomin Blinds">
-          <img src="../images/projects/bloomin-blinds-branding/cover.png" alt="Bloomin Blinds" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/bloomin-blinds-branding/02.png" data-caption="Bloomin Blinds">
-          <img src="../images/projects/bloomin-blinds-branding/02.png" alt="Bloomin Blinds" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/bloomin-blinds-branding/03.png" data-caption="Bloomin Blinds">
-          <img src="../images/projects/bloomin-blinds-branding/03.png" alt="Bloomin Blinds" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/bloomin-blinds-branding/04.png" data-caption="Bloomin Blinds">
-          <img src="../images/projects/bloomin-blinds-branding/04.png" alt="Bloomin Blinds" loading="lazy">
-        </button>
-        </div>
+      <div class="deck-card">
+        <h3>PPM AI &mdash; One-Sheet</h3>
+        <div class="embed-slot"><object data="PPM-AI-OneSheet.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="PPM-AI-OneSheet.pdf">Download PPM-AI-OneSheet.pdf</a></p></object></div>
       </div>
+    </div>
+  </section>
 
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Freebirds World Burrito</span><span class="cat-meta">Advertising</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/freebirds-advertising/cover.png" data-caption="Freebirds World Burrito">
-          <img src="../images/projects/freebirds-advertising/cover.png" alt="Freebirds World Burrito" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Hacienda Colorado</span><span class="cat-meta">Brand &amp; campaign</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/hacienda-colorado/cover.png" data-caption="Hacienda Colorado">
-          <img src="../images/projects/hacienda-colorado/cover.png" alt="Hacienda Colorado" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/hacienda-colorado/01.png" data-caption="Hacienda Colorado">
-          <img src="../images/projects/hacienda-colorado/01.png" alt="Hacienda Colorado" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Truck Yard</span><span class="cat-meta">Email &amp; campaigns</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/truck-yard-email-campaigns/cover.png" data-caption="Truck Yard">
-          <img src="../images/projects/truck-yard-email-campaigns/cover.png" alt="Truck Yard" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/truck-yard-email-campaigns/01.png" data-caption="Truck Yard">
-          <img src="../images/projects/truck-yard-email-campaigns/01.png" alt="Truck Yard" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/truck-yard-email-campaigns/02.png" data-caption="Truck Yard">
-          <img src="../images/projects/truck-yard-email-campaigns/02.png" alt="Truck Yard" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/truck-yard-email-campaigns/03.png" data-caption="Truck Yard">
-          <img src="../images/projects/truck-yard-email-campaigns/03.png" alt="Truck Yard" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/truck-yard-email-campaigns/04.png" data-caption="Truck Yard">
-          <img src="../images/projects/truck-yard-email-campaigns/04.png" alt="Truck Yard" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Energy Attic</span><span class="cat-meta">Email marketing</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/energy-attic-email/cover.png" data-caption="Energy Attic">
-          <img src="../images/projects/energy-attic-email/cover.png" alt="Energy Attic" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/energy-attic-email/01.png" data-caption="Energy Attic">
-          <img src="../images/projects/energy-attic-email/01.png" alt="Energy Attic" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Rug Doctor</span><span class="cat-meta">Email marketing</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/rug-doctor-email/cover.png" data-caption="Rug Doctor">
-          <img src="../images/projects/rug-doctor-email/cover.png" alt="Rug Doctor" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/rug-doctor-email/01.png" data-caption="Rug Doctor">
-          <img src="../images/projects/rug-doctor-email/01.png" alt="Rug Doctor" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">FirstLight Home Care</span><span class="cat-meta">Digital &amp; email</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/firstlight-home-care/cover.png" data-caption="FirstLight Home Care">
-          <img src="../images/projects/firstlight-home-care/cover.png" alt="FirstLight Home Care" loading="lazy">
-        </button>
-        <button class="thumb" type="button" data-full="../images/projects/firstlight-home-care/01.png" data-caption="FirstLight Home Care">
-          <img src="../images/projects/firstlight-home-care/01.png" alt="FirstLight Home Care" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Fitness Connection</span><span class="cat-meta">Digital</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/fitness-connection-digital/cover.png" data-caption="Fitness Connection">
-          <img src="../images/projects/fitness-connection-digital/cover.png" alt="Fitness Connection" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Fortune Tires</span><span class="cat-meta">Email marketing</span></div>
-        <div class="app-row">
-        <button class="thumb" type="button" data-full="../images/projects/fortune-tires-email/cover.png" data-caption="Fortune Tires">
-          <img src="../images/projects/fortune-tires-email/cover.png" alt="Fortune Tires" loading="lazy">
-        </button>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head"><span class="cat-name">Pitch Decks</span><span class="cat-meta">Venture &amp; brand decks</span></div>
-        <div class="deck-list">
-        <div class="deck-card">
-          <h3>Clean Hands Dirty Hands (CHDH)</h3>
-          <div class="embed-slot">
-            <object data="CHDH.pdf" type="application/pdf" width="100%" height="100%">
-              <p>PDF cannot be embedded. <a href="CHDH.pdf">Download CHDH.pdf</a></p>
-            </object>
-          </div>
-        </div>
-        <div class="deck-card">
-          <h3>867TheLine</h3>
-          <div class="embed-slot">
-            <object data="867TheLine.pdf" type="application/pdf" width="100%" height="100%">
-              <p>PDF cannot be embedded. <a href="867TheLine.pdf">Download 867TheLine.pdf</a></p>
-            </object>
-          </div>
-        </div>
-        <div class="deck-card">
-          <h3>Lakefront Brand Guide</h3>
-          <div class="embed-slot">
-            <object data="Lakefront-Brand-Guide.pdf" type="application/pdf" width="100%" height="100%">
-              <p>PDF cannot be embedded. <a href="Lakefront-Brand-Guide.pdf">Download Lakefront-Brand-Guide.pdf</a></p>
-            </object>
-          </div>
-        </div>
-        <div class="deck-card">
-          <h3>PPM AI OneSheet</h3>
-          <div class="embed-slot">
-            <object data="PPM-AI-OneSheet.pdf" type="application/pdf" width="100%" height="100%">
-              <p>PDF cannot be embedded. <a href="PPM-AI-OneSheet.pdf">Download PPM-AI-OneSheet.pdf</a></p>
-            </object>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      </section>
 
   <!-- Lightbox overlay -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
@@ -780,7 +909,7 @@
     /* ---------- Lightbox ---------- */
     (function () {
       var thumbs = Array.prototype.slice.call(
-        document.querySelectorAll('.thumb:not(.placeholder)')
+        document.querySelectorAll('.mosaic-item')
       );
       var lightbox = document.getElementById('lightbox');
       var image = document.getElementById('lightbox-image');
