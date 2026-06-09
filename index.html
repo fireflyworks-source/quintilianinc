@@ -166,17 +166,17 @@
     .hero h1 {
       font-family: var(--serif);
       font-weight: 400;
-      font-size: clamp(38px, 4.6vw, 68px);
-      line-height: 1.0;
+      font-size: clamp(60px, 8vw, 124px);
+      line-height: 0.95;
       letter-spacing: -0.02em;
       color: var(--ink);
-      margin: 0 0 14px;
+      margin: 0 0 10px;
     }
     .hero-subtitle {
       font-family: var(--serif);
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(22px, 2.6vw, 34px);
+      font-size: clamp(24px, 2.8vw, 38px);
       line-height: 1.15;
       color: var(--muted);
       margin: 0;
@@ -672,6 +672,11 @@
     .ai-branch .chip-c { background:linear-gradient(150deg,#3A2017,#B06A3C); }
     .ai-branch .chip-d { background:linear-gradient(150deg,#13202E,#4E7CA3); }
     .ai-branch .grid-caption { margin-top:18px; font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.04em; line-height:1.5; }
+    .ai-branch .dip-frame { box-shadow:0 14px 32px rgba(24,22,20,.18); background:#cbbfae; }
+    .ai-branch .dip-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+    .ai-branch .deliverable { margin:0; display:flex; flex-direction:column; }
+    .ai-branch .deliverable img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:5px; box-shadow:0 8px 18px rgba(24,22,20,.14); display:block; }
+    .ai-branch .deliverable figcaption { font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; color:var(--muted); margin-top:6px; }
     .ai-branch .stack-card { background:var(--panel-dark); border-radius:10px; padding:36px 34px 30px; box-shadow:0 22px 50px rgba(24,22,20,.22); color:#E8E2DA; }
     .ai-branch .stack-title { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:26px; }
     .ai-branch .stack-title .t { font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:#CDA86E; }
@@ -712,14 +717,14 @@
   <section class="hero">
     <div class="hero-text">
       <div class="hero-heading">
-        <h1>Everyone&rsquo;s talking about&nbsp;AI.</h1>
-        <p class="hero-subtitle">We&rsquo;ve been making work fit for a&nbsp;palace.</p>
+        <h1>Work</h1>
+        <p class="hero-subtitle">Fit for a palace.</p>
       </div>
       <p class="lead">
-        A senior art director&rsquo;s hand and nearly two decades of craft &mdash;
-        now pointed at generative tools and production systems. What that
-        actually looks like, set against what people assume &ldquo;AI&rdquo;
-        means.
+        Nearly two decades of art direction, illustration, and mixed-media
+        work &mdash; across publishing, agency, and in-house creative. A working
+        illustrator and freelance cover artist who has spent a career making
+        things by hand, long before adding new tools to the kit.
       </p>
       <p class="hero-credit">
         Work that has hung from Pop Gallery at Disney Springs and Epcot to
@@ -780,42 +785,29 @@
     <section class="panel">
       <div class="visual">
         <div class="diptych">
-          <div class="dip-frame dip-raw">
-            <div class="raw-wash"></div>
-            <div class="figure">
-              <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="50" cy="34" rx="16" ry="18" fill="#1C1814" opacity=".35"/>
-                <path d="M50 50 C28 54 22 78 24 120 L76 120 C78 78 72 54 50 50 Z" fill="#1C1814" opacity=".35"/>
-              </svg>
-            </div>
+          <div class="dip-frame">
+            <img src="/work/images/ai/bb-raw.jpg" alt="Bloomin&rsquo; Blinds &mdash; raw generation">
             <div class="scene-tag">raw generation</div>
           </div>
           <div class="dip-arrow">&rarr;</div>
-          <div class="dip-frame dip-finished">
-            <div class="figure">
-              <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="50" cy="34" rx="16" ry="18" fill="#1C1814" opacity=".95"/>
-                <path d="M50 50 C28 54 22 78 24 120 L76 120 C78 78 72 54 50 50 Z" fill="#1C1814" opacity=".95"/>
-                <path d="M34 30 C30 12 70 12 66 30 C66 18 34 18 34 30 Z" fill="#0E0C0A"/>
-                <circle cx="50" cy="20" r="26" fill="none" stroke="#CDA86E" stroke-width="2.5" opacity=".9"/>
-              </svg>
-            </div>
+          <div class="dip-frame">
+            <img src="/work/images/ai/bb-finished.jpg" alt="Bloomin&rsquo; Blinds &mdash; hand-finished final">
             <div class="scene-tag">hand-finished final</div>
           </div>
         </div>
         <div class="oeuvre-strip">
-          <div class="oeuvre-chip chip-a">saint</div>
-          <div class="oeuvre-chip chip-b">cover</div>
-          <div class="oeuvre-chip chip-c">campaign</div>
-          <div class="oeuvre-chip chip-d">oracle</div>
+          <figure class="deliverable"><img src="/work/images/ai/bb-1.jpg" alt="Bloomin&rsquo; Blinds brand book"><figcaption>brand book</figcaption></figure>
+          <figure class="deliverable"><img src="/work/images/ai/bb-2.jpg" alt="Bloomin&rsquo; Blinds direct mail"><figcaption>direct mail</figcaption></figure>
+          <figure class="deliverable"><img src="/work/images/ai/bb-3.jpg" alt="Bloomin&rsquo; Blinds billboard"><figcaption>billboard</figcaption></figure>
+          <figure class="deliverable"><img src="/work/images/ai/bb-4.jpg" alt="Bloomin&rsquo; Blinds lifestyle"><figcaption>lifestyle</figcaption></figure>
         </div>
-        <div class="grid-caption">PLACEHOLDER &mdash; raw Midjourney output beside Jessica&rsquo;s finished piece, with an oeuvre strip of four finals in one unmistakable style.</div>
+        <div class="grid-caption">Bloomin&rsquo; Blinds &mdash; one generated frame, finished by hand, then carried across brand book, direct mail, and billboard.</div>
       </div>
       <div class="copy">
         <div class="eyebrow">02 &mdash; Image Generation</div>
-        <h2>AI is the underpainting.</h2>
-        <p class="lede">Generative output is raw material &mdash; the art is in the <strong>finish</strong>. Two decades of illustration and art direction complete what the model begins: hand-finished pieces, a recognizable oeuvre, a brand style that holds across saints, covers, and campaigns. 100,000+ prompts behind the eye, and a painter&rsquo;s hand on every final.</p>
-        <a class="explore" href="/work/illustration-design/">Explore</a>
+        <h2>From a single frame to a full campaign.</h2>
+        <p class="lede">Classic campaign craft, taken further with generative AI and a hand-finished pass. For <strong>Bloomin&rsquo; Blinds</strong>, one generated frame becomes a complete campaign &mdash; refined by hand, then built out into print-ready, billboard-scale deliverables that hold together end to end, from direct mail to brand book. The eye behind it tested Midjourney in its original beta, and has grown across every branch of AI in the years since.</p>
+        <a class="explore" href="/work/brand-advertising/">Explore</a>
       </div>
     </section>
 
@@ -935,9 +927,9 @@
     <p class="approach-body">
       Two decades of art direction, illustration, and brand work sit behind
       the fundamentals that don&rsquo;t change &mdash; composition, color,
-      type, and story. What&rsquo;s new is the toolkit. An early adopter of
-      generative AI in professional pipelines, with well over 100,000
-      Midjourney prompts since its beta, I bring a senior art director&rsquo;s
+      type, and story. What&rsquo;s new is the toolkit. One of Midjourney&rsquo;s
+      original beta testers, with an eye that has grown across every branch of
+      AI in the years since, I bring a senior art director&rsquo;s
       judgment to Midjourney, Firefly, Runway, and the rest &mdash; and to
       AI-assisted build and prototyping. The value isn&rsquo;t the tool.
       It&rsquo;s the eye directing it: twenty years of craft, brought to the
