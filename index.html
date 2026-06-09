@@ -500,8 +500,8 @@
       color: inherit;
       align-items: center;
     }
-    .module:nth-child(even)     { direction: rtl; }
-    .module:nth-child(even) > * { direction: ltr; }
+    .module:nth-child(odd)     { direction: rtl; }
+    .module:nth-child(odd) > * { direction: ltr; }
     .module-image {
       overflow: hidden;
       background: var(--cream-warm);
@@ -564,7 +564,7 @@
     }
     @media (max-width: 900px) {
       .modules { padding: 0 32px; gap: 48px; margin: 48px auto 72px; }
-      .module, .module:nth-child(even) {
+      .module, .module:nth-child(odd) {
         direction: ltr;
         grid-template-columns: 1fr;
         gap: 20px;
