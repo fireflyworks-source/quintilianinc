@@ -228,6 +228,13 @@
     .mosaic-item .tag { position: absolute; left: 8px; bottom: 8px; background: rgba(26,26,26,0.82); color: #fff; font-family: var(--sans); font-size: 11px; letter-spacing: 0.05em; padding: 4px 9px; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
     .mosaic-item:hover .tag { opacity: 1; }
     .decks-wrap { max-width: 1400px; margin: 64px auto 80px; padding: 0 64px; }
+    .hub-banner-wrap { max-width: 1500px; margin: 4px auto 72px; padding: 0 64px; }
+    .hub-banner { display: block; position: relative; overflow: hidden; line-height: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.16); }
+    .hub-banner img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; }
+    .hub-banner:hover img { transform: scale(1.025); }
+    .hub-banner-label { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 22px; background: linear-gradient(transparent, rgba(10,10,10,0.6)); color: #fff; font-family: var(--sans); font-size: 14px; letter-spacing: 0.02em; line-height: 1.3; }
+    .hub-banner-label em { font-style: normal; text-transform: uppercase; font-size: 11px; letter-spacing: 0.14em; opacity: 0.9; white-space: nowrap; }
+    @media (max-width: 900px) { .hub-banner-wrap { padding: 0 32px; } }
     @media (max-width: 1200px) { .mosaic { column-count: 3; } }
     @media (max-width: 900px) { .mosaic { padding: 0 32px; } .roster { padding: 0 32px; } .decks-wrap { padding: 0 32px; } }
     @media (max-width: 640px) { .mosaic { column-count: 2; padding: 0 18px; } }
@@ -817,6 +824,13 @@
         <span class="tag">Murphy USA</span>
       </button>
   </section>
+
+  <div class="hub-banner-wrap">
+    <a class="hub-banner" href="/work/nft/">
+      <img src="../images/nft/hubert-banner.jpg" alt="The Epoch of Hubert — NFT collection banner" loading="lazy">
+      <span class="hub-banner-label"><span>The Epoch of Hubert &middot; NFT Collection</span><em>View the collections &rarr;</em></span>
+    </a>
+  </div>
 
   <section class="decks-wrap">
     <div class="cat-head"><span class="cat-name">Decks &amp; Brand Guides</span><span class="cat-meta">Pitch decks &middot; brand guides &middot; one-sheets</span></div>
