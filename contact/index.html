@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Quintilian, Inc.</title>
+  <meta name="description" content="Start a project with Quintilian, Inc. — brand, illustration, apps, and applied AI.">
+  <link rel="canonical" href="https://www.quintilianinc.com/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.quintilianinc.com/contact/">
+  <meta property="og:title" content="Contact — Quintilian, Inc.">
+  <meta property="og:description" content="Start a project with Quintilian, Inc.">
+  <meta property="og:image" content="https://www.quintilianinc.com/og/og-work.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:        #ECDFCF;
+      --cream-warm:   #E8DDD0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #2A2A2A;
+      --muted:        #5A5040;
+      --rule:         #D6C9B6;
+      --accent:       #9A7D3C;
+      --serif:        "PT Serif", Georgia, "Times New Roman", serif;
+      --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Chrome (canonical) */
+    .chrome { display: flex; justify-content: space-between; align-items: center; padding: 48px 72px 42px; }
+    .logo { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; text-decoration: none; }
+    nav.top { display: flex; gap: 34px; font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
+    nav.top a { color: var(--muted); text-decoration: none; padding-bottom: 3px; transition: color 0.2s ease; }
+    nav.top a:hover, nav.top a.current { color: var(--ink); }
+    nav.top a.current { border-bottom: 1px solid var(--ink); }
+    .nav-assess { font-family: var(--sans); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--ink); color: var(--cream); text-decoration: none; padding: 11px 24px; border-radius: 999px; transition: opacity 0.2s ease; }
+    .nav-assess:hover { opacity: 0.9; }
+
+    /* Hero */
+    .section-hero { max-width: 880px; margin: 48px auto 52px; padding: 0 64px; text-align: center; }
+    .section-hero .section-meta { font-family: var(--sans); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; }
+    .section-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 6vw, 80px); line-height: 1.04; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 22px; }
+    .section-hero .blurb { font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 560px; margin: 0 auto; }
+
+    /* Form */
+    .form-wrap { max-width: 680px; margin: 0 auto 96px; padding: 0 32px; }
+    form.contact { background: #FBF7EF; border: 1px solid var(--rule); border-radius: 12px; padding: 44px 44px 40px; box-shadow: 0 18px 44px rgba(26,26,26,0.10); }
+    .field { margin-bottom: 22px; }
+    .field label { display: block; font-family: var(--sans); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+    .field label .req { color: var(--accent); }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      background: #fff;
+      font-family: var(--sans);
+      font-size: 16px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--ink); }
+    .field textarea { min-height: 150px; resize: vertical; line-height: 1.6; }
+    .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5040' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 12px; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .submit-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 28px; flex-wrap: wrap; }
+    .send-btn {
+      font-family: var(--sans); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+      background: var(--ink); color: var(--cream); border: none; cursor: pointer;
+      padding: 16px 38px; border-radius: 999px; transition: opacity 0.2s, transform 0.15s;
+    }
+    .send-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .direct { font-size: 13px; color: var(--muted); }
+    .direct a { color: var(--ink); }
+
+    /* honeypot */
+    .hp { position: absolute; left: -6000px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* success state */
+    .sent-card { display: none; background: #FBF7EF; border: 1px solid var(--rule); border-radius: 12px; padding: 56px 44px; text-align: center; box-shadow: 0 18px 44px rgba(26,26,26,0.10); }
+    .sent-card h2 { font-family: var(--serif); font-weight: 400; font-size: 34px; color: var(--ink); margin: 0 0 14px; }
+    .sent-card p { font-size: 16px; margin: 0 0 26px; }
+    body.sent form.contact { display: none; }
+    body.sent .sent-card { display: block; }
+    .pill { font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--ink); color: var(--cream); text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: opacity 0.2s; }
+    .pill:hover { opacity: 0.85; }
+
+    /* Footer */
+    .foot { border-top: 1px solid var(--rule); padding: 52px 64px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .colophon { font-size: 12px; color: var(--muted); }
+
+    @media (max-width: 1024px) {
+      .chrome { padding: 28px 32px 24px; flex-wrap: wrap; gap: 14px; }
+      .section-hero { padding: 0 24px; margin: 32px auto 36px; }
+      .form-wrap { padding: 0 20px; margin-bottom: 64px; }
+      form.contact { padding: 30px 24px 28px; }
+      .row-2 { grid-template-columns: 1fr; gap: 0; }
+      .foot { padding: 36px 32px; }
+    }
+    p, li, .blurb, label { text-wrap: pretty; }
+    h1, h2 { text-wrap: balance; }
+  </style>
+</head>
+<body>
+
+  <header class="chrome">
+    <a class="logo" href="/">Quintilian, inc.</a>
+    <nav class="top">
+      <a href="/">Work</a>
+      <a href="/consulting/">Consulting</a>
+      <a href="/#about">About</a>
+      <a href="/contact/" class="current">Contact</a>
+    </nav>
+    <a class="nav-assess" href="/consulting/#preaudit">Begin Assessment</a>
+  </header>
+
+  <section class="section-hero">
+    <p class="section-meta">Contact</p>
+    <h1>Have a project in&nbsp;mind?</h1>
+    <p class="blurb">
+      Tell us a little about it &mdash; brand, illustration, apps, or
+      applied&nbsp;AI &mdash; and we&rsquo;ll get back to you shortly.
+    </p>
+  </section>
+
+  <div class="form-wrap">
+
+    <form class="contact" action="https://formsubmit.co/chuber@quintilianinc.com" method="POST">
+      <!-- FormSubmit config -->
+      <input type="hidden" name="_cc" value="solocosmo@icloud.com">
+      <input type="hidden" name="_subject" value="New project inquiry — quintilianinc.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.quintilianinc.com/contact/?sent=1">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="row-2">
+        <div class="field">
+          <label for="f-name">Name <span class="req">*</span></label>
+          <input id="f-name" type="text" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span class="req">*</span></label>
+          <input id="f-email" type="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="f-company">Company / Organization</label>
+          <input id="f-company" type="text" name="company" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="f-type">What do you need?</label>
+          <select id="f-type" name="project_type">
+            <option>Brand &amp; campaign work</option>
+            <option>Illustration &amp; publishing</option>
+            <option>App design &amp; development</option>
+            <option>AI consulting &amp; systems</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-message">Tell us about the project <span class="req">*</span></label>
+        <textarea id="f-message" name="message" required placeholder="Scope, timeline, budget range — whatever you have so far."></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button class="send-btn" type="submit">Send Message</button>
+        <p class="direct">Prefer email? <a href="mailto:chuber@quintilianinc.com">chuber@quintilianinc.com</a></p>
+      </div>
+    </form>
+
+    <div class="sent-card">
+      <h2>Thank you &mdash; message sent.</h2>
+      <p>We&rsquo;ve got it, and we&rsquo;ll be in touch shortly.</p>
+      <a class="pill" href="/">Back to the Work &rarr;</a>
+    </div>
+
+  </div>
+
+  <footer class="foot">
+    <div class="colophon">&copy; 2026 Quintilian, Inc. &mdash; Multidisciplinary creative practice.</div>
+    <div class="colophon">Quintilian, Inc. &middot; <a href="mailto:chuber@quintilianinc.com" style="color:var(--muted);">chuber@quintilianinc.com</a></div>
+  </footer>
+
+  <script>
+    if (new URLSearchParams(location.search).get('sent') === '1') {
+      document.body.classList.add('sent');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,100 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Design Proposals — Quintilian, Inc.</title>
-<meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#ECDFCF; --cream-warm:#E8DDD0; --ink:#1A1A1A; --ink-soft:#2A2A2A;
     --muted:#5A5040; --rule:#D6C9B6; --accent:#9A7D3C;
     --serif:"PT Serif",Georgia,serif; --sans:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
-    --live:#4C7A58; --build:#9A7D3C;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--cream);font-family:var(--sans);color:var(--ink-soft);padding:40px 56px;}
-  .label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted);margin:34px 0 14px;text-transform:uppercase;}
-  .wrap{max-width:640px;}
+  body{background:var(--cream);font-family:var(--sans);color:var(--ink-soft);padding:48px 56px 90px;font-size:16px;line-height:1.6;}
+  h1{font-family:var(--serif);font-weight:400;font-size:38px;color:var(--ink);margin-bottom:10px;}
+  .intro{max-width:660px;color:var(--ink-soft);margin-bottom:8px;}
+  .divider{height:1px;background:var(--rule);margin:48px 0;}
+  h2{font-family:var(--serif);font-weight:400;font-size:28px;color:var(--ink);margin-bottom:6px;}
+  .sub{font-size:14px;color:var(--muted);max-width:640px;margin-bottom:30px;}
+  .idea-label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin:40px 0 6px;}
+  .idea-note{font-size:14px;color:var(--ink-soft);max-width:620px;margin-bottom:18px;}
+  .idea-note strong{color:var(--ink);}
+  .demo{max-width:680px;}
 
-  /* ============ VARIANT A — paper spec-sheet card ============ */
-  .cardA{background:#FBF7EF;border:1px solid var(--rule);border-radius:10px;padding:36px 34px 30px;box-shadow:0 18px 40px rgba(24,22,20,.12);}
-  .cardA .stack-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px;}
-  .cardA .stack-title .t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent);}
-  .cardA .stack-title .s{font-family:var(--mono);font-size:10px;color:var(--muted);}
-  .cardA .node{display:flex;align-items:center;gap:14px;border:1px solid var(--rule);border-radius:7px;padding:13px 16px;margin-bottom:10px;background:#fff;}
-  .cardA .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-  .cardA .dot-live{background:var(--live);box-shadow:0 0 0 3px rgba(76,122,88,.15);}
-  .cardA .dot-build{background:var(--build);box-shadow:0 0 0 3px rgba(154,125,60,.18);}
-  .cardA .nm{font-size:13.5px;font-weight:500;color:var(--ink);flex:1;}
-  .cardA .role{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:right;}
-  .cardA .stack-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;}
+  /* ---------- 1A: drafting-sheet blueprint (SVG) ---------- */
+  .sheet{background:#FBF7EF;border:1px solid var(--rule);border-radius:8px;box-shadow:0 16px 38px rgba(24,22,20,.13);padding:10px;}
+  .sheet svg{width:100%;height:auto;display:block;}
+  .bp-line{stroke:#1A1A1A;stroke-width:1.1;fill:none;}
+  .bp-dash{stroke:#9A7D3C;stroke-width:1.1;fill:none;stroke-dasharray:5 5;animation:bpdash 30s linear infinite;}
+  @keyframes bpdash{to{stroke-dashoffset:-600;}}
+  .bp-box{fill:#fff;stroke:#1A1A1A;stroke-width:1.1;}
+  .bp-center{fill:#F3EBDC;stroke:#1A1A1A;stroke-width:1.4;}
+  .bp-name{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#1A1A1A;}
+  .bp-tag{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#5A5040;letter-spacing:.04em;}
+  .bp-title{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#1A1A1A;letter-spacing:.08em;}
+  .bp-grid{stroke:rgba(90,80,64,.10);stroke-width:.6;}
 
-  /* ============ VARIANT B — inline ledger, no card ============ */
-  .cardB{padding:6px 0;}
-  .cardB .stack-title{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:4px;}
-  .cardB .stack-title .t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink);}
-  .cardB .stack-title .s{font-family:var(--mono);font-size:10px;color:var(--muted);}
-  .cardB .node{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--rule);padding:16px 2px;}
-  .cardB .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-  .cardB .dot-live{background:var(--live);}
-  .cardB .dot-build{background:var(--build);}
-  .cardB .nm{font-family:var(--serif);font-size:17px;color:var(--ink);flex:1;}
-  .cardB .role{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:right;}
-  .cardB .stack-foot{margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;}
+  /* ---------- 1B: terminal vignette ---------- */
+  .term{background:#1A1A1A;border-radius:10px;box-shadow:0 20px 46px rgba(24,22,20,.24);overflow:hidden;}
+  .term-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid rgba(236,223,207,.12);}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block;}
+  .term-bar i:nth-child(1){background:#C96A5B;} .term-bar i:nth-child(2){background:#D8C18A;} .term-bar i:nth-child(3){background:#7FA98B;}
+  .term-bar span{margin-left:8px;font-family:var(--mono);font-size:10.5px;color:#8C857A;letter-spacing:.05em;}
+  .term-body{padding:22px 22px 26px;font-family:var(--mono);font-size:12.5px;line-height:2.05;color:#E8E2DA;}
+  .term-body .p{color:#D8C18A;}
+  .term-body .o{color:#A89F90;}
+  .term-body .g{color:#8FBF9A;}
+  .cursor{display:inline-block;width:7px;height:14px;background:#E8E2DA;vertical-align:-2px;animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
 
-  /* ============ VARIANT C — warm ink card (matches black pills) ============ */
-  .cardC{background:var(--ink);border-radius:10px;padding:36px 34px 30px;box-shadow:0 22px 50px rgba(24,22,20,.25);color:#E8E2DA;}
-  .cardC .stack-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px;}
-  .cardC .stack-title .t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:#D8C18A;}
-  .cardC .stack-title .s{font-family:var(--mono);font-size:10px;color:#8C857A;}
-  .cardC .node{display:flex;align-items:center;gap:14px;border:1px solid rgba(236,223,207,.18);border-radius:7px;padding:13px 16px;margin-bottom:10px;background:rgba(236,223,207,.05);}
-  .cardC .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-  .cardC .dot-live{background:#8FBF9A;}
-  .cardC .dot-build{background:#D8C18A;}
-  .cardC .nm{font-size:13.5px;font-weight:500;color:#F4EFE6;flex:1;}
-  .cardC .role{font-family:var(--mono);font-size:10px;color:#A89F90;letter-spacing:.04em;text-align:right;}
-  .cardC .stack-foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(236,223,207,.14);font-family:var(--mono);font-size:10.5px;color:#8C857A;letter-spacing:.05em;}
+  /* ---------- 1C: collage placeholder ---------- */
+  .collage{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .shotph{aspect-ratio:3/4;border:1.5px dashed var(--muted);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--muted);padding:10px;background:rgba(255,255,255,.35);}
+
+  /* ---------- 2B: duotone treatment demo ---------- */
+  .duo{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 16px 38px rgba(24,22,20,.16);}
+  .duo img{width:100%;display:block;filter:grayscale(1) sepia(.42) saturate(.78) contrast(.92) brightness(1.05);}
+  .duo::after{content:'';position:absolute;inset:0;background:rgba(236,223,207,.18);mix-blend-mode:lighten;pointer-events:none;}
+  .duo-cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;}
+
+  @media (max-width:760px){
+    body{padding:28px 20px 60px;}
+    .collage{grid-template-columns:repeat(2,1fr);}
+  }
 </style>
 </head>
 <body>
-<div style="max-width:640px;margin:0 0 8px;">
-  <p style="font-family:var(--serif);font-size:30px;color:var(--ink);margin-bottom:10px;">Design proposals</p>
-  <p style="font-size:15px;color:var(--ink-soft);line-height:1.6;">Three options for the <strong>Sovereign Stack</strong> card on the homepage (replacing the cold purple-black card). Scroll to compare. The About-page draft is at <a href="/about/" style="color:var(--ink);">/about/</a>.</p>
+
+<h1>Design proposals</h1>
+<p class="intro">Two open slots, ideas below. The live demos are real HTML &mdash; what you see is what ships. Reply with the codes you like (e.g. &ldquo;1B and 2A&rdquo;).</p>
+
+<div class="divider"></div>
+
+<h2>1 &mdash; Homepage &ldquo;AI Solutions&rdquo; panel image</h2>
+<p class="sub">Replaces the dark Sovereign Stack card. Same content story &mdash; five production systems on owned hardware &mdash; told as an image instead of a UI card.</p>
+
+<div class="idea-label">1A &mdash; The Drafting Sheet</div>
+<p class="idea-note"><strong>Buildable now (shown live below).</strong> The stack drawn like an architect&rsquo;s blueprint on cream paper &mdash; systems as drafted blocks around the owned-hardware core, gold dashed connections slowly flowing, a title block signed like a real drawing. Technical, but in the site&rsquo;s craft language: <em>systems, drafted by hand.</em></p>
+<div class="demo"><div class="sheet">
+<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg">
+  <g class="bp-grid">
+    <path d="M0 70 H760 M0 140 H760 M0 210 H760 M0 280 H760 M0 350 H760 M0 420 H760 M0 490 H760"/>
+    <path d="M95 0 V560 M190 0 V560 M285 0 V560 M380 0 V560 M475 0 V560 M570 0 V560 M665 0 V560"/>
+  </g>
+  <path class="bp-line" d="M18 30 V18 H30 M730 18 H742 V30 M742 530 V542 H730 M30 542 H18 V530" stroke-width="1.4"/>
+
+  <rect class="bp-center" x="280" y="232" width="200" height="96" rx="3"/>
+  <text class="bp-name" x="380" y="272" text-anchor="middle">SOVEREIGN STACK</text>
+  <text class="bp-tag" x="380" y="292" text-anchor="middle">owned hardware &#183; local models</text>
+  <text class="bp-tag" x="380" y="306" text-anchor="middle">zero external calls</text>
+
+  <rect class="bp-box" x="48" y="64" width="216" height="58" rx="3"/>
+  <circle cx="66" cy="93" r="4" fill="#4C7A58"/>
+  <text class="bp-name" x="80" y="89">Convention Booking</text>
+  <text class="bp-tag" x="80" y="106">headless &#183; live</text>
+
+  <rect class="bp-box" x="496" y="64" width="216" height="58" rx="3"/>
+  <circle cx="514" cy="93" r="4" fill="#4C7A58"/>
+  <text class="bp-name" x="528" y="89">Virtual-Queue App</text>
+  <text class="bp-tag" x="528" y="106">live events &#183; live</text>
+
+  <rect class="bp-box" x="48" y="404" width="216" height="58" rx="3"/>
+  <circle cx="66" cy="433" r="4" fill="#4C7A58"/>
+  <text class="bp-name" x="80" y="429">Offline Film-Rec Engine</text>
+  <text class="bp-tag" x="80" y="446">on-device &#183; live</text>
+
+  <rect class="bp-box" x="496" y="404" width="216" height="58" rx="3"/>
+  <circle cx="514" cy="433" r="4" fill="#9A7D3C"/>
+  <text class="bp-name" x="528" y="429">GEO Audit System</text>
+  <text class="bp-tag" x="528" y="446">AI visibility &#183; building</text>
+
+  <path class="bp-dash" d="M156 122 V280 H280"/>
+  <path class="bp-dash" d="M604 122 V280 H480"/>
+  <path class="bp-dash" d="M156 404 V280 H280"/>
+  <path class="bp-dash" d="M604 404 V280 H480"/>
+
+  <g>
+    <rect class="bp-box" x="496" y="486" width="216" height="50" rx="2"/>
+    <line x1="496" y1="503" x2="712" y2="503" stroke="#1A1A1A" stroke-width="0.8"/>
+    <text class="bp-title" x="506" y="499">QUINTILIAN, INC.</text>
+    <text class="bp-tag" x="506" y="517">SOVEREIGN STACK &#183; SHEET 01</text>
+    <text class="bp-tag" x="506" y="529">SCALE: PRODUCTION &#183; 2026</text>
+  </g>
+</svg>
+</div></div>
+
+<div class="idea-label">1B &mdash; The Terminal</div>
+<p class="idea-note"><strong>Buildable now (shown live below).</strong> A quiet console session showing the systems actually running &mdash; queue counts, a local model loading with zero external calls, a GEO score coming back. The one dark moment on the page, earned: <em>this is what &ldquo;built past the demo&rdquo; looks like at runtime.</em> Cursor blinks; lines could type themselves on scroll.</p>
+<div class="demo"><div class="term">
+  <div class="term-bar"><i></i><i></i><i></i><span>quintilian &mdash; sovereign stack</span></div>
+  <div class="term-body">
+    <div><span class="p">$</span> stack.status</div>
+    <div class="o">&nbsp;&nbsp;5 systems &#183; <span class="g">4 live</span> &#183; 1 building</div>
+    <div><span class="p">$</span> queue.monitor --event saturday</div>
+    <div class="o">&nbsp;&nbsp;4,211 guests in virtual queue &#183; est. wait 12m</div>
+    <div><span class="p">$</span> llm.serve --local</div>
+    <div class="o">&nbsp;&nbsp;model loaded on owned hardware &#183; <span class="g">0 external calls</span></div>
+    <div><span class="p">$</span> geo.audit client-brand.com</div>
+    <div class="o">&nbsp;&nbsp;AI visibility 78/100 &#183; 12 fixes queued</div>
+    <div><span class="p">$</span> <span class="cursor"></span></div>
+  </div>
+</div></div>
+
+<div class="idea-label">1C &mdash; The Real Thing</div>
+<p class="idea-note"><strong>Needs assets from Chuck.</strong> Actual screenshots of the systems &mdash; the booking platform, the queue app, the film-rec engine, a GEO report &mdash; fanned in angled frames like the Bloomin&rsquo; Blinds deliverables strip. Strongest proof, zero abstraction. Send me 3&ndash;4 screenshots and I&rsquo;ll build it.</p>
+<div class="demo"><div class="collage">
+  <div class="shotph">booking platform UI</div>
+  <div class="shotph">virtual-queue app</div>
+  <div class="shotph">film-rec engine</div>
+  <div class="shotph">GEO audit report</div>
+</div></div>
+
+<div class="idea-label">1D &mdash; The Iron</div>
+<p class="idea-note"><strong>Needs a photo from you.</strong> An editorial photograph of the actual owned hardware &mdash; the machines themselves, warm light, shallow depth &mdash; treated in the site&rsquo;s cream duotone. &ldquo;Owned hardware&rdquo; stops being a phrase and becomes a picture. You shoot it (phone is fine), I treat and place it.</p>
+
+<div class="divider"></div>
+
+<h2>2 &mdash; Consulting page hero image</h2>
+<p class="sub">Replaces the line-art diagram next to &ldquo;Intelligent systems built to last.&rdquo;</p>
+
+<div class="idea-label">2A &mdash; Same Drafting Sheet, different drawing</div>
+<p class="idea-note">The blueprint language from 1A, redrawn for consulting &mdash; a client&rsquo;s system landscape being mapped (discovery &rarr; diagnosis &rarr; build &rarr; operate as drafted stages). Homepage and consulting would share one visual language: <em>we draw systems before we build them.</em></p>
+
+<div class="idea-label">2B &mdash; Your art, cream duotone</div>
+<p class="idea-note"><strong>Treatment demo below</strong> (using the Lambeth ceiling just to show the effect &mdash; <strong>you pick the actual piece</strong>). Any painting of yours run through the site&rsquo;s cream-sepia treatment becomes quiet, architectural, and unmistakably yours. The consulting page inherits the art DNA without shouting it.</p>
+<div class="demo">
+  <div class="duo"><img src="/work/images/grid-extras/lambeth-ceiling.jpg" alt="Duotone treatment demo"></div>
+  <p class="duo-cap">treatment demo &mdash; artwork TBD (you choose the piece)</p>
 </div>
 
-<div class="label">A — Paper spec-sheet (cream card, white rows)</div>
-<div class="wrap"><div class="cardA">
-  <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
-  <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
-  <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
-  <div class="stack-foot">Production systems, not proofs of concept.</div>
-</div></div>
+<div class="idea-label">2C &mdash; You, at work</div>
+<p class="idea-note"><strong>Needs a photo.</strong> A working portrait &mdash; you at the desk/easel with screens and brushes in the same frame &mdash; duotone-treated. Consulting buyers meet the actual eye they&rsquo;re hiring. Pairs beautifully with the About page portrait.</p>
 
-<div class="label">B — Inline ledger (no card; serif names, rule dividers)</div>
-<div class="wrap"><div class="cardB">
-  <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
-  <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
-  <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
-  <div class="stack-foot">Production systems, not proofs of concept.</div>
-</div></div>
-
-<div class="label">C — Warm ink card (matches the site's black pills; warmer than current)</div>
-<div class="wrap"><div class="cardC">
-  <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
-  <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
-  <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
-  <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
-  <div class="stack-foot">Production systems, not proofs of concept.</div>
-</div></div>
+<div class="divider"></div>
+<p class="sub">Also still pending your call: the About draft at <a href="/about/" style="color:var(--ink);">/about/</a> (ship / edit / hold).</p>
 
 </body>
 </html>
