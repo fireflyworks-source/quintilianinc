@@ -70,6 +70,19 @@
     }
     nav.top a:hover, nav.top a.current { color: var(--ink); }
     nav.top a.current { border-bottom: 1px solid var(--ink); }
+    .nav-assess {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: 999px;
+      transition: opacity 0.2s ease;
+    }
+    .nav-assess:hover { opacity: 0.9; }
 
     /* Section hero */
     .section-hero {
@@ -482,14 +495,14 @@
   </div>
 
   <header class="chrome">
-    <a href="/" class="logo">Quintilian, Inc.</a>
+    <a class="logo" href="/">Quintilian, inc.</a>
     <nav class="top">
-      <a href="/">Home</a>
-      <a href="/work" class="current">Work</a>
-      <a href="/client-work">Client</a>
-      <a href="/speedread">Speed Read</a>
+      <a href="/" class="current">Work</a>
+      <a href="/consulting/">Consulting</a>
+      <a href="/#about">About</a>
       <a href="/#contact">Contact</a>
     </nav>
+    <a class="nav-assess" href="/consulting/#preaudit">Begin Assessment</a>
   </header>
 
   <a href="/work" class="back-link">&larr; All sections</a>
@@ -840,7 +853,7 @@
       </div>
     </div>
     <div class="colophon">
-      Quintilian, Inc. — Multidisciplinary creative practice.
+      © 2026 Quintilian, Inc. — Multidisciplinary creative practice.
       Selected work shown.
     </div>
   </footer>
