@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Quintilian, Inc.</title>
+  <meta name="description" content="Quintilian, Inc. — a multidisciplinary creative practice and applied-AI consultancy. Two decades of art direction and illustration, brought to the modern table.">
+  <link rel="canonical" href="https://www.quintilianinc.com/about/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.quintilianinc.com/about/">
+  <meta property="og:title" content="About — Quintilian, Inc.">
+  <meta property="og:description" content="A multidisciplinary creative practice and applied-AI consultancy.">
+  <meta property="og:image" content="https://www.quintilianinc.com/og/og-work.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:        #ECDFCF;
+      --cream-warm:   #E8DDD0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #2A2A2A;
+      --muted:        #5A5040;
+      --rule:         #D6C9B6;
+      --accent:       #9A7D3C;
+      --serif:        "PT Serif", Georgia, "Times New Roman", serif;
+      --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Chrome (canonical) */
+    .chrome { display: flex; justify-content: space-between; align-items: center; padding: 48px 72px 42px; }
+    .logo { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; text-decoration: none; }
+    nav.top { display: flex; gap: 34px; font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
+    nav.top a { color: var(--muted); text-decoration: none; padding-bottom: 3px; transition: color 0.2s ease; }
+    nav.top a:hover, nav.top a.current { color: var(--ink); }
+    nav.top a.current { border-bottom: 1px solid var(--ink); }
+    .nav-assess { font-family: var(--sans); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--ink); color: var(--cream); text-decoration: none; padding: 11px 24px; border-radius: 999px; transition: opacity 0.2s ease; }
+    .nav-assess:hover { opacity: 0.9; }
+
+    /* Hero */
+    .section-hero { max-width: 980px; margin: 56px auto 64px; padding: 0 64px; text-align: center; }
+    .section-hero .section-meta { font-family: var(--sans); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; }
+    .section-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 6vw, 80px); line-height: 1.04; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 24px; }
+    .section-hero .blurb { font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
+
+    /* Person: portrait + bio */
+    .person { max-width: 1180px; margin: 0 auto 96px; padding: 0 64px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 72px; align-items: center; }
+    .portrait { margin: 0; position: relative; }
+    .portrait img { width: 100%; height: auto; display: block; border: 8px solid #fff; box-shadow: 0 24px 56px rgba(26,26,26,0.22); }
+    .portrait figcaption { margin-top: 14px; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); text-align: center; }
+    .bio h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; color: var(--ink); margin: 0 0 24px; }
+    .bio p { font-size: 17px; line-height: 1.75; margin: 0 0 20px; }
+    .bio p em { font-style: italic; color: var(--ink); }
+    .bio p strong { font-weight: 600; color: var(--ink); }
+
+    /* Practice band */
+    .practice { background: var(--cream-warm); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 88px 64px; }
+    .practice-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .practice h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3vw, 38px); line-height: 1.12; color: var(--ink); margin: 0 0 18px; }
+    .practice h2 em { font-style: italic; color: var(--accent); }
+    .practice p { font-size: 16.5px; line-height: 1.75; margin: 0 0 18px; }
+    .practice p strong { font-weight: 600; color: var(--ink); }
+    .practice .col-cta { font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 3px; display: inline-block; text-decoration: none; transition: padding 0.2s; }
+    .practice .col-cta:hover { padding-right: 12px; }
+
+    /* Credentials */
+    .credentials { max-width: 1400px; margin: 88px auto 100px; padding: 0 64px; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; }
+    .cred-head { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; font-weight: 600; }
+    .cred-list { list-style: none; margin: 0; padding: 0; font-family: var(--serif); font-size: 16px; line-height: 1.9; color: var(--ink); }
+    .cred-list--cols { columns: 2; column-gap: 32px; }
+
+    /* Footer */
+    .foot { border-top: 1px solid var(--rule); padding: 60px 64px; display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; }
+    .foot .closing { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 0 0 18px; }
+    .foot .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pill { font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--ink); color: var(--cream); text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: opacity 0.2s; }
+    .pill.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+    .pill:hover { opacity: 0.85; }
+    .colophon { font-size: 12px; color: var(--muted); max-width: 360px; text-align: right; }
+
+    @media (max-width: 1024px) {
+      .chrome { padding: 28px 32px 24px; flex-wrap: wrap; gap: 14px; }
+      .section-hero { padding: 0 32px; margin: 40px auto 44px; }
+      .person { grid-template-columns: 1fr; gap: 40px; padding: 0 32px; margin-bottom: 64px; }
+      .practice { padding: 64px 32px; }
+      .practice-inner { grid-template-columns: 1fr; gap: 44px; }
+      .credentials { padding: 0 32px; grid-template-columns: 1fr; gap: 36px; margin: 64px auto; }
+      .foot { flex-direction: column; align-items: flex-start; padding: 40px 32px; }
+      .colophon { text-align: left; max-width: none; }
+    }
+    /* NO-WIDOW */
+    p, li, .blurb, figcaption, .cred-list { text-wrap: pretty; }
+    h1, h2, h3 { text-wrap: balance; }
+  </style>
+</head>
+<body>
+
+  <header class="chrome">
+    <a class="logo" href="/">Quintilian, inc.</a>
+    <nav class="top">
+      <a href="/">Work</a>
+      <a href="/consulting/">Consulting</a>
+      <a href="/about/" class="current">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <a class="nav-assess" href="/consulting/#preaudit">Begin Assessment</a>
+  </header>
+
+  <section class="section-hero">
+    <p class="section-meta">About</p>
+    <h1>The eye behind the work.</h1>
+    <p class="blurb">
+      Quintilian, Inc. is a multidisciplinary creative practice and
+      applied-AI consultancy &mdash; two decades of art direction and
+      illustration, brought to the modern&nbsp;table.
+    </p>
+  </section>
+
+  <section class="person">
+    <figure class="portrait">
+      <img src="/work/images/about/headshot.jpg" alt="Jessica von Braun, Senior Art Director" fetchpriority="high">
+      <figcaption>Jessica von Braun &mdash; Senior Art Director</figcaption>
+    </figure>
+    <div class="bio">
+      <h2>An artist her entire life.</h2>
+      <p>
+        Nearly two decades of art direction, illustration, and mixed-media
+        work across publishing, agency, and in-house creative. A working
+        illustrator and freelance cover artist for over a decade on the
+        convention circuit, with work that has hung everywhere from
+        <em>Pop Gallery at Disney Springs and Epcot</em> to
+        <em>Lambeth Palace</em> in London. Five years in-house at an ad
+        agency, then back to freelance.
+      </p>
+      <p>
+        Illustration, traditional work, digital, graphic design, print,
+        AI integrations, AI imagery, typography, layout, brand development,
+        NFT drops, convention banners &mdash; <strong>if you need it,
+        she&rsquo;s probably done it.</strong> One of Midjourney&rsquo;s
+        original beta testers, with an eye that has grown across every
+        branch of AI in the years since.
+      </p>
+      <p>
+        The fundamentals don&rsquo;t change &mdash; composition, color,
+        type, and story. What&rsquo;s new is the toolkit. The value
+        isn&rsquo;t the tool. It&rsquo;s the eye directing it.
+      </p>
+    </div>
+  </section>
+
+  <section class="practice">
+    <div class="practice-inner">
+      <div>
+        <h2>The creative <em>practice.</em></h2>
+        <p>
+          Brand campaigns, illustration, native iOS apps, NFT collections,
+          and publishing &mdash; designed, built, and shipped in-house.
+          Campaigns for <strong>Coca-Cola</strong>, <strong>Papa
+          John&rsquo;s</strong>, and <strong>Dairy Queen</strong>; cover art
+          for <strong>Image Comics</strong>, <strong>Aftershock</strong>,
+          and <strong>Blue Angel Publishing</strong>; a family of apps
+          built end-to-end from concept through App Store launch.
+        </p>
+        <a class="col-cta" href="/">See the work &rarr;</a>
+      </div>
+      <div>
+        <h2>The applied-AI <em>consultancy.</em></h2>
+        <p>
+          Quintilian, Inc. is where strategic consulting meets applied AI.
+          We&rsquo;re not a software house that learned to say
+          &ldquo;AI,&rdquo; and we&rsquo;re not a strategy firm bolting on
+          a technology practice. We&rsquo;ve built and operated intelligent
+          systems from the ground up &mdash; production systems, not proofs
+          of concept.
+        </p>
+        <a class="col-cta" href="/consulting/">How we work &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="credentials">
+    <div class="cred-col cred-col--wide">
+      <h3 class="cred-head">Select Clients</h3>
+      <ul class="cred-list cred-list--cols">
+        <li>The Coca-Cola Company</li>
+        <li>Papa John&rsquo;s</li>
+        <li>Texas Dairy Queen</li>
+        <li>McAfee</li>
+        <li>Murphy USA</li>
+        <li>Taco Bueno</li>
+        <li>Golden Chick</li>
+        <li>Freebirds World Burrito</li>
+        <li>Truck Yard</li>
+        <li>Hacienda Colorado</li>
+        <li>Bloomin&rsquo; Blinds</li>
+        <li>Ziegenfelder</li>
+        <li>Fitness Connection</li>
+        <li>Fortune Tires</li>
+        <li>FirstLight Home Care</li>
+        <li>Highland Homes</li>
+        <li>Sparrow Living</li>
+        <li>Tachus Fiber Internet</li>
+        <li>Vetoquinol</li>
+        <li>The United Methodist Church</li>
+        <li>Image Comics</li>
+        <li>Aftershock Comics</li>
+        <li>Blue Angel Publishing</li>
+      </ul>
+    </div>
+    <div class="cred-col">
+      <h3 class="cred-head">Expertise</h3>
+      <ul class="cred-list">
+        <li>Art Direction &amp; Creative Strategy</li>
+        <li>Illustration &amp; Cover Art</li>
+        <li>Brand Identity &amp; Campaigns</li>
+        <li>AI &amp; Generative Art</li>
+        <li>AI-Assisted Build &amp; Prototyping</li>
+        <li>App UX &amp; Product Mockups</li>
+        <li>NFT Development &amp; Smart Contracts</li>
+      </ul>
+    </div>
+    <div class="cred-col">
+      <h3 class="cred-head">Shown &amp; Featured</h3>
+      <ul class="cred-list">
+        <li>Lambeth Palace, London</li>
+        <li>Pop Gallery &mdash; Disney Springs</li>
+        <li>Pop Gallery &mdash; Epcot</li>
+        <li>Hulu &mdash; <em>Deadbeat</em></li>
+        <li>The Stan Lee Foundation</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot" id="contact">
+    <div>
+      <p class="closing">Have a project in mind?</p>
+      <div class="cta-row">
+        <a href="/#contact" class="pill">Work With Us</a>
+        <a href="/consulting/#preaudit" class="pill ghost">Begin Assessment</a>
+      </div>
+    </div>
+    <div class="colophon">
+      &copy; 2026 Quintilian, Inc. &mdash; Multidisciplinary creative practice.
+      Selected work shown.
+    </div>
+  </footer>
+
+</body>
+</html>

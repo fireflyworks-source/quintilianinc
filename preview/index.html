@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<title>Design Proposals — Quintilian, Inc.</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#ECDFCF; --cream-warm:#E8DDD0; --ink:#1A1A1A; --ink-soft:#2A2A2A;
+    --muted:#5A5040; --rule:#D6C9B6; --accent:#9A7D3C;
+    --serif:"PT Serif",Georgia,serif; --sans:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+    --live:#4C7A58; --build:#9A7D3C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--cream);font-family:var(--sans);color:var(--ink-soft);padding:40px 56px;}
+  .label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted);margin:34px 0 14px;text-transform:uppercase;}
+  .wrap{max-width:640px;}
+
+  /* ============ VARIANT A — paper spec-sheet card ============ */
+  .cardA{background:#FBF7EF;border:1px solid var(--rule);border-radius:10px;padding:36px 34px 30px;box-shadow:0 18px 40px rgba(24,22,20,.12);}
+  .cardA .stack-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px;}
+  .cardA .stack-title .t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent);}
+  .cardA .stack-title .s{font-family:var(--mono);font-size:10px;color:var(--muted);}
+  .cardA .node{display:flex;align-items:center;gap:14px;border:1px solid var(--rule);border-radius:7px;padding:13px 16px;margin-bottom:10px;background:#fff;}
+  .cardA .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .cardA .dot-live{background:var(--live);box-shadow:0 0 0 3px rgba(76,122,88,.15);}
+  .cardA .dot-build{background:var(--build);box-shadow:0 0 0 3px rgba(154,125,60,.18);}
+  .cardA .nm{font-size:13.5px;font-weight:500;color:var(--ink);flex:1;}
+  .cardA .role{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:right;}
+  .cardA .stack-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;}
+
+  /* ============ VARIANT B — inline ledger, no card ============ */
+  .cardB{padding:6px 0;}
+  .cardB .stack-title{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:4px;}
+  .cardB .stack-title .t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink);}
+  .cardB .stack-title .s{font-family:var(--mono);font-size:10px;color:var(--muted);}
+  .cardB .node{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--rule);padding:16px 2px;}
+  .cardB .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .cardB .dot-live{background:var(--live);}
+  .cardB .dot-build{background:var(--build);}
+  .cardB .nm{font-family:var(--serif);font-size:17px;color:var(--ink);flex:1;}
+  .cardB .role{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:right;}
+  .cardB .stack-foot{margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;}
+
+  /* ============ VARIANT C — warm ink card (matches black pills) ============ */
+  .cardC{background:var(--ink);border-radius:10px;padding:36px 34px 30px;box-shadow:0 22px 50px rgba(24,22,20,.25);color:#E8E2DA;}
+  .cardC .stack-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px;}
+  .cardC .stack-title .t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:#D8C18A;}
+  .cardC .stack-title .s{font-family:var(--mono);font-size:10px;color:#8C857A;}
+  .cardC .node{display:flex;align-items:center;gap:14px;border:1px solid rgba(236,223,207,.18);border-radius:7px;padding:13px 16px;margin-bottom:10px;background:rgba(236,223,207,.05);}
+  .cardC .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .cardC .dot-live{background:#8FBF9A;}
+  .cardC .dot-build{background:#D8C18A;}
+  .cardC .nm{font-size:13.5px;font-weight:500;color:#F4EFE6;flex:1;}
+  .cardC .role{font-family:var(--mono);font-size:10px;color:#A89F90;letter-spacing:.04em;text-align:right;}
+  .cardC .stack-foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(236,223,207,.14);font-family:var(--mono);font-size:10.5px;color:#8C857A;letter-spacing:.05em;}
+</style>
+</head>
+<body>
+<div style="max-width:640px;margin:0 0 8px;">
+  <p style="font-family:var(--serif);font-size:30px;color:var(--ink);margin-bottom:10px;">Design proposals</p>
+  <p style="font-size:15px;color:var(--ink-soft);line-height:1.6;">Three options for the <strong>Sovereign Stack</strong> card on the homepage (replacing the cold purple-black card). Scroll to compare. The About-page draft is at <a href="/about/" style="color:var(--ink);">/about/</a>.</p>
+</div>
+
+<div class="label">A — Paper spec-sheet (cream card, white rows)</div>
+<div class="wrap"><div class="cardA">
+  <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
+  <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
+  <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
+  <div class="stack-foot">Production systems, not proofs of concept.</div>
+</div></div>
+
+<div class="label">B — Inline ledger (no card; serif names, rule dividers)</div>
+<div class="wrap"><div class="cardB">
+  <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
+  <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
+  <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
+  <div class="stack-foot">Production systems, not proofs of concept.</div>
+</div></div>
+
+<div class="label">C — Warm ink card (matches the site's black pills; warmer than current)</div>
+<div class="wrap"><div class="cardC">
+  <div class="stack-title"><span class="t">SOVEREIGN STACK</span><span class="s">owned hardware</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Convention Booking Platform</span><span class="role">headless &middot; live</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Virtual-Queue App</span><span class="role">live events &middot; live</span></div>
+  <div class="node"><span class="dot dot-build"></span><span class="nm">Sovereign AI Stack</span><span class="role">local models &middot; building</span></div>
+  <div class="node"><span class="dot dot-live"></span><span class="nm">Offline Film-Rec Engine</span><span class="role">on-device &middot; live</span></div>
+  <div class="node"><span class="dot dot-build"></span><span class="nm">GEO Audit System</span><span class="role">AI visibility &middot; building</span></div>
+  <div class="stack-foot">Production systems, not proofs of concept.</div>
+</div></div>
+
+</body>
+</html>
