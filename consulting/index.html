@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://www.quintilianinc.com/og/og-home.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -63,8 +63,6 @@
     .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
     .grid-graphic{position:absolute;inset:0;background-image:linear-gradient(rgba(90,80,64,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(90,80,64,0.07) 1px,transparent 1px);background-size:48px 48px;}
     .orb{display:none;}
-    .hero-diagram{position:relative;z-index:2;width:340px;height:340px;}
-    .hero-diagram svg{width:100%;height:100%;}
     .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);margin:0 72px;}
     .stat-item{padding:28px 4px;border-right:1px solid var(--rule);}
     .stat-item:last-child{border-right:none;}
@@ -122,6 +120,18 @@
     .audit-feature-icon::after{content:'\2713';font-size:11px;color:var(--ink);}
     .audit-feature-text h5{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;}
     .audit-feature-text p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+    /* Drafting-sheet hero (shared visual language with homepage Sheet 01) */
+    .sheet{background:#FBF7EF;border:1px solid var(--rule);border-radius:8px;box-shadow:0 16px 38px rgba(24,22,20,.13);padding:10px;width:min(540px,100%);position:relative;z-index:2;}
+    .sheet svg{width:100%;height:auto;display:block;}
+    .bp-line{stroke:#1A1A1A;stroke-width:1.1;fill:none;}
+    .bp-dash{stroke:#9A7D3C;stroke-width:1.1;fill:none;stroke-dasharray:5 5;animation:bpdash 30s linear infinite;}
+    @keyframes bpdash{to{stroke-dashoffset:-600;}}
+    .bp-box{fill:#fff;stroke:#1A1A1A;stroke-width:1.1;}
+    .bp-num{fill:#F3EBDC;stroke:#1A1A1A;stroke-width:1.1;}
+    .bp-name{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#1A1A1A;}
+    .bp-tag{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#5A5040;letter-spacing:.04em;}
+    .bp-title{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#1A1A1A;letter-spacing:.08em;}
+    .bp-grid{stroke:rgba(90,80,64,.10);stroke-width:.6;}
     /* footer */
     footer{padding:56px 72px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
     .footer-logo{font-family:var(--serif);font-size:1.2rem;color:var(--ink);}
@@ -131,12 +141,6 @@
     .footer-links a:hover{color:var(--ink);}
     .footer-copy{font-family:var(--sans);font-size:12px;color:var(--muted);}
     /* keep diagram animation */
-    @keyframes rotateSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-    @keyframes dash{to{stroke-dashoffset:0}}
-    .ring-outer{animation:rotateSlow 20s linear infinite;transform-origin:160px 160px;}
-    .ring-inner{animation:rotateSlow 12s linear infinite reverse;transform-origin:160px 160px;}
-    .data-line{stroke-dasharray:200;stroke-dashoffset:200;animation:dash 2s ease forwards;}
-    .data-line-2{animation-delay:.4s;}.data-line-3{animation-delay:.8s;}.data-line-4{animation-delay:1.2s;}
     .reveal{opacity:1;transform:none;}
     @media(max-width:1024px){
       .chrome{padding:28px 32px 24px;flex-wrap:wrap;gap:14px;}
@@ -193,40 +197,62 @@
       <div class="grid-graphic"></div>
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
-      <div class="hero-diagram">
-        <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outer rotating ring -->
-          <g class="ring-outer">
-            <circle cx="160" cy="160" r="140" stroke="rgba(90,80,64,0.12)" stroke-width="1" stroke-dasharray="6 8"/>
-          </g>
-          <!-- Inner rotating ring -->
-          <g class="ring-inner">
-            <circle cx="160" cy="160" r="100" stroke="rgba(90,80,64,0.18)" stroke-width="1" stroke-dasharray="4 12"/>
-          </g>
-          <!-- Static rings -->
-          <circle cx="160" cy="160" r="60" stroke="rgba(90,80,64,0.25)" stroke-width="1"/>
-          <!-- Center -->
-          <circle cx="160" cy="160" r="8" fill="rgba(90,80,64,0.8)"/>
-          <circle cx="160" cy="160" r="20" stroke="rgba(90,80,64,0.4)" stroke-width="1"/>
-          <!-- Node points -->
-          <circle cx="160" cy="20" r="5" fill="rgba(90,80,64,0.5)" stroke="rgba(90,80,64,0.8)" stroke-width="1"/>
-          <circle cx="280" cy="100" r="4" fill="rgba(90,80,64,0.4)" stroke="rgba(90,80,64,0.7)" stroke-width="1"/>
-          <circle cx="260" cy="250" r="6" fill="rgba(90,80,64,0.3)" stroke="rgba(90,80,64,0.6)" stroke-width="1"/>
-          <circle cx="60" cy="240" r="4" fill="rgba(90,80,64,0.4)" stroke="rgba(90,80,64,0.7)" stroke-width="1"/>
-          <circle cx="40" cy="100" r="5" fill="rgba(90,80,64,0.5)" stroke="rgba(90,80,64,0.8)" stroke-width="1"/>
-          <!-- Connection lines -->
-          <line class="data-line" x1="160" y1="160" x2="160" y2="20" stroke="rgba(90,80,64,0.3)" stroke-width="1"/>
-          <line class="data-line data-line-2" x1="160" y1="160" x2="280" y2="100" stroke="rgba(90,80,64,0.3)" stroke-width="1"/>
-          <line class="data-line data-line-3" x1="160" y1="160" x2="260" y2="250" stroke="rgba(90,80,64,0.3)" stroke-width="1"/>
-          <line class="data-line data-line-4" x1="160" y1="160" x2="60" y2="240" stroke="rgba(90,80,64,0.3)" stroke-width="1"/>
-          <line class="data-line" x1="160" y1="160" x2="40" y2="100" stroke="rgba(90,80,64,0.3)" stroke-width="1" style="animation-delay:0.2s"/>
-          <!-- Corner labels -->
-          <text x="148" y="13" fill="rgba(90,80,64,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">DATA</text>
-          <text x="286" y="104" fill="rgba(90,80,64,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">AI</text>
-          <text x="238" y="268" fill="rgba(90,80,64,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">OUTPUT</text>
-          <text x="22" y="258" fill="rgba(90,80,64,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">OPS</text>
-          <text x="10" y="98" fill="rgba(90,80,64,0.6)" font-family="'DM Mono', monospace" font-size="8" letter-spacing="1">STRAT</text>
-        </svg>
+      <div class="sheet">
+<svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drafting-sheet diagram of the four-phase engagement: discovery, diagnosis, design and build, operate and evolve">
+  <g class="bp-grid">
+    <path d="M0 70 H560 M0 140 H560 M0 210 H560 M0 280 H560 M0 350 H560 M0 420 H560 M0 490 H560"/>
+    <path d="M70 0 V560 M140 0 V560 M210 0 V560 M280 0 V560 M350 0 V560 M420 0 V560 M490 0 V560"/>
+  </g>
+  <path class="bp-line" d="M16 28 V16 H28 M532 16 H544 V28 M544 532 V544 H532 M28 544 H16 V532" stroke-width="1.4"/>
+
+  <!-- 01 Discovery -->
+  <rect class="bp-box" x="40" y="56" width="230" height="64" rx="3"/>
+  <circle class="bp-num" cx="58" cy="88" r="11"/>
+  <text class="bp-tag" x="58" y="91" text-anchor="middle">01</text>
+  <text class="bp-name" x="78" y="84">Discovery</text>
+  <text class="bp-tag" x="78" y="101">pre-audit &#183; working session</text>
+
+  <!-- 02 Diagnosis -->
+  <rect class="bp-box" x="290" y="170" width="230" height="64" rx="3"/>
+  <circle class="bp-num" cx="308" cy="202" r="11"/>
+  <text class="bp-tag" x="308" y="205" text-anchor="middle">02</text>
+  <text class="bp-name" x="328" y="198">Diagnosis</text>
+  <text class="bp-tag" x="328" y="215">data &#183; workflows &#183; leverage</text>
+
+  <!-- 03 Design & Build -->
+  <rect class="bp-box" x="40" y="284" width="230" height="64" rx="3"/>
+  <circle class="bp-num" cx="58" cy="316" r="11"/>
+  <text class="bp-tag" x="58" y="319" text-anchor="middle">03</text>
+  <text class="bp-name" x="78" y="312">Design &amp; Build</text>
+  <text class="bp-tag" x="78" y="329">architecture &#183; integration</text>
+
+  <!-- 04 Operate & Evolve -->
+  <rect class="bp-box" x="290" y="398" width="230" height="64" rx="3"/>
+  <circle class="bp-num" cx="308" cy="430" r="11"/>
+  <text class="bp-tag" x="308" y="433" text-anchor="middle">04</text>
+  <text class="bp-name" x="328" y="426">Operate &amp; Evolve</text>
+  <text class="bp-tag" x="328" y="443">handoff &#183; owned by your team</text>
+
+  <!-- flowing connectors -->
+  <path class="bp-dash" d="M270 88 H405 V170"/>
+  <path class="bp-dash" d="M405 234 V259 H155 V284"/>
+  <path class="bp-dash" d="M155 348 V373 H405 V398"/>
+
+  <!-- scale bar -->
+  <g>
+    <path class="bp-line" d="M40 506 H180 M40 501 V511 M75 503 V509 M110 503 V509 M145 503 V509 M180 501 V511" stroke-width="0.9"/>
+    <text class="bp-tag" x="40" y="528">SCALE: WEEKS 0&#8211;12</text>
+  </g>
+
+  <!-- title block -->
+  <g>
+    <rect class="bp-box" x="304" y="486" width="216" height="50" rx="2"/>
+    <line x1="304" y1="503" x2="520" y2="503" stroke="#1A1A1A" stroke-width="0.8"/>
+    <text class="bp-title" x="314" y="499">QUINTILIAN, INC.</text>
+    <text class="bp-tag" x="314" y="517">ENGAGEMENT MAP &#183; SHEET 02</text>
+    <text class="bp-tag" x="314" y="529">SCALE: FOUR PHASES &#183; 2026</text>
+  </g>
+</svg>
       </div>
     </div>
   </div>
