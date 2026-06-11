@@ -701,6 +701,8 @@
     .ai-branch .deliverable { margin:0; display:flex; flex-direction:column; }
     .ai-branch .deliverable img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:5px; box-shadow:0 8px 18px rgba(24,22,20,.14); display:block; }
     .ai-branch .deliverable figcaption { font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; color:var(--muted); margin-top:6px; }
+    .ai-branch .vid-phone { width: min(330px, 82%); margin: 0 auto; border-radius: 30px; overflow: hidden; box-shadow: 0 22px 50px rgba(24,22,20,.26); border: 1px solid var(--rule); background: #000; }
+    .ai-branch .vid-phone video { width: 100%; display: block; }
     /* Drafting-sheet visual (AI Solutions panel) */
     .ai-branch .sheet { background:#FBF7EF; border:1px solid var(--rule); border-radius:8px; box-shadow:0 16px 38px rgba(24,22,20,.13); padding:10px; }
     .ai-branch .sheet svg { width:100%; height:auto; display:block; }
@@ -802,53 +804,12 @@
         <a class="explore" href="/consulting/">Explore</a>
       </div>
       <div class="visual">
-        <div class="sheet">
-<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drafting-sheet diagram of the Sovereign Stack: four production systems connected to an owned-hardware core">
-  <g class="bp-grid">
-    <path d="M0 70 H760 M0 140 H760 M0 210 H760 M0 280 H760 M0 350 H760 M0 420 H760 M0 490 H760"/>
-    <path d="M95 0 V560 M190 0 V560 M285 0 V560 M380 0 V560 M475 0 V560 M570 0 V560 M665 0 V560"/>
-  </g>
-  <path class="bp-line" d="M18 30 V18 H30 M730 18 H742 V30 M742 530 V542 H730 M30 542 H18 V530" stroke-width="1.4"/>
-
-  <rect class="bp-center" x="280" y="232" width="200" height="96" rx="3"/>
-  <text class="bp-name" x="380" y="272" text-anchor="middle">SOVEREIGN STACK</text>
-  <text class="bp-tag" x="380" y="292" text-anchor="middle">owned hardware &#183; local models</text>
-  <text class="bp-tag" x="380" y="306" text-anchor="middle">zero external calls</text>
-
-  <rect class="bp-box" x="48" y="64" width="216" height="58" rx="3"/>
-  <circle cx="66" cy="93" r="4" fill="#4C7A58"/>
-  <text class="bp-name" x="80" y="89">Convention Booking</text>
-  <text class="bp-tag" x="80" y="106">headless &#183; live</text>
-
-  <rect class="bp-box" x="496" y="64" width="216" height="58" rx="3"/>
-  <circle cx="514" cy="93" r="4" fill="#4C7A58"/>
-  <text class="bp-name" x="528" y="89">Virtual-Queue App</text>
-  <text class="bp-tag" x="528" y="106">live events &#183; live</text>
-
-  <rect class="bp-box" x="48" y="404" width="216" height="58" rx="3"/>
-  <circle cx="66" cy="433" r="4" fill="#4C7A58"/>
-  <text class="bp-name" x="80" y="429">Offline Film-Rec Engine</text>
-  <text class="bp-tag" x="80" y="446">on-device &#183; live</text>
-
-  <rect class="bp-box" x="496" y="404" width="216" height="58" rx="3"/>
-  <circle cx="514" cy="433" r="4" fill="#9A7D3C"/>
-  <text class="bp-name" x="528" y="429">GEO Audit System</text>
-  <text class="bp-tag" x="528" y="446">AI visibility &#183; building</text>
-
-  <path class="bp-dash" d="M156 122 V280 H280"/>
-  <path class="bp-dash" d="M604 122 V280 H480"/>
-  <path class="bp-dash" d="M156 404 V280 H280"/>
-  <path class="bp-dash" d="M604 404 V280 H480"/>
-
-  <g>
-    <rect class="bp-box" x="496" y="486" width="216" height="50" rx="2"/>
-    <line x1="496" y1="503" x2="712" y2="503" stroke="#1A1A1A" stroke-width="0.8"/>
-    <text class="bp-title" x="506" y="499">QUINTILIAN, INC.</text>
-    <text class="bp-tag" x="506" y="517">SOVEREIGN STACK &#183; SHEET 01</text>
-    <text class="bp-tag" x="506" y="529">SCALE: PRODUCTION &#183; 2026</text>
-  </g>
-</svg>
+        <div class="vid-phone">
+          <video autoplay muted loop playsinline preload="metadata" poster="/work/images/ai/speedread-poster.jpg" aria-label="Speed Read Anything running on an iPhone — live demo">
+            <source src="/work/images/ai/speedread-demo.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="grid-caption">Speed Read Anything &mdash; live in the <a href="https://apps.apple.com/app/id6760246469" target="_blank" rel="noopener" style="color:var(--ink);">App&nbsp;Store</a>, running here in&nbsp;real&nbsp;time.</div>
       </div>
     </section>
 
