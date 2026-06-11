@@ -510,8 +510,8 @@
       color: inherit;
       align-items: center;
     }
-    .module:nth-child(odd)     { direction: rtl; }
-    .module:nth-child(odd) > * { direction: ltr; }
+    .module:nth-child(even)     { direction: rtl; }
+    .module:nth-child(even) > * { direction: ltr; }
     .module-image {
       overflow: hidden;
       background: var(--cream-warm);
@@ -574,7 +574,7 @@
     }
     @media (max-width: 900px) {
       .modules { padding: 0 32px; gap: 48px; margin: 48px auto 72px; }
-      .module, .module:nth-child(odd) {
+      .module, .module:nth-child(even) {
         direction: ltr;
         grid-template-columns: 1fr;
         gap: 20px;
@@ -695,6 +695,7 @@
     @keyframes bpdash { to { stroke-dashoffset:-600; } }
     .ai-branch .bp-box { fill:#fff; stroke:#1A1A1A; stroke-width:1.1; }
     .ai-branch .bp-center { fill:#F3EBDC; stroke:#1A1A1A; stroke-width:1.4; }
+    .ai-branch .bp-num { fill:#F3EBDC; stroke:#1A1A1A; stroke-width:1.1; }
     .ai-branch .bp-name { font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600; fill:#1A1A1A; }
     .ai-branch .bp-tag { font-family:'JetBrains Mono',monospace; font-size:9px; fill:#5A5040; letter-spacing:.04em; }
     .ai-branch .bp-title { font-family:'JetBrains Mono',monospace; font-size:10px; fill:#1A1A1A; letter-spacing:.08em; }
@@ -829,8 +830,87 @@
 
     <div class="branch-rule"></div>
 
-    <!-- 02 — IMAGE GENERATION -->
+    <!-- 02 — AI TRAINING -->
     <section class="panel">
+      <div class="visual">
+        <div class="sheet">
+<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drafting-sheet curriculum: five training stages from prompting fundamentals to production pipelines">
+  <g class="bp-grid">
+    <path d="M0 70 H760 M0 140 H760 M0 210 H760 M0 280 H760 M0 350 H760 M0 420 H760 M0 490 H760"/>
+    <path d="M95 0 V560 M190 0 V560 M285 0 V560 M380 0 V560 M475 0 V560 M570 0 V560 M665 0 V560"/>
+  </g>
+  <path class="bp-line" d="M18 30 V18 H30 M730 18 H742 V30 M742 530 V542 H730 M30 542 H18 V530" stroke-width="1.4"/>
+
+  <!-- 01 Prompting Fundamentals -->
+  <rect class="bp-box" x="48" y="48" width="244" height="58" rx="3"/>
+  <circle class="bp-num" cx="66" cy="77" r="11"/>
+  <text class="bp-tag" x="66" y="80" text-anchor="middle">01</text>
+  <text class="bp-name" x="86" y="73">Prompting Fundamentals</text>
+  <text class="bp-tag" x="86" y="90">the first prompt &#183; taste &amp; iteration</text>
+
+  <!-- 02 Image Generation -->
+  <rect class="bp-box" x="468" y="138" width="244" height="58" rx="3"/>
+  <circle class="bp-num" cx="486" cy="167" r="11"/>
+  <text class="bp-tag" x="486" y="170" text-anchor="middle">02</text>
+  <text class="bp-name" x="506" y="163">Image Generation</text>
+  <text class="bp-tag" x="506" y="180">style systems that hold</text>
+
+  <!-- 03 Cowork & Agents -->
+  <rect class="bp-box" x="48" y="228" width="244" height="58" rx="3"/>
+  <circle class="bp-num" cx="66" cy="257" r="11"/>
+  <text class="bp-tag" x="66" y="260" text-anchor="middle">03</text>
+  <text class="bp-name" x="86" y="253">Cowork &amp; Agents</text>
+  <text class="bp-tag" x="86" y="270">AI coworkers, set up right</text>
+
+  <!-- 04 Automations & Connections -->
+  <rect class="bp-box" x="468" y="318" width="244" height="58" rx="3"/>
+  <circle class="bp-num" cx="486" cy="347" r="11"/>
+  <text class="bp-tag" x="486" y="350" text-anchor="middle">04</text>
+  <text class="bp-name" x="506" y="343">Automations &amp; Connections</text>
+  <text class="bp-tag" x="506" y="360">your tools, talking to each other</text>
+
+  <!-- 05 Production Pipelines -->
+  <rect class="bp-box" x="48" y="408" width="244" height="58" rx="3"/>
+  <circle class="bp-num" cx="66" cy="437" r="11"/>
+  <text class="bp-tag" x="66" y="440" text-anchor="middle">05</text>
+  <text class="bp-name" x="86" y="433">Production Pipelines</text>
+  <text class="bp-tag" x="86" y="450">shipping with AI, end to end</text>
+
+  <!-- connectors -->
+  <path class="bp-dash" d="M292 77 H590 V138"/>
+  <path class="bp-dash" d="M590 196 V212 H170 V228"/>
+  <path class="bp-dash" d="M292 257 H590 V318"/>
+  <path class="bp-dash" d="M590 376 V392 H170 V408"/>
+
+  <!-- scale bar -->
+  <g>
+    <path class="bp-line" d="M468 506 H608 M468 501 V511 M503 503 V509 M538 503 V509 M573 503 V509 M608 501 V511" stroke-width="0.9"/>
+    <text class="bp-tag" x="468" y="528">SCALE: FIRST PROMPT &#8594; PRODUCTION</text>
+  </g>
+
+  <!-- title block -->
+  <g>
+    <rect class="bp-box" x="48" y="486" width="216" height="50" rx="2"/>
+    <line x1="48" y1="503" x2="264" y2="503" stroke="#1A1A1A" stroke-width="0.8"/>
+    <text class="bp-title" x="58" y="499">QUINTILIAN, INC.</text>
+    <text class="bp-tag" x="58" y="517">TRAINING CURRICULUM &#183; SHEET 03</text>
+    <text class="bp-tag" x="58" y="529">COHORTS: TEAMS &amp; INDIVIDUALS &#183; 2026</text>
+  </g>
+</svg>
+        </div>
+      </div>
+      <div class="copy">
+        <div class="eyebrow">02 &mdash; AI Training</div>
+        <h2>From first prompt to full pipeline.</h2>
+        <p class="lede">We teach this &mdash; to teams and to individuals, at whatever level you&rsquo;re starting from. Hands-on training that runs from the simplest <strong>&ldquo;how do I write a prompt?&rdquo;</strong> through Cowork and agent setup, automations and connections between the tools you already use, and image generation that holds a brand style. Practical, in your own stack, taught by people who ship with these tools every&nbsp;day.</p>
+        <a class="explore" href="/contact/">Book a session</a>
+      </div>
+    </section>
+
+    <div class="branch-rule"></div>
+
+    <!-- 03 — IMAGE GENERATION -->
+    <section class="panel flip">
       <div class="visual">
         <div class="diptych">
           <div class="dip-frame">
@@ -852,7 +932,7 @@
         <div class="grid-caption">Bloomin&rsquo; Blinds &mdash; generated frames, classic photography, and digital painting, finished by hand and carried across brand book, direct mail, and billboard.</div>
       </div>
       <div class="copy">
-        <div class="eyebrow">02 &mdash; Image Generation</div>
+        <div class="eyebrow">03 &mdash; Image Generation</div>
         <h2>Generated, painted, and finished by hand.</h2>
         <p class="lede">Classic campaign craft, taken further with generative AI. For <strong>Bloomin&rsquo; Blinds</strong>, multiple generated frames are paired with classic photography, digital painting, and a hand-finished pass &mdash; then built out into print-ready, billboard-scale deliverables that hold together end to end, from direct mail to brand book. The eye behind it tested Midjourney in its original beta, and has grown across every branch of AI in the years since.</p>
         <a class="explore" href="/work/brand-advertising/">Explore</a>
@@ -882,7 +962,7 @@
              alt="App design and development" loading="lazy">
       </div>
       <div class="module-text">
-        <p class="module-num">03 — App Development</p>
+        <p class="module-num">04 — App Development</p>
         <h2>Native apps you&rsquo;ll actually open.</h2>
         <p class="module-sub">
           Devotional, contemplative, and utility iOS apps designed and shipped
@@ -899,7 +979,7 @@
              alt="Brand and advertising work" loading="lazy">
       </div>
       <div class="module-text">
-        <p class="module-num">04 — Brand &amp; Advertising</p>
+        <p class="module-num">05 — Brand &amp; Advertising</p>
         <h2>Brands that earn the second look.</h2>
         <p class="module-sub">
           Identity, packaging, advertising, email, and pitch decks &mdash;
@@ -918,7 +998,7 @@
              alt="NFT collections on OpenSea" loading="lazy">
       </div>
       <div class="module-text">
-        <p class="module-num">05 — NFT Collections</p>
+        <p class="module-num">06 — NFT Collections</p>
         <h2>Self-deployed drops, end to end.</h2>
         <p class="module-sub">
           Nine curated NFT collections released on OpenSea &mdash; art
@@ -936,7 +1016,7 @@
              alt="Sanctified Souls devotional brand and apps" loading="lazy">
       </div>
       <div class="module-text">
-        <p class="module-num">06 — Sanctified Souls</p>
+        <p class="module-num">07 — Sanctified Souls</p>
         <h2>A devotional brand and its apps.</h2>
         <p class="module-sub">
           Original Catholic devotional art &mdash; saints, Marian imagery,
@@ -954,7 +1034,7 @@
              alt="Illustration and design work" loading="lazy">
       </div>
       <div class="module-text">
-        <p class="module-num">07 — Illustration &amp; Design</p>
+        <p class="module-num">08 — Illustration &amp; Design</p>
         <h2>Editorial, oracle, fabric, and book.</h2>
         <p class="module-sub">
           A decade of cover art and illustration &mdash; comics for Image and
