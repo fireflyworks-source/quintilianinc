@@ -573,12 +573,26 @@
       background-size: contain;
     }
     @media (max-width: 900px) {
-      .modules { padding: 0 32px; gap: 48px; margin: 48px auto 72px; }
+      .modules { padding: 0 32px; gap: 56px; margin: 48px auto 72px; }
       .module, .module:nth-child(even) {
         direction: ltr;
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 0;
       }
+      /* mobile reading order: number — title — image — copy */
+      .module .module-image, .module .module-text { display: contents; }
+      .module .module-num { order: 1; margin-bottom: 14px; }
+      .module .module-text h2 { order: 2; margin-bottom: 20px; }
+      .module .module-image img {
+        order: 3;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        margin-bottom: 22px;
+      }
+      .module .module-sub { order: 4; max-width: none; }
+      .module .module-cta { order: 5; justify-self: start; }
     }
 
     /* ---------- Approach + credentials ---------- */
@@ -700,7 +714,17 @@
     .ai-branch .bp-tag { font-family:'JetBrains Mono',monospace; font-size:9px; fill:#5A5040; letter-spacing:.04em; }
     .ai-branch .bp-title { font-family:'JetBrains Mono',monospace; font-size:10px; fill:#1A1A1A; letter-spacing:.08em; }
     .ai-branch .bp-grid { stroke:rgba(90,80,64,.10); stroke-width:.6; }
-    @media (max-width:1024px){ .ai-branch .panel{ grid-template-columns:1fr; padding:64px 32px; gap:44px; } .ai-branch .panel.flip .visual{order:1;} .ai-branch .panel.flip .copy{order:2;} }
+    @media (max-width:1024px){
+      /* mobile reading order: number — title — image — copy */
+      .ai-branch .panel{ grid-template-columns:1fr; padding:64px 32px; gap:0; }
+      .ai-branch .panel .visual, .ai-branch .panel .copy{ display:contents; }
+      .ai-branch .panel .eyebrow{ order:1; margin-bottom:16px; }
+      .ai-branch .panel h2{ order:2; margin-bottom:24px; max-width:none; }
+      .ai-branch .panel .visual > *{ order:3; }
+      .ai-branch .panel .lede{ order:4; margin:26px 0 30px; max-width:none; }
+      .ai-branch .panel .explore{ order:5; justify-self:start; }
+      .ai-branch .panel .grid-caption{ margin-bottom:0; }
+    }
       /* NO-WIDOW: browser-level widow + orphan prevention */
     p, li, .blurb, .module-sub, .approach-body, .lead, .hero-credit, .book-title, .cred-list, figcaption, .section-blurb { text-wrap: pretty; }
     h1, h2, h3, .module-text h2, .section-hero h1, .approach-head { text-wrap: balance; }
