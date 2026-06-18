@@ -796,39 +796,8 @@
        =================================================================== -->
   <section class="hero">
 
-    <!-- STATE 1 — DEPLOYED (leads the hero; big image = real con-crowd photo, AR-video inset from chuckhuber.org) -->
-    <div class="hero-slide hero-slide--deployed is-on" data-i="0">
-      <div class="hero-text">
-        <div class="hero-heading">
-          <h1>Deployed.</h1>
-          <p class="hero-subtitle">Built for the crowd.</p>
-        </div>
-        <p class="lead">
-          The same eye, pointed at software. A virtual-queue platform that
-          retires the four-hour line. AR prints that come to life &mdash;
-          Cameo-style connections you can hold in your hand. Twenty years of
-          craft, shipping as&nbsp;product.
-        </p>
-        <a href="/consulting/" class="pill">See what we deploy &rarr;</a>
-      </div>
-      <figure class="hero-figure">
-        <img class="hero-image"
-             src="/work/images/deployed/fans.jpg"
-             alt="A panel of voice actors with a packed room of anime fans at a convention"
-             fetchpriority="high">
-        <figure class="hero-inset hero-inset--video">
-          <video autoplay muted loop playsinline preload="metadata"
-                 poster="/work/images/deployed/publishar-poster.jpg"
-                 aria-label="PublishAR — a print coming to life through AR">
-            <source src="/work/images/deployed/publishar.mp4" type="video/mp4">
-          </video>
-          <figcaption>PublishAR</figcaption>
-        </figure>
-      </figure>
-    </div>
-
-    <!-- STATE 2 — WORK (Jessica's bio hero) -->
-    <div class="hero-slide hero-slide--work" data-i="1">
+    <!-- STATE 1 — WORK (Jessica's bio hero; leads the hero) -->
+    <div class="hero-slide hero-slide--work is-on" data-i="0">
       <div class="hero-text">
         <div class="hero-heading">
           <h1>Work</h1>
@@ -853,18 +822,50 @@
       <figure class="hero-figure">
         <img class="hero-image"
              src="/work/images/grid-extras/lambeth-hall.jpg"
-             alt="The 14th-century banquet hall at Lambeth Palace, hung with works in its permanent collection">
+             alt="The 14th-century banquet hall at Lambeth Palace, hung with works in its permanent collection"
+             fetchpriority="high">
         <figure class="hero-inset">
           <img src="/work/images/grid-extras/saint-john-of-god.jpg"
-               alt="Saint John of God — a Sanctified Souls piece by Jessica von Braun, held in the Lambeth Palace collection">
+               alt="Saint John of God — a Sanctified Souls piece by Jessica von Braun, held in the Lambeth Palace collection"
+               fetchpriority="high">
           <figcaption>Saint John of God</figcaption>
         </figure>
       </figure>
     </div>
 
+    <!-- STATE 2 — DEPLOYED (big image = real con-crowd photo, AR-video inset from chuckhuber.org) -->
+    <div class="hero-slide hero-slide--deployed" data-i="1">
+      <div class="hero-text">
+        <div class="hero-heading">
+          <h1>Deployed.</h1>
+          <p class="hero-subtitle">Built for the crowd.</p>
+        </div>
+        <p class="lead">
+          The same eye, pointed at software. A virtual-queue platform that
+          retires the four-hour line. AR prints that come to life &mdash;
+          Cameo-style connections you can hold in your hand. Twenty years of
+          craft, shipping as&nbsp;product.
+        </p>
+        <a href="/consulting/" class="pill">See what we deploy &rarr;</a>
+      </div>
+      <figure class="hero-figure">
+        <img class="hero-image"
+             src="/work/images/deployed/fans.jpg"
+             alt="A panel of voice actors with a packed room of anime fans at a convention">
+        <figure class="hero-inset hero-inset--video">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="/work/images/deployed/publishar-poster.jpg"
+                 aria-label="PublishAR — a print coming to life through AR">
+            <source src="/work/images/deployed/publishar.mp4" type="video/mp4">
+          </video>
+          <figcaption>PublishAR</figcaption>
+        </figure>
+      </figure>
+    </div>
+
     <div class="hero-dots">
-      <button class="hero-dot is-on" data-d="0" aria-label="Show Deployed"></button>
-      <button class="hero-dot" data-d="1" aria-label="Show Work"></button>
+      <button class="hero-dot is-on" data-d="0" aria-label="Show Work"></button>
+      <button class="hero-dot" data-d="1" aria-label="Show Deployed"></button>
     </div>
   </section>
 
@@ -1221,7 +1222,7 @@
     window.addEventListener('scroll',syncVideos,{passive:true});
     window.addEventListener('resize',syncVideos);
 
-    // Hero slideshow (Deployed leads; Work second)
+    // Hero slideshow (Work leads; Deployed second)
     if(slides.length>=2){
       var i=0,timer;
       function show(n){i=n;slides.forEach(function(s,k){s.classList.toggle('is-on',k===n);});dots.forEach(function(d,k){d.classList.toggle('is-on',k===n);});syncVideos();}
