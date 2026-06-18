@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Hero concept — Work / Deployed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#ECDFCF; --cream-warm:#E8DDD0; --ink:#1A1A1A; --ink-soft:#2A2A2A;
+    --muted:#5A5040; --rule:#D6C9B6; --accent:#9A7D3C;
+    --serif:"PT Serif",Georgia,serif; --sans:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink-soft);font-family:var(--sans);overflow-x:clip;}
+  .note{background:#1A1A1A;color:#E8E2DA;font-family:var(--mono);font-size:12px;padding:12px 24px;text-align:center;letter-spacing:.03em;}
+  .note b{color:#D8C18A;}
+  /* chrome */
+  .chrome{display:flex;justify-content:space-between;align-items:center;padding:40px 72px 36px;}
+  .logo{font-family:var(--serif);font-size:28px;color:var(--ink);text-decoration:none;}
+  nav.top{display:flex;gap:34px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;}
+  nav.top a{color:var(--muted);text-decoration:none;}
+  nav.top a.current{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px;}
+  .nav-assess{font-size:12px;text-transform:uppercase;letter-spacing:.1em;background:var(--ink);color:var(--cream);text-decoration:none;padding:11px 24px;border-radius:999px;}
+
+  /* hero shell holds two cross-fading states */
+  .hero-shell{position:relative;min-height:78vh;}
+  .slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;opacity:0;transition:opacity .9s ease;pointer-events:none;}
+  .slide.on{opacity:1;pointer-events:auto;}
+  .htext{padding:8px 48px 0 96px;}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;}
+  .htext h1{font-family:var(--serif);font-weight:400;font-size:clamp(60px,7vw,110px);line-height:.95;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px;}
+  .htext .sub{font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.6vw,36px);color:var(--muted);margin-bottom:30px;}
+  .lead{font-size:18px;line-height:1.65;color:var(--ink-soft);max-width:460px;margin-bottom:26px;}
+  .lead strong{color:var(--ink);font-weight:600;}
+  .credit{font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:480px;padding-left:18px;border-left:2px solid var(--ink);}
+  .credit em{font-style:italic;color:var(--ink);}
+  .links{margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.04em;}
+  .links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+  .pill{display:inline-block;margin-top:26px;font-size:14px;letter-spacing:.03em;color:#fff;background:var(--ink);padding:15px 32px;border-radius:999px;text-decoration:none;}
+
+  /* state 1 visual: Lambeth hall + inset (reuse real assets) */
+  .fig{position:relative;padding-right:48px;}
+  .fig>img{width:100%;height:64vh;object-fit:cover;display:block;}
+  .inset{position:absolute;bottom:40px;left:-40px;width:200px;}
+  .inset img{width:100%;border:7px solid #fff;box-shadow:0 18px 44px rgba(0,0,0,.32);display:block;}
+
+  /* state 2 visual: two placeholder cards (assets TBD) */
+  .deck{padding-right:48px;display:flex;flex-direction:column;gap:18px;}
+  .ph{border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;color:#fff;min-height:150px;box-shadow:0 18px 40px rgba(24,22,20,.2);}
+  .ph .lbl{position:relative;z-index:2;padding:18px 20px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;}
+  .ph .lbl b{display:block;font-family:var(--serif);font-style:normal;font-size:21px;letter-spacing:0;margin-bottom:4px;}
+  .ph.line{min-height:220px;background:linear-gradient(135deg,#2B2438,#574A77 60%,#9A7D3C);}
+  .ph.ar{min-height:150px;background:linear-gradient(135deg,#1E2A22,#4C7A58 60%,#CDA86E);}
+  .ph .tag{position:absolute;top:14px;right:16px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:rgba(0,0,0,.35);padding:4px 9px;border-radius:5px;}
+
+  /* dots */
+  .dots{position:absolute;bottom:24px;left:96px;display:flex;gap:10px;z-index:5;}
+  .dot{width:34px;height:3px;background:var(--rule);border:none;cursor:pointer;padding:0;}
+  .dot.on{background:var(--ink);}
+  @media(max-width:1024px){
+    .slide{grid-template-columns:1fr;gap:24px;position:relative;opacity:1;}
+    .slide:not(.on){display:none;}
+    .htext{padding:32px 28px 0;}
+    .fig,.deck{padding:0 28px;}
+    .dots{left:28px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="note">CONCEPT MOCK &mdash; Chuck&rsquo;s 2-card hero idea, realized. <b>Two states cross-fade</b> (click the dashes to toggle). Visuals on the &ldquo;Deployed&rdquo; card are placeholders. Nothing here is live.</div>
+
+<header class="chrome">
+  <a class="logo" href="/">Quintilian, inc.</a>
+  <nav class="top"><a class="current">Work</a><a>Consulting</a><a>Contact</a></nav>
+  <a class="nav-assess">Begin Assessment</a>
+</header>
+
+<div class="hero-shell">
+
+  <!-- STATE 1 — WORK -->
+  <div class="slide on" data-i="0">
+    <div class="htext">
+      <h1>Work</h1>
+      <p class="sub">Fit for a palace.</p>
+      <p class="lead">Nearly two decades of art direction, illustration, and mixed-media work &mdash; across publishing, agency, and in-house creative. A career making things by hand, long before adding new tools to the kit.</p>
+      <p class="credit">Hung from Pop Gallery at Disney Springs and Epcot to <em>Lambeth Palace</em> in London. Cover art for <em>Image Comics</em>, <em>Aftershock</em>, and <em>Blue Angel</em>; campaigns for <em>Coca-Cola</em>, <em>Papa John&rsquo;s</em>, and <em>Dairy Queen</em>. Jessica von Braun, Senior Art Director.</p>
+    </div>
+    <figure class="fig">
+      <img src="/work/images/grid-extras/lambeth-hall.jpg" alt="">
+      <span class="inset"><img src="/work/images/grid-extras/saint-john-of-god.jpg" alt=""></span>
+    </figure>
+  </div>
+
+  <!-- STATE 2 — DEPLOYED -->
+  <div class="slide" data-i="1">
+    <div class="htext">
+      <div class="eyebrow">The other half of the practice</div>
+      <h1>Deployed.</h1>
+      <p class="sub">Built for the crowd.</p>
+      <p class="lead">The same eye, pointed at software. A virtual-queue platform that retires the <strong>four-hour line</strong>. AR prints that come to life &mdash; Cameo-style connections you can hold in your hand. Twenty years of craft, shipping as&nbsp;product.</p>
+      <p class="links">Live: <a href="#">867line.com</a> &middot; <a href="#">PublishAR</a></p>
+      <a class="pill" href="#">See what we deploy &rarr;</a>
+    </div>
+    <div class="deck">
+      <div class="ph line">
+        <span class="tag">hero shot &mdash; asset TBD</span>
+        <span class="lbl"><b>867line</b>a line of fans, gone &mdash; virtual queue for live events</span>
+      </div>
+      <div class="ph ar">
+        <span class="tag">video &mdash; asset TBD</span>
+        <span class="lbl"><b>PublishAR</b>prints that come to life in your hand</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots">
+    <button class="dot on" data-d="0" aria-label="Work"></button>
+    <button class="dot" data-d="1" aria-label="Deployed"></button>
+  </div>
+</div>
+
+<script>
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dots=[].slice.call(document.querySelectorAll('.dot'));
+  var i=0, timer;
+  function show(n){ i=n; slides.forEach(function(s,k){s.classList.toggle('on',k===n);}); dots.forEach(function(d,k){d.classList.toggle('on',k===n);}); }
+  function next(){ show((i+1)%slides.length); }
+  function start(){ timer=setInterval(next, 6000); }
+  dots.forEach(function(d){ d.addEventListener('click',function(){ clearInterval(timer); show(+d.dataset.d); start(); }); });
+  start();
+</script>
+</body>
+</html>
