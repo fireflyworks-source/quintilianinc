@@ -168,7 +168,16 @@
       background-position: left 30%;
       background-repeat: no-repeat;
     }
-    .hero-slide--deployed { background: var(--cream); }
+    .hero-slide--deployed {
+      background-image:
+        linear-gradient(rgba(236, 223, 207, 0.82), rgba(236, 223, 207, 0.90)),
+        url("/work/images/deployed/con-crowd-bg.jpg");
+      background-size: cover;
+      background-position: center 26%;
+      background-repeat: no-repeat;
+    }
+    /* Fans photo: bias the crop downward so the voice actors (bottom edge) survive a landscape crop */
+    .hero-slide--deployed .hero-image { object-position: center 62%; }
     /* Deployed deck (placeholder product cards until real fan-line photo + AR video land) */
     .hero-deck { padding-right: 48px; display: flex; flex-direction: column; gap: 18px; }
     .dcard { border-radius: 14px; padding: 26px; min-height: 162px; display: flex; flex-direction: column; justify-content: flex-end; color: #fff; box-shadow: 0 18px 42px rgba(24,22,20,0.2); position: relative; overflow: hidden; }
@@ -246,13 +255,17 @@
       width: clamp(180px, 17vw, 228px);
       margin: 0;
     }
-    .hero-inset img {
+    .hero-inset img,
+    .hero-inset video {
       width: 100%;
       height: auto;
       display: block;
       border: 7px solid #fff;
       box-shadow: 0 22px 52px rgba(0, 0, 0, 0.34);
     }
+    /* AR video inset runs a touch narrower (it's a tall phone clip) */
+    .hero-inset--video { width: clamp(150px, 14vw, 188px); bottom: 40px; }
+    .hero-inset--video video { background: #000; }
     .hero-inset figcaption {
       position: absolute;
       left: 7px;
@@ -820,7 +833,7 @@
       </figure>
     </div>
 
-    <!-- STATE 2 — DEPLOYED (copy is a draft from Chuck's notes; deck visuals are placeholders) -->
+    <!-- STATE 2 — DEPLOYED (copy is a draft from Chuck's notes; big image = real con-crowd photo, AR-video inset from chuckhuber.org) -->
     <div class="hero-slide hero-slide--deployed" data-i="1">
       <div class="hero-text">
         <div class="hero-heading">
@@ -835,18 +848,19 @@
         </p>
         <a href="/consulting/" class="pill">See what we deploy &rarr;</a>
       </div>
-      <div class="hero-deck">
-        <div class="dcard dcard--line">
-          <span class="dcard-status">&#9679;&nbsp;Live</span>
-          <span class="dcard-name">867line</span>
-          <span class="dcard-tag">A line of fans, gone &mdash; virtual queue for live events.</span>
-        </div>
-        <div class="dcard dcard--ar">
-          <span class="dcard-status">&#9679;&nbsp;Live</span>
-          <span class="dcard-name">PublishAR</span>
-          <span class="dcard-tag">Prints that come to life in your hand.</span>
-        </div>
-      </div>
+      <figure class="hero-figure">
+        <img class="hero-image"
+             src="/work/images/deployed/fans.jpg"
+             alt="A panel of voice actors with a packed room of anime fans at a convention">
+        <figure class="hero-inset hero-inset--video">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="/work/images/deployed/publishar-poster.jpg"
+                 aria-label="PublishAR — a print coming to life through AR">
+            <source src="/work/images/deployed/publishar.mp4" type="video/mp4">
+          </video>
+          <figcaption>PublishAR</figcaption>
+        </figure>
+      </figure>
     </div>
 
     <div class="hero-dots">
