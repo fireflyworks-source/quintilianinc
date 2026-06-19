@@ -1207,12 +1207,15 @@
     var vids=[].slice.call(document.querySelectorAll('video[autoplay]'));
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Only decode the video that's actually on-screen AND in the active hero slide.
-    // Prevents mobile/Safari decoder contention that froze a second playing video.
-    function slideActive(v){var s=v.closest('.hero-slide');return !s||s.classList.contains('is-on');}
-    function onScreen(v){var r=v.getBoundingClientRect();return r.bottom>window.innerHeight*0.05&&r.top<window.innerHeight*0.95;}
+    // Decode only the video that's actually on-screen; pause the rest.
+    // The hero and the Speed Read section are never both on-screen, so this
+    // prevents the mobile/Safari decoder contention that froze a second video --
+    // without tying playback to slide-active state (which left the AR clip stuck
+    // on its poster after a cross-fade). A display:none (inactive mobile slide)
+    // reports a zero rect, so its video is treated as off-screen and paused.
+    function onScreen(v){var r=v.getBoundingClientRect();return r.width>0&&r.bottom>window.innerHeight*0.05&&r.top<window.innerHeight*0.95;}
     function syncVideos(){vids.forEach(function(v){
-      if(onScreen(v)&&slideActive(v)){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+      if(onScreen(v)){var p=v.play();if(p&&p.catch)p.catch(function(){});}
       else if(!v.paused){v.pause();}
     });}
     if('IntersectionObserver' in window){
