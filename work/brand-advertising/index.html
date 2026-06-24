@@ -483,8 +483,7 @@
       <div class="gate-request">
         <h2>Request access</h2>
         <p>Leave your email and we&rsquo;ll send the password.</p>
-        <!-- Request form: Netlify form-capture temporarily disabled to unblock
-             deploy; re-enable data-netlify="true" + form-name after deploy is green. -->
+        <!-- Request form: submits via FormSubmit AJAX (see script below). -->
         <form name="brand-access-request" id="request-form">
           <div class="gate-field">
             <input type="email" name="email" placeholder="you@example.com"
@@ -826,16 +825,8 @@
       </button>
   </section>
       <div class="deck-card">
-        <h3>867 The Line &mdash; Pitch Deck</h3>
-        <div class="embed-slot"><object data="867TheLine.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="867TheLine.pdf">Download 867TheLine.pdf</a></p></object></div>
-      </div>
-      <div class="deck-card">
-        <h3>Lakefront &mdash; Brand Guide</h3>
-        <div class="embed-slot"><object data="Lakefront-Brand-Guide.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="Lakefront-Brand-Guide.pdf">Download Lakefront-Brand-Guide.pdf</a></p></object></div>
-      </div>
-      <div class="deck-card">
-        <h3>PPM AI &mdash; One-Sheet</h3>
-        <div class="embed-slot"><object data="PPM-AI-OneSheet.pdf" type="application/pdf" width="100%" height="100%"><p>PDF cannot be embedded. <a href="PPM-AI-OneSheet.pdf">Download PPM-AI-OneSheet.pdf</a></p></object></div>
+        <h3>Decks &amp; brand guides</h3>
+        <p style="font-size:15px;line-height:1.6;color:var(--muted);max-width:540px;">Full pitch decks and brand guides &mdash; 867 The Line, Lakefront, PPM AI, and more &mdash; are shared privately on request rather than hosted here. Reach out and we&rsquo;ll send them over directly.</p>
       </div>
     </div>
   </section>
@@ -893,17 +884,25 @@
       var reqForm = document.getElementById('request-form');
       reqForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        var data = new FormData(reqForm);
-        fetch('/', {
+        var btn = reqForm.querySelector('.gate-btn');
+        var data = {};
+        new FormData(reqForm).forEach(function (v, k) { data[k] = v; });
+        data._subject = 'Brand & Advertising — access request';
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+        // FormSubmit AJAX. Swap the address for the hashed endpoint
+        // (https://formsubmit.co/ajax/<hash>) to keep it out of the source.
+        fetch('https://formsubmit.co/ajax/chuber@quintilianinc.com', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(data).toString()
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) {
+          if (!r.ok) throw new Error('bad status');
+          return r.json();
         }).then(function () {
           reqForm.style.display = 'none';
           document.getElementById('request-success').hidden = false;
         }).catch(function () {
-          reqForm.style.display = 'none';
-          document.getElementById('request-success').hidden = false;
+          if (btn) { btn.disabled = false; btn.textContent = 'Try again'; }
         });
       });
     })();

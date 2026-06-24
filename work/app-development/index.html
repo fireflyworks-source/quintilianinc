@@ -706,6 +706,9 @@
       var caption = document.getElementById('lightbox-caption');
       var counter = document.getElementById('lightbox-counter');
       var idx = -1;
+      var lastFocus = null;
+      var closeBtn = document.querySelector('.lightbox-close');
+      var focusable = [].slice.call(lightbox.querySelectorAll('button'));
 
       function open(i) {
         idx = i;
@@ -721,6 +724,7 @@
         lightbox.classList.remove('open');
         document.body.style.overflow = '';
         idx = -1;
+        if (lastFocus) { lastFocus.focus(); lastFocus = null; }
       }
       function prev() { if (idx > 0) open(idx - 1); }
       function next() { if (idx < thumbs.length - 1) open(idx + 1); }
@@ -728,10 +732,12 @@
       thumbs.forEach(function (t, i) {
         t.addEventListener('click', function (e) {
           e.preventDefault();
+          lastFocus = t;            // remember the trigger to restore focus on close
           open(i);
+          closeBtn.focus();         // move focus into the dialog
         });
       });
-      document.querySelector('.lightbox-close').addEventListener('click', close);
+      closeBtn.addEventListener('click', close);
       document.querySelector('.lightbox-prev').addEventListener('click', prev);
       document.querySelector('.lightbox-next').addEventListener('click', next);
       lightbox.addEventListener('click', function (e) {
@@ -742,6 +748,12 @@
         if (e.key === 'Escape') close();
         else if (e.key === 'ArrowLeft') prev();
         else if (e.key === 'ArrowRight') next();
+        else if (e.key === 'Tab' && focusable.length) {
+          // trap focus within the dialog
+          var first = focusable[0], last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
       });
     })();
   </script>
