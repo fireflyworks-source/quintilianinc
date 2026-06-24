@@ -773,9 +773,14 @@
       /* NO-WIDOW: browser-level widow + orphan prevention */
     p, li, .blurb, .module-sub, .approach-body, .lead, .hero-credit, .book-title, .cred-list, figcaption, .section-blurb { text-wrap: pretty; }
     h1, h2, h3, .module-text h2, .section-hero h1, .approach-head { text-wrap: balance; }
+    /* A11y: skip link + visible keyboard focus */
+    .skip-link { position: absolute; left: 8px; top: -56px; z-index: 999; background: var(--ink); color: var(--cream); padding: 10px 18px; border-radius: 0 0 6px 6px; font-family: var(--sans); font-size: 14px; text-decoration: none; transition: top 0.15s ease; }
+    .skip-link:focus { top: 0; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 1px; }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===================================================================
        PAGE CHROME — logo + main nav. In Squarespace this is automatic
@@ -790,6 +795,8 @@
     </nav>
     <a class="nav-assess" href="/consulting/#preaudit">Begin Assessment</a>
   </header>
+
+  <main id="main">
 
   <!-- ===================================================================
        HERO — page intro. Two-column. Text left, image right.
@@ -834,7 +841,7 @@
     </div>
 
     <!-- STATE 2 — DEPLOYED (big image = real con-crowd photo, AR-video inset from chuckhuber.org) -->
-    <div class="hero-slide hero-slide--deployed" data-i="1">
+    <div class="hero-slide hero-slide--deployed" data-i="1" aria-hidden="true" inert>
       <div class="hero-text">
         <div class="hero-heading">
           <h1>Deployed.</h1>
@@ -864,9 +871,9 @@
       </figure>
     </div>
 
-    <div class="hero-dots">
-      <button class="hero-dot is-on" data-d="0" aria-label="Show Work"></button>
-      <button class="hero-dot" data-d="1" aria-label="Show Deployed"></button>
+    <div class="hero-dots" role="group" aria-label="Choose hero view">
+      <button class="hero-dot is-on" data-d="0" aria-label="Show Work" aria-pressed="true"></button>
+      <button class="hero-dot" data-d="1" aria-label="Show Deployed" aria-pressed="false"></button>
     </div>
   </section>
 
@@ -882,7 +889,7 @@
         <div class="eyebrow">01 &mdash; AI Solutions</div>
         <h2>Built past the demo.</h2>
         <p class="lede">Production systems, not proofs of concept. A headless convention-booking platform. A virtual-queue app for live events. A <strong>sovereign AI stack</strong> running local models on owned hardware. An offline RAG pipeline over 73 patents in a streaming-platform startup&rsquo;s tech stack. GEO audits that make brands legible to AI assistants &mdash; scored, rebuilt, re-ranked.</p>
-        <a class="explore" href="/consulting/">Explore</a>
+        <a class="explore" href="/consulting/" aria-label="Explore AI solutions">Explore</a>
       </div>
       <div class="visual">
         <div class="vid-phone">
@@ -922,7 +929,7 @@
         <div class="eyebrow">02 &mdash; Image Generation</div>
         <h2>Generated, painted, and finished by hand.</h2>
         <p class="lede">Classic campaign craft, taken further with generative AI. For <strong>Bloomin&rsquo; Blinds</strong>, multiple generated frames are paired with classic photography, digital painting, and a hand-finished pass &mdash; then built out into print-ready, billboard-scale deliverables that hold together end to end, from direct mail to brand book. The eye behind it tested Midjourney in its original beta, and has grown across every branch of AI in the years since.</p>
-        <a class="explore" href="/work/brand-advertising/">Explore</a>
+        <a class="explore" href="/work/brand-advertising/" aria-label="Explore brand and advertising work">Explore</a>
       </div>
     </section>
 
@@ -1186,6 +1193,8 @@
     </div>
   </section>
 
+  </main>
+
   <footer class="foot" id="contact">
     <div>
       <p class="closing">Have a project in mind?</p>
@@ -1217,7 +1226,7 @@
     // reports a zero rect, so its video is treated as off-screen and paused.
     function onScreen(v){var r=v.getBoundingClientRect();return r.width>0&&r.bottom>window.innerHeight*0.05&&r.top<window.innerHeight*0.95;}
     function syncVideos(){vids.forEach(function(v){
-      if(onScreen(v)){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+      if(!reduce && onScreen(v)){var p=v.play();if(p&&p.catch)p.catch(function(){});}
       else if(!v.paused){v.pause();}
     });}
     if('IntersectionObserver' in window){
@@ -1230,10 +1239,11 @@
     // Hero slideshow (Work leads; Deployed second)
     if(slides.length>=2){
       var i=0,timer;
-      function show(n){i=n;slides.forEach(function(s,k){s.classList.toggle('is-on',k===n);});dots.forEach(function(d,k){d.classList.toggle('is-on',k===n);});syncVideos();}
+      function show(n){i=n;slides.forEach(function(s,k){var on=k===n;s.classList.toggle('is-on',on);s.toggleAttribute('inert',!on);s.setAttribute('aria-hidden',on?'false':'true');});dots.forEach(function(d,k){var on=k===n;d.classList.toggle('is-on',on);d.setAttribute('aria-pressed',on?'true':'false');});syncVideos();}
       function next(){show((i+1)%slides.length);}
       function start(){if(!reduce)timer=setInterval(next,7000);}
-      dots.forEach(function(d){d.addEventListener('click',function(){clearInterval(timer);show(+d.dataset.d);start();});});
+      // Clicking a dot navigates AND permanently halts auto-advance (WCAG 2.2.2 stop mechanism).
+      dots.forEach(function(d){d.addEventListener('click',function(){clearInterval(timer);timer=null;show(+d.dataset.d);});});
       start();
     }
     syncVideos();

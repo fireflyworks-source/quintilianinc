@@ -69,7 +69,7 @@
     .practice { background: var(--cream-warm); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 88px 64px; }
     .practice-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
     .practice h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3vw, 38px); line-height: 1.12; color: var(--ink); margin: 0 0 18px; }
-    .practice h2 em { font-style: italic; color: var(--accent); }
+    .practice h2 em { font-style: italic; color: #7A5F23; }
     .practice p { font-size: 16.5px; line-height: 1.75; margin: 0 0 18px; }
     .practice p strong { font-weight: 600; color: var(--ink); }
     .practice .col-cta { font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 3px; display: inline-block; text-decoration: none; transition: padding 0.2s; }
@@ -103,9 +103,15 @@
     /* NO-WIDOW */
     p, li, .blurb, figcaption, .cred-list { text-wrap: pretty; }
     h1, h2, h3 { text-wrap: balance; }
-  </style>
+      /* A11y: skip link + visible keyboard focus */
+    .skip-link{position:absolute;left:8px;top:-56px;z-index:999;background:#1A1A1A;color:#ECDFCF;padding:10px 18px;border-radius:0 0 6px 6px;font:14px/1 Inter,sans-serif;text-decoration:none;transition:top .15s ease;}
+    .skip-link:focus{top:0;}
+    :focus-visible{outline:2px solid currentColor;outline-offset:2px;}
+    input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid currentColor;outline-offset:2px;}
+</style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="chrome">
     <a class="logo" href="/">Quintilian, inc.</a>
@@ -116,6 +122,8 @@
     </nav>
     <a class="nav-assess" href="/consulting/#preaudit">Begin Assessment</a>
   </header>
+
+  <main id="main">
 
   <section class="section-hero">
     <p class="section-meta">About</p>
@@ -241,6 +249,8 @@
       </ul>
     </div>
   </section>
+
+  </main>
 
   <footer class="foot" id="contact">
     <div>
