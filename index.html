@@ -175,7 +175,8 @@
     @media (min-width: 1025px) {
       .hero-slide--work .hero-figure { order: -1; padding-right: 0; padding-left: 48px; }
       .hero-slide--work .hero-text   { padding: 40px 96px 0 48px; }
-      .hero-slide--work .hero-inset  { left: auto; right: -60px; }
+      /* Inset sits over the image's lower-left, clear of the copy on the right. */
+      .hero-slide--work .hero-inset  { left: 16px; right: auto; }
     }
     /* Deployed deck (placeholder product cards until real fan-line photo + AR video land) */
     .hero-deck { padding-right: 48px; display: flex; flex-direction: column; gap: 18px; }
