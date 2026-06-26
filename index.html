@@ -171,6 +171,12 @@
     }
     /* Fans photo: bias the crop downward so the voice actors (bottom edge) survive a landscape crop */
     .hero-slide--deployed .hero-image { object-position: center 62%; }
+    /* Work hero is mirrored on desktop: image LEFT, type RIGHT (Deployed above stays type-left). */
+    @media (min-width: 1025px) {
+      .hero-slide--work .hero-figure { order: -1; padding-right: 0; padding-left: 48px; }
+      .hero-slide--work .hero-text   { padding: 40px 96px 0 48px; }
+      .hero-slide--work .hero-inset  { left: auto; right: -60px; }
+    }
     /* Deployed deck (placeholder product cards until real fan-line photo + AR video land) */
     .hero-deck { padding-right: 48px; display: flex; flex-direction: column; gap: 18px; }
     .dcard { border-radius: 14px; padding: 26px; min-height: 162px; display: flex; flex-direction: column; justify-content: flex-end; color: #fff; box-shadow: 0 18px 42px rgba(24,22,20,0.2); position: relative; overflow: hidden; }
