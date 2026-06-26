@@ -143,23 +143,16 @@
     .nav-assess:hover { opacity: 0.9; }
 
     /* ---------- Hero (2-state slideshow: Work <-> Deployed) ---------- */
-    .hero {
-      position: relative;
-      min-height: 96vh;
-      overflow: hidden;
-    }
+    .hero { }
+    /* Two stacked hero sections: convention (Deployed) on top, palace (Work) below. */
     .hero-slide {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      min-height: 80vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       padding-top: 40px;
-      opacity: 0;
-      transition: opacity 0.9s ease;
-      pointer-events: none;
     }
-    .hero-slide.is-on { opacity: 1; pointer-events: auto; }
     .hero-slide--work {
       background-image:
         linear-gradient(rgba(236, 223, 207, 0.82), rgba(236, 223, 207, 0.90)),
@@ -197,7 +190,7 @@
       display: inline-block;
       margin: 0 0 40px;
     }
-    .hero h1 {
+    .hero h1, .hero h2 {
       font-family: var(--serif);
       font-weight: 400;
       font-size: clamp(60px, 8vw, 124px);
@@ -502,8 +495,7 @@
     @media (max-width: 1024px) {
       .chrome      { padding: 24px 32px 0; flex-wrap: wrap; row-gap: 14px; column-gap: 18px; }
       .hero        { min-height: 0; }
-      .hero-slide  { position: relative; grid-template-columns: 1fr; opacity: 1; pointer-events: auto; }
-      .hero-slide:not(.is-on) { display: none; }
+      .hero-slide  { grid-template-columns: 1fr; min-height: 0; padding-top: 24px; }
       .hero-deck   { padding: 0 32px; }
       .hero-dots   { position: static; left: auto; bottom: auto; padding: 0 32px; margin: 18px 0 4px; }
       .hero-text   { padding: 56px 32px 32px; }
@@ -804,7 +796,7 @@
   <section class="hero">
 
     <!-- STATE 1 — DEPLOYED (convention; leads the hero, then advances once to Work) -->
-    <div class="hero-slide hero-slide--deployed is-on" data-i="0">
+    <div class="hero-slide hero-slide--deployed">
       <div class="hero-text">
         <div class="hero-heading">
           <h1>Deployed.</h1>
@@ -836,10 +828,10 @@
     </div>
 
     <!-- STATE 2 — WORK (Jessica's bio hero; the palace, where the hero settles) -->
-    <div class="hero-slide hero-slide--work" data-i="1" aria-hidden="true" inert>
+    <div class="hero-slide hero-slide--work">
       <div class="hero-text">
         <div class="hero-heading">
-          <h1>Work</h1>
+          <h2>Work</h2>
           <p class="hero-subtitle">Fit for a palace.</p>
         </div>
         <p class="lead">
@@ -868,11 +860,6 @@
           <figcaption>Saint John of God</figcaption>
         </figure>
       </figure>
-    </div>
-
-    <div class="hero-dots" role="group" aria-label="Choose hero view">
-      <button class="hero-dot is-on" data-d="0" aria-label="Show Deployed" aria-pressed="true"></button>
-      <button class="hero-dot" data-d="1" aria-label="Show Work" aria-pressed="false"></button>
     </div>
   </section>
 
@@ -1242,16 +1229,8 @@
     window.addEventListener('scroll',syncVideos,{passive:true});
     window.addEventListener('resize',syncVideos);
 
-    // Hero slideshow (Work leads; Deployed second)
-    if(slides.length>=2){
-      var i=0,timer;
-      function show(n){i=n;slides.forEach(function(s,k){var on=k===n;s.classList.toggle('is-on',on);s.toggleAttribute('inert',!on);s.setAttribute('aria-hidden',on?'false':'true');});dots.forEach(function(d,k){var on=k===n;d.classList.toggle('is-on',on);d.setAttribute('aria-pressed',on?'true':'false');});syncVideos();}
-      // Play once, in order: open on Deployed (convention), advance ONE time to
-      // Work (palace) after 7s, then stop — no looping back and forth. Respects
-      // reduced motion (no auto-advance). Dots still switch manually.
-      if (!reduce) { timer = setTimeout(function () { show(1); }, 7000); }
-      dots.forEach(function(d){d.addEventListener('click',function(){clearTimeout(timer);show(+d.dataset.d);});});
-    }
+    // Heroes are now two stacked sections (no slideshow); only the video gating
+    // above remains, so each hero video plays when its section is on-screen.
     syncVideos();
   })();
   </script>
