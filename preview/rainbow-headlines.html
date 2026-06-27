@@ -811,7 +811,17 @@
 /* single-tone background: no per-section fills */
 .hero-slide--deployed, .hero-slide--work, .ai-branch > section, .modules .module,
 .modules .module .module-text, .modules .module .module-image, .approach, .credentials { background: transparent !important; }
-em, i { font-style: normal !important; }
+em, i, [style*="italic"] { font-style: normal !important; }
+/* label chips: consistent, padded, never a full-width band (fixes cramped APPROACH) */
+.eyebrow, .module-num, .approach-meta {
+  display: inline-block !important;
+  width: auto !important;
+  padding: 10px 20px !important;
+  border-radius: 7px !important;
+  line-height: 1 !important;
+  margin: 0 0 24px !important;
+}
+.module .module-num { margin: 0 0 16px !important; }
 
 .hero-slide--deployed h1, .hero-slide--deployed h2, .hero-slide--deployed h3, .hero-slide--deployed .approach-head { color: #8E402F !important; }
 .hero-slide--deployed .hero-subtitle { color: #8E402F !important; font-style: normal !important; }
