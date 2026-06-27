@@ -1,0 +1,68 @@
+/* ===========================================================================
+   brand.css — Quintilian, Inc. site branding (Sun-Faded)
+   Shared across all content pages. All pages use the same design tokens, so
+   overriding the token VALUES here flips typography + palette site-wide.
+   Per-page accent is set inline on <html style="--accent:#…"> (pulled from
+   that page's hero image). Loaded LAST in <head> so it wins over inline styles.
+   Homepage (index.html) bakes its own per-section treatment and does not load
+   this file.
+   =========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --cream:        #EDE3CF;
+  --cream-warm:   #F0E7D4;
+  --ink:          #1F1B16;
+  --ink-soft:     #2C261E;
+  --muted:        #7A6A4E;
+  --rule:         #DAC9AC;
+  --serif:        "Bricolage Grotesque", "PT Serif", Georgia, "Times New Roman", serif;
+  --mono:         "DM Mono", ui-monospace, SFMono-Regular, monospace;
+  --accent:       #8E402F;   /* per-page default; overridden inline on <html> */
+  --accent-ink:   #FBF3E1;   /* readable text on the accent */
+}
+
+body { background: var(--cream); color: var(--ink-soft); }
+
+/* ---------- typography ---------- */
+h1, h2, h3, h4, .approach-head, .logo { font-family: var(--serif) !important; }
+h1, h2 { font-weight: 800 !important; letter-spacing: -0.03em !important; color: var(--accent) !important; }
+h3, h4 { font-weight: 700 !important; }
+em, i, cite, blockquote, address, figcaption, .closing, [style*="italic"] { font-style: normal !important; }
+
+/* ---------- label chips (left-aligned, padded, never a full-width band) ---------- */
+.eyebrow, .module-num, .approach-meta, .kicker {
+  display: inline-block !important;
+  width: auto !important;
+  padding: 10px 20px !important;
+  border-radius: 7px !important;
+  line-height: 1 !important;
+  background: var(--accent) !important;
+  color: var(--accent-ink) !important;
+  border: none !important;
+  font-style: normal !important;
+}
+
+/* ---------- primary CTAs (pill / cta) — generous padding, accent fill ----------
+   Deliberately NOT styling .button / .btn (gallery filters & functional UI). */
+.pill, .cta, a.cta, a.pill {
+  display: inline-block !important;
+  padding: 18px 40px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1 !important;
+  background: var(--accent) !important;
+  color: var(--accent-ink) !important;
+  border: 1px solid var(--accent) !important;
+}
+.pill:hover, .cta:hover { opacity: 0.92; }
+
+/* ---------- footer (universal deep anchor) ---------- */
+.foot { background: #14463F !important; }
+.foot * { color: #EDE3CF !important; }
+.foot a:not(.pill) { color: #F0D9A8 !important; }
+.foot .cred-head { color: #E8A53A !important; }
+.foot h1, .foot h2, .foot h3 { color: #EDE3CF !important; }
+.foot .pill { background: var(--accent) !important; color: #FAF4E6 !important; border-color: var(--accent) !important; }
+.foot .pill.ghost { background: transparent !important; color: #F0D9A8 !important; border: 1px solid #F0D9A8 !important; }
