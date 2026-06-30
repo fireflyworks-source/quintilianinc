@@ -122,6 +122,15 @@
     }
 </style>
   <link rel="stylesheet" href="/brand.css">
+  <style>
+    /* per-section palette accents — not one wall of brown */
+    .section-hero { --accent: #A95C13; }                     /* the studio — amber */
+    .person:not(.person--flip) { --accent: #2D4B8F; }        /* Chuck — indigo (systems) */
+    .person--flip { --accent: #8E562F; }                     /* Jessica — terracotta */
+    .practice-inner > div:first-child { --accent: #2D4B8F; } /* his — indigo */
+    .practice-inner > div:last-child  { --accent: #8E562F; } /* hers — terracotta */
+    .credentials { --accent: #2C7D4F; }                      /* client work — green */
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -218,19 +227,18 @@
       <div>
         <h2>His structures get her pass.</h2>
         <p>
-          Chuck ships production systems &mdash; not proofs of concept. Most
-          AI shops ship software that looks like AI built it. Here, every
-          system gets a creative pass before it goes out the&nbsp;door.
+          Chuck builds the systems &mdash; production-grade, made to run in the
+          real world. Every one gets a creative pass from Jessica before it
+          ships, so it holds up and looks the&nbsp;part.
         </p>
         <a class="col-cta" href="/consulting/">How we work &rarr;</a>
       </div>
       <div>
         <h2>Her images get his.</h2>
         <p>
-          Jessica builds the look &mdash; identity, campaigns, and generative
-          work that holds at billboard scale. Most design studios have taste
-          but can&rsquo;t ship production systems. Hers get a structural pass
-          before they go&nbsp;live.
+          Jessica directs the look &mdash; identity, illustration, packaging,
+          and campaigns that hold at any scale. Every piece gets a structural
+          pass from Chuck, so what looks right also ships&nbsp;clean.
         </p>
         <a class="col-cta" href="/consulting/#preaudit">Begin a free assessment &rarr;</a>
       </div>
