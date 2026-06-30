@@ -123,13 +123,15 @@
 </style>
   <link rel="stylesheet" href="/brand.css">
   <style>
-    /* per-section palette accents — distinct hues, not two browns */
-    .section-hero { --accent: #2C7D4F; }                     /* the studio — green */
-    .person:not(.person--flip) { --accent: #2D4B8F; }        /* Chuck — indigo (systems) */
-    .person--flip { --accent: #8E562F; }                     /* Jessica — terracotta */
-    .practice-inner > div:first-child { --accent: #2D4B8F; } /* his — indigo */
-    .practice-inner > div:last-child  { --accent: #8E562F; } /* hers — terracotta */
-    .credentials { --accent: #A95C13; }                      /* client work — honey/gold */
+    /* each headline its own palette hue — a spread top to bottom */
+    .section-hero { --accent: #2C7D4F; }                       /* studio — green */
+    .person:not(.person--flip) { --accent: #2D4B8F; }          /* Chuck — indigo */
+    .person--flip { --accent: #8E562F; }                       /* Jessica — terracotta */
+    .practice-inner > div:first-child { --accent: #14463F; }   /* his — pine */
+    .practice-inner > div:last-child  { --accent: #C8642B; }   /* hers — spicy orange */
+    .credentials .cred-col:nth-of-type(1) { --accent: #A95C13; } /* Brand work — honey/gold */
+    .credentials .cred-col:nth-of-type(2) { --accent: #5A6B3A; } /* Expertise — sage */
+    .credentials .cred-col:nth-of-type(3) { --accent: #B0303E; } /* Shown & Featured — rose */
     /* colour the elements brand.css skips (h3 cred-heads, section labels, link CTAs) */
     .section-meta, .cred-head { color: var(--accent) !important; }
     .col-cta { color: var(--accent) !important; border-bottom-color: var(--accent) !important; }
