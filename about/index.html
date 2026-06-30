@@ -123,13 +123,16 @@
 </style>
   <link rel="stylesheet" href="/brand.css">
   <style>
-    /* per-section palette accents — not one wall of brown */
-    .section-hero { --accent: #A95C13; }                     /* the studio — amber */
+    /* per-section palette accents — distinct hues, not two browns */
+    .section-hero { --accent: #2C7D4F; }                     /* the studio — green */
     .person:not(.person--flip) { --accent: #2D4B8F; }        /* Chuck — indigo (systems) */
     .person--flip { --accent: #8E562F; }                     /* Jessica — terracotta */
     .practice-inner > div:first-child { --accent: #2D4B8F; } /* his — indigo */
     .practice-inner > div:last-child  { --accent: #8E562F; } /* hers — terracotta */
-    .credentials { --accent: #2C7D4F; }                      /* client work — green */
+    .credentials { --accent: #A95C13; }                      /* client work — honey/gold */
+    /* colour the elements brand.css skips (h3 cred-heads, section labels, link CTAs) */
+    .section-meta, .cred-head { color: var(--accent) !important; }
+    .col-cta { color: var(--accent) !important; border-bottom-color: var(--accent) !important; }
   </style>
 </head>
 <body>
