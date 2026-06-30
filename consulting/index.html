@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="--accent:#34291D;--accent-ink:#FBF3E1">
+<html lang="en" style="--accent:#2D4B8F;--accent-ink:#FBF3E1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -168,6 +168,18 @@
     input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid currentColor;outline-offset:2px;}
 </style>
   <link rel="stylesheet" href="/brand.css">
+  <style>
+    /* full per-section palette — each block its own colour, like About */
+    #home     { --accent: #2D4B8F; }  /* hero — indigo (intelligent systems) */
+    #about    { --accent: #14463F; }  /* pine */
+    #services { --accent: #8E562F; }  /* terracotta */
+    #process  { --accent: #2C7D4F; }  /* green */
+    #preaudit { --accent: #A95C13; }  /* honey */
+    /* whole heading takes its section colour (recolour the gold em) */
+    .hero-headline em, .section-title em { color: var(--accent) !important; font-style: normal !important; }
+    /* small section labels echo the section colour */
+    .hero-eyebrow, .section-label { color: var(--accent) !important; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
