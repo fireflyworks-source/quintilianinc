@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Quintilian, Inc.</title>
-  <meta name="description" content="Quintilian, Inc. — a multidisciplinary creative practice and applied-AI consultancy. Two decades of art direction and illustration, brought to the modern table.">
+  <meta name="description" content="Quintilian, Inc. is a two-person studio — Chuck Huber builds the systems, Jessica von Braun-Huber directs the look. Production AI, design, and training, built from inside the problem.">
   <link rel="canonical" href="https://www.quintilianinc.com/about/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.quintilianinc.com/about/">
   <meta property="og:title" content="About — Quintilian, Inc.">
-  <meta property="og:description" content="A multidisciplinary creative practice and applied-AI consultancy.">
+  <meta property="og:description" content="A two-person studio: Chuck Huber builds the systems, Jessica von Braun-Huber directs the look.">
   <meta property="og:image" content="https://www.quintilianinc.com/og/og-work-sr.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,6 +108,18 @@
     .skip-link:focus{top:0;}
     :focus-visible{outline:2px solid currentColor;outline-offset:2px;}
     input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid currentColor;outline-offset:2px;}
+    /* team layout */
+    .person + .person { margin-top: 8px; }
+    .person--flip { grid-template-columns: 1.15fr 0.85fr; }
+    .person--flip .portrait { order: 2; }
+    .bio .who { font-family: var(--sans); font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; font-weight: 600; }
+    .bio .footnote { font-size: 14.5px; line-height: 1.6; color: var(--muted); margin: 22px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); }
+    .bio .footnote a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+    .practice .col-cta + .col-cta { margin-left: 0; }
+    @media (max-width: 1024px) {
+      .person--flip { grid-template-columns: 1fr; }
+      .person--flip .portrait { order: 0; }
+    }
 </style>
   <link rel="stylesheet" href="/brand.css">
 </head>
@@ -127,43 +139,76 @@
   <main id="main">
 
   <section class="section-hero">
-    <p class="section-meta">About</p>
-    <h1>The eye behind the work.</h1>
+    <p class="section-meta">The Studio</p>
+    <h1>Two people. One process.</h1>
     <p class="blurb">
-      Quintilian, Inc. is a multidisciplinary creative practice and
-      applied-AI consultancy &mdash; two decades of art direction and
-      illustration, brought to the modern&nbsp;table.
+      Quintilian, Inc. is a two-person studio. Chuck Huber builds the
+      systems; Jessica von Braun-Huber directs how everything looks and
+      reads. We came up on opposite sides of the same convention
+      floor&nbsp;&mdash; and we&rsquo;ve been building from inside the
+      problem ever since. Nothing ships without both sets of&nbsp;eyes.
     </p>
   </section>
 
   <section class="person">
     <figure class="portrait">
-      <img src="/work/images/about/headshot.jpg" alt="Jessica von Braun, Senior Art Director" fetchpriority="high">
-      <figcaption>Jessica von Braun &mdash; Senior Art Director</figcaption>
+      <img src="/work/images/about/chuck.jpg" alt="Chuck Huber in the recording booth" fetchpriority="high">
+      <figcaption>Chuck Huber &mdash; Systems, AI &amp; Training</figcaption>
     </figure>
     <div class="bio">
-      <h2>An artist her entire life.</h2>
+      <p class="who">Chuck Huber</p>
+      <h2>The builder behind the systems.</h2>
       <p>
-        Nearly two decades of art direction, illustration, and mixed-media
-        work across publishing, agency, and in-house creative. A working
-        illustrator and freelance cover artist for over a decade on the
-        convention circuit, with work that has hung everywhere from
-        <em>Pop Gallery at Disney Springs and Epcot</em> to
-        <em>Lambeth Palace</em> in London. Five years in-house at an ad
-        agency, then back to freelance.
+        Chuck builds what Quintilian ships &mdash; a convention-booking
+        platform, <strong>867 The Line</strong>, a sovereign AI stack on
+        owned hardware, a RAG pipeline across 73 patents. The pattern never
+        changes: find the friction, remove it, build the platform on&nbsp;top.
       </p>
       <p>
-        Illustration, traditional work, digital, graphic design, print,
-        AI integrations, AI imagery, typography, layout, brand development,
-        NFT drops, convention banners &mdash; <strong>if you need it,
-        she&rsquo;s probably done it.</strong> One of Midjourney&rsquo;s
-        original beta testers, with an eye that has grown across every
-        branch of AI in the years since.
+        He came to it honestly. Years inside conventions and guest booking
+        meant living the same broken systems on repeat &mdash; the
+        four-hour line worst of all &mdash; so he built the fix. And
+        he&rsquo;s taught the craft for <strong>35 years</strong>, which is
+        why the training holds up: we teach what we actually build, from
+        your first prompt to a full production pipeline, in your own&nbsp;stack.
+      </p>
+      <p class="footnote">
+        He also spent two decades as an anime voice actor &mdash; Android
+        17, Hiei, Stein. That work lives at
+        <a href="https://chuckhuber.org" target="_blank" rel="noopener">chuckhuber.org</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="person person--flip">
+    <figure class="portrait">
+      <img src="/work/images/about/headshot.jpg" alt="The banquet hall at Lambeth Palace, London, where Jessica von Braun-Huber's work hangs in the permanent collection">
+      <figcaption>Jessica von Braun-Huber &mdash; Art Direction &amp; Brand. Her work hangs in the permanent collection at Lambeth Palace,&nbsp;London.</figcaption>
+    </figure>
+    <div class="bio">
+      <p class="who">Jessica von Braun-Huber</p>
+      <h2>The eye on everything that ships.</h2>
+      <p>
+        Nearly two decades of art direction and illustration &mdash; five
+        years in-house at an agency, a decade on the convention circuit as a
+        cover artist, freelance ever since. Her work hangs from
+        <em>Pop Gallery at Disney Springs and Epcot</em> to the permanent
+        collection at <em>Lambeth Palace</em> in London. Covers for
+        <strong>Image Comics</strong> and <strong>Aftershock</strong>;
+        campaigns for <strong>Coca-Cola</strong>, <strong>Papa
+        John&rsquo;s</strong>, <strong>Dairy Queen</strong>, and
+        <strong>McAfee</strong>.
       </p>
       <p>
-        The fundamentals don&rsquo;t change &mdash; composition, color,
-        type, and story. What&rsquo;s new is the toolkit. The value
-        isn&rsquo;t the tool. It&rsquo;s the eye directing it.
+        One of Midjourney&rsquo;s original beta testers, with an eye that
+        has grown across every branch of AI since &mdash; generated frames
+        carried to billboard scale with digital painting, photography, and a
+        hand-finished pass. The fundamentals don&rsquo;t change: composition,
+        color, type, and story. The toolkit&nbsp;does.
+      </p>
+      <p class="footnote">
+        At conventions, she&rsquo;s the one drawing the characters
+        he&nbsp;voices.
       </p>
     </div>
   </section>
@@ -171,29 +216,23 @@
   <section class="practice">
     <div class="practice-inner">
       <div>
-        <h2>The creative <em>practice.</em></h2>
+        <h2>His structures get her pass.</h2>
         <p>
-          Brand campaigns, illustration, native iOS apps, NFT collections,
-          and publishing &mdash; designed, built, and shipped in-house.
-          Campaigns for <strong>Coca-Cola</strong>, <strong>Papa
-          John&rsquo;s</strong>, and <strong>Dairy Queen</strong>; cover art
-          for <strong>Image Comics</strong>, <strong>Aftershock</strong>,
-          and <strong>Blue Angel Publishing</strong>; a family of apps
-          built end-to-end from concept through App Store launch.
-        </p>
-        <a class="col-cta" href="/">See the work &rarr;</a>
-      </div>
-      <div>
-        <h2>The applied-AI <em>consultancy.</em></h2>
-        <p>
-          Quintilian, Inc. is where strategic consulting meets applied AI.
-          We&rsquo;re not a software house that learned to say
-          &ldquo;AI,&rdquo; and we&rsquo;re not a strategy firm bolting on
-          a technology practice. We&rsquo;ve built and operated intelligent
-          systems from the ground up &mdash; production systems, not proofs
-          of concept.
+          Chuck ships production systems &mdash; not proofs of concept. Most
+          AI shops ship software that looks like AI built it. Here, every
+          system gets a creative pass before it goes out the&nbsp;door.
         </p>
         <a class="col-cta" href="/consulting/">How we work &rarr;</a>
+      </div>
+      <div>
+        <h2>Her images get his.</h2>
+        <p>
+          Jessica builds the look &mdash; identity, campaigns, and generative
+          work that holds at billboard scale. Most design studios have taste
+          but can&rsquo;t ship production systems. Hers get a structural pass
+          before they go&nbsp;live.
+        </p>
+        <a class="col-cta" href="/consulting/#preaudit">Begin a free assessment &rarr;</a>
       </div>
     </div>
   </section>
